@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {toAbsoluteUrl} from '../../../../shared/helpers'
 const Experience = () => {
   return (
     <section className='counter-section section2 defipaybg2 p-t-80 p-b-80 p-t-md-160'>
@@ -24,13 +24,17 @@ const Experience = () => {
             <div className='preview-galley-v3 m-b-md-100'>
               <img
                 className='preview-image-2 animate-float-bob-y'
-                src='assets/images/youDefipay.svg'
+                src={toAbsoluteUrl('/media/images/youDefipay.svg')}
                 alt=''
               />
-              <img className='preview-image-1' src='assets/images/icons/apps/yello.png' alt='' />
+              <img
+                className='preview-image-1'
+                src={toAbsoluteUrl('/media/images/icons/apps/yello.png')}
+                alt=''
+              />
               <img
                 className='preview-image-3 animate-float-bob-y'
-                src='assets/images/youDefipay.svg'
+                src={toAbsoluteUrl('/media/images/youDefipay.svg')}
                 alt=''
               />
             </div>
