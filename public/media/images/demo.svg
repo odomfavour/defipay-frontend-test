@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1280" height="724" viewBox="0 0 1280 724">
+<defs>
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgb(62, 55, 213);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(48, 44, 105);stop-opacity:1" />
+    </linearGradient>
+  </defs>
+<g transform="translate(0.000000,742.000000) scale(0.100000,-0.100000)"
+fill="url(#grad3)" stroke="none">
+<path d="M0 4596 c0 -2663 1 -2805 18 -2810 9 -3 719 -149 1577 -326 858 -177
+2255 -465 3105 -641 1822 -378 1954 -404 2255 -459 127 -23 267 -53 312 -66
+120 -37 262 -62 414 -74 89 -7 548 -10 1360 -8 l1226 3 45 30 c1143 757 2110
+1410 2353 1590 l113 83 4 2734 c2 1503 2 2735 0 2738 -2 3 -2879 6 -6393 8
+l-6389 2 0 -2804z m12095 2509 c25 -24 25 -27 25 -195 0 -168 0 -171 -25 -195
+l-24 -25 -331 0 -331 0 -24 25 c-25 24 -25 27 -25 195 0 168 0 171 25 195 l24
+25 331 0 331 0 24 -25z "/>
+
+
+
+</g>
+</svg>

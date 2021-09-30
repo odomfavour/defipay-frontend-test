@@ -1,10 +1,23 @@
-import { Footer } from './components/Footer'
-import { Home } from './components/Home'
-export function HomePage(){
-    return (
-     <div>
-        <Home/>
-        <Footer/>
+import Benefit from './components/Benefit'
+import Experience from './components/Experience'
+import {Footer} from './components/Footer'
+import {Header} from './components/Header'
+import {Home} from './components/Home'
+import Mobile from './components/Mobile'
+import Partners from './components/Partners'
+import Testimony from './components/Testimony'
+import './HomePage.css'
+export function HomePage() {
+  return (
+    <div>
+      <Header />
+      <Home />
+      <Experience />
+      <Benefit />
+      <Testimony />
+      <Mobile />
+      <Partners />
+      <Footer />
     </div>
-    )
+  )
 }

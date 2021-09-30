@@ -1,10 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import {FC} from 'react'
-import {shallowEqual, useSelector} from 'react-redux'
 import {Link} from 'react-router-dom'
-import {UserModel} from '../../../../app/modules/auth/models/UserModel'
-import {RootState} from '../../../../setup'
-import {Languages} from './Languages'
+
 
 const HeaderUserMenu: FC = () => {
   return (
