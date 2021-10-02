@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
-import {Link} from 'react-router-dom'
+import './Home.css'
 import {toAbsoluteUrl} from '../../../../shared/helpers'
 export function Home() {
   return (
@@ -61,7 +61,7 @@ export function Home() {
 
                     <div
                       className='col-lg-4 col-md-4 col-sm-4 col-4'
-                      style={{marginTop: '-50px', marginLeft: ' -20px'}}
+                      style={{marginTop: '-50px', marginLeft: '-20px'}}
                     >
                       <a href='#' className='app-item'>
                         <div className='icon'>

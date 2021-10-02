@@ -1,13 +1,8 @@
-import React, {useEffect} from 'react'
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React from 'react'
 import {Link} from 'react-router-dom'
 
-export function ConfirmEmail() {
-  useEffect(() => {
-    document.body.classList.add('bg-white')
-    return () => {
-      document.body.classList.remove('bg-white')
-    }
-  }, [])
+const PasswordSetup = () => {
   return (
     <>
       <div
@@ -45,4 +40,4 @@ export function ConfirmEmail() {
   )
 }
 
-export default ConfirmEmail
+export default PasswordSetup

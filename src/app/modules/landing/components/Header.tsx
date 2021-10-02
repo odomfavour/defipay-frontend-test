@@ -1,30 +1,45 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
+import React, {useState} from 'react'
+import './Header.css'
 export function Header() {
-  // function scrollNavBar = ()=> {
-  // 	var width = $(window).width();
-  // 	if(width > 991) {
-  // 		var scroll = $(window).scrollTop();
-  // 		if (scroll >= 30) {
-  // 			$(".header-area").addClass("header-sticky");
-  // 			$(".header-area .dark-logo").css('display', 'block');
-  // 			$(".header-area .light-logo").css('display', 'none');
-  // 		}else{
-  // 			$(".header-area").removeClass("header-sticky");
-  // 			$(".header-area .dark-logo").css('display', 'none');
-  // 			$(".header-area .light-logo").css('display', 'block');
-  // 		}
-  // 	}
+  const [navbar, setNavBar] = useState(false)
+  const scrollNavBar = () => {
+    const pgwidth = window.innerWidth
+    if (pgwidth > 991) {
+      const scroll = window.scrollY
+      if (scroll >= 30) {
+        setNavBar(true)
+      } else {
+        setNavBar(false)
+      }
+    }
+  }
+
+  // Menu Dropdown Toggle
+  // if ($('.menu-trigger').length) {
+  //   $('.menu-trigger').on('click', function () {
+  //     $(this).toggleClass('active')
+  //     $('.header-area .nav').slideToggle(200)
+  //   })
   // }
+
+  window.addEventListener('scroll', scrollNavBar)
+
   return (
-    <header className='header-area'>
+    <header className={navbar ? 'header-area header-sticky' : 'header-area'}>
       <div className='container'>
         <div className='row'>
           <div className='col-lg-12'>
             <nav className='main-nav'>
               <a href='#' className='logo'>
-                <h3 className='light-logo'> Defipay</h3>
-                <h3 className='dark-logo'> Defipay</h3>
+                {navbar ? (
+                  <h3 className='dark-logo' style={{display: 'block'}}>
+                    {' '}
+                    Defipay
+                  </h3>
+                ) : (
+                  <h3 className='light-logo'> Defipay</h3>
+                )}
               </a>
               <ul className='nav' style={{textAlign: 'center'}}>
                 <li>
@@ -41,6 +56,24 @@ export function Header() {
                   <a href='#'>Blog</a>
                 </li>
                 <li>
+                  {/* <div className='dropdown'>
+                    <button className='dropbtn'>Dropdown</button>
+                    <div className='dropdown-content'>
+                      <a href='#'>Link 1</a>
+                      <a href='#'>Link 2</a>
+                      <a href='#'>Link 3</a>
+                    </div>
+                  </div> */}
+                  {/* <ul className=''>
+                    <li>
+                      <Link to='/auth/login' />
+                      Login
+                    </li>
+                    <li>
+                      <Link to='/auth/register' />
+                      Sign Up
+                    </li>
+                  </ul> */}
                   <a href='#' className='btn-nav-line'>
                     CONTACT
                   </a>
