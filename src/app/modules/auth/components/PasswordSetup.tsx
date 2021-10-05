@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, {useState, useEffect} from 'react'
-import {useDispatch} from 'react-redux'
-import {Link} from 'react-router-dom'
+// import {useDispatch} from 'react-redux'
+// import {Link} from 'react-router-dom'
 import {useFormik} from 'formik'
 import * as Yup from 'yup'
 import clsx from 'clsx'
@@ -19,11 +19,13 @@ const passwordSetupSchema = Yup.object().shape({
 })
 export function PasswordSetup() {
   const [loading, setLoading] = useState(false)
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
   const formik = useFormik({
     initialValues,
     validationSchema: passwordSetupSchema,
-    onSubmit: (values, {setStatus, setSubmitting}) => {},
+    onSubmit: (values, {setStatus, setSubmitting}) => {
+      setLoading(true)
+    },
   })
   useEffect(() => {
     document.body.classList.add('bg-white')

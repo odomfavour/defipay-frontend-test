@@ -5,7 +5,7 @@ import {toAbsoluteUrl} from '../../../../shared/helpers'
 import './Header.css'
 export function Header() {
   const [navbar, setNavBar] = useState(false)
-  const [tooglebar, setToogleBar] = useState(false)
+  // const [tooglebar, setToogleBar] = useState(false)
   const scrollNavBar = () => {
     const pgwidth = window.innerWidth
     if (pgwidth > 991) {
@@ -19,7 +19,7 @@ export function Header() {
   }
 
   const toggleMenu = () => {
-    const trigger = document.querySelector('.menu-trigger')
+    // const trigger = document.querySelector('.menu-trigger')
     // if (trigger.)
   }
   // Menu Dropdown Toggle
