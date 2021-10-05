@@ -6,26 +6,24 @@ import clsx from 'clsx'
 import * as auth from '../redux/AuthRedux'
 import {confirmemail} from '../redux/AuthCRUD'
 const initialValues = {
-  email: '',
+  businesstype: '',
 }
 
-const confirmEmailSchema = Yup.object().shape({
-  email: Yup.string()
-    .email('Wrong email format')
-    .min(3, 'Minimum 3 symbols')
-    .max(50, 'Maximum 50 symbols')
-    .required('Email is required'),
+const businessTypeSchema = Yup.object().shape({
+  businesstype: Yup.string()
+    .required('Business Type is required')
+    .oneOf(['advance', 'basic', 'standard']),
 })
-export function ConfirmEmail() {
+export function BusinessType() {
   const [loading, setLoading] = useState(false)
   const dispatch = useDispatch()
   const formik = useFormik({
     initialValues,
-    validationSchema: confirmEmailSchema,
+    validationSchema: businessTypeSchema,
     onSubmit: (values, {setStatus, setSubmitting}) => {
       setLoading(true)
       setTimeout(() => {
-        confirmemail(values.email)
+        confirmemail(values.businesstype)
           .then(({data: {accessToken}}) => {
             setLoading(false)
             dispatch(auth.actions.login(accessToken))
@@ -69,7 +67,7 @@ export function ConfirmEmail() {
               {/* begin::Heading */}
               <div className='mb-10 text-center'>
                 {/* begin::Title */}
-                <h1 className='text-dark mb-3'>Confirm Email</h1>
+                <h1 className='text-dark mb-3'>Choose Business Type</h1>
                 {/* end::Title */}
               </div>
               {/* end::Heading */}
@@ -78,26 +76,71 @@ export function ConfirmEmail() {
                   <div className='alert-text font-weight-bold'>{formik.status}</div>
                 </div>
               )}
-              {/* begin::Form group Email */}
-              <div className='fv-row mb-7'>
-                {/* <label className='form-label fw-bolder text-dark fs-6'>Email</label> */}
+              {/* begin::Form group businesstype */}
+              <div className='form-check'>
                 <input
-                  placeholder='Email'
-                  type='email'
-                  autoComplete='off'
-                  {...formik.getFieldProps('email')}
+                  type='radio'
+                  defaultValue='basic'
+                  {...formik.getFieldProps('businesstype')}
                   className={clsx(
-                    'form-control form-control-lg form-control-solid',
-                    {'is-invalid': formik.touched.email && formik.errors.email},
+                    'form-check-input  form-control-solid',
+                    {'is-invalid': formik.touched.businesstype && formik.errors.businesstype},
                     {
-                      'is-valid': formik.touched.email && !formik.errors.email,
+                      'is-valid': formik.touched.businesstype && !formik.errors.businesstype,
                     }
                   )}
                 />
-                {formik.touched.email && formik.errors.email && (
+                {'   '}
+                <label className='form-check-label form-label fw-bolder text-dark fs-6'>
+                  Basic
+                </label>
+              </div>
+
+              <div className='form-check'>
+                <input
+                  type='radio'
+                  defaultValue='standard'
+                  {...formik.getFieldProps('businesstype')}
+                  className={clsx(
+                    'form-check-input form-control-solid',
+                    {'is-invalid': formik.touched.businesstype && formik.errors.businesstype},
+                    {
+                      'is-valid': formik.touched.businesstype && !formik.errors.businesstype,
+                    }
+                  )}
+                />
+                <label className='form-check-label form-label fw-bolder text-dark fs-6'>
+                  Standard
+                </label>
+                {formik.touched.businesstype && formik.errors.businesstype && (
                   <div className='fv-plugins-message-container'>
                     <div className='fv-help-block'>
-                      <span role='alert'>{formik.errors.email}</span>
+                      <span role='alert'>{formik.errors.businesstype}</span>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <div className='form-check'>
+                <input
+                  type='radio'
+                  defaultValue='advance'
+                  {...formik.getFieldProps('businesstype')}
+                  className={clsx(
+                    'form-check-input form-control-solid',
+                    {'is-invalid': formik.touched.businesstype && formik.errors.businesstype},
+                    {
+                      'is-valid': formik.touched.businesstype && !formik.errors.businesstype,
+                    }
+                  )}
+                />
+                <label className='form-check-label form-label fw-bolder text-dark fs-6'>
+                  Advance
+                </label>
+                {formik.touched.businesstype && formik.errors.businesstype && (
+                  <div className='fv-plugins-message-container'>
+                    <div className='fv-help-block'>
+                      <span role='alert'>{formik.errors.businesstype}</span>
                     </div>
                   </div>
                 )}
@@ -130,5 +173,3 @@ export function ConfirmEmail() {
     </>
   )
 }
-
-export default ConfirmEmail

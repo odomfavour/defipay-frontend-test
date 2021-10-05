@@ -33,3 +33,9 @@ export function getUserByToken() {
   // Check common redux folder => setupAxios
   return axios.get<UserModel>(GET_USER_BY_ACCESSTOKEN_URL)
 }
+
+export function confirmemail(email: string) {
+  return axios.post<AuthModel>(REGISTER_URL, {
+    email,
+  })
+}
