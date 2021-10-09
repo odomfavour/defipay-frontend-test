@@ -15,11 +15,11 @@ export function login(email: string, password: string) {
 }
 
 // Server should return AuthModel
-export function register(email: string, firstname: string, lastname: string) {
+export function register(email: string, businessname: string, country: string) {
   return axios.post<AuthModel>(REGISTER_URL, {
     email,
-    firstname,
-    lastname,
+    businessname,
+    country,
   })
 }
 

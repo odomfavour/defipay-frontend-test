@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "/",
   "dependencies": {
+    "@auth0/auth0-react": "^1.8.0",
     "@formatjs/intl-pluralrules": "^4.0.28",
     "@formatjs/intl-relativetimeformat": "^9.1.7",
     "@fortawesome/fontawesome-free": "^5.15.3",
@@ -102,7 +103,7 @@
   },
   "engines": {
     "node": "v14.17.6",
-    "npm":"7.24.0"
+    "npm": "7.24.0"
   },
   "eslintIgnore": [
     "dist/*"

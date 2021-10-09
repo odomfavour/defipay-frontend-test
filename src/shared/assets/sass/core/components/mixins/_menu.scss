@@ -222,10 +222,31 @@
   @if ($all-links == false) {
     $sel: '& > ';
   }
+  // #{$sel}.menu-link.active::before {
+  //   content: '';
+  //   border-top-left-radius:30px !important;
+  //   border-radius: 0px 0px 30px ;
+  // }
+
+  .menu-item.menu-link.active b:nth-child(1)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-bottom-right-radius: 20px;
+    background: #4d5bf9
+  }
 
   #{$sel}.menu-link.active {
     transition: $transition-link;
-
+    background-color: #eff2f5 !important;
+    margin-left: 20px;
+    box-sizing: border-box !important;
+    border-radius: 30px 0px 0px 30px !important;
+    // color: #333067 important;
+    $title-color : #333067;
     @include menu-link-theme($title-color, $icon-color, $bullet-color, $arrow-color, $bg-color);
   }
 }

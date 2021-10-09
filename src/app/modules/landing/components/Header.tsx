@@ -5,23 +5,28 @@ import {toAbsoluteUrl} from '../../../../shared/helpers'
 import './Header.css'
 export function Header() {
   const [navbar, setNavBar] = useState(false)
+  const [click, setClick] = useState(false)
+
+  const handleClick = () => setClick(!click)
+
+  // const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)
   // const [tooglebar, setToogleBar] = useState(false)
+  // const myRef = useRef(null)
   const scrollNavBar = () => {
+    // debugger
     const pgwidth = window.innerWidth
     if (pgwidth > 991) {
-      const scroll = window.scrollY
+      const scroll = document.documentElement.scrollTop
       if (scroll >= 30) {
         setNavBar(true)
       } else {
         setNavBar(false)
       }
+    } else {
+      setNavBar(true)
     }
   }
 
-  const toggleMenu = () => {
-    // const trigger = document.querySelector('.menu-trigger')
-    // if (trigger.)
-  }
   // Menu Dropdown Toggle
   // if ($('.menu-trigger').length) {
   //   $('.menu-trigger').on('click', function () {
@@ -31,7 +36,6 @@ export function Header() {
   // }
 
   window.addEventListener('scroll', scrollNavBar)
-  window.addEventListener('click', toggleMenu)
 
   return (
     <header className={navbar ? 'header-area header-sticky' : 'header-area'}>
@@ -49,7 +53,7 @@ export function Header() {
                   <h3 className='light-logo'> Defipay</h3>
                 )}
               </a>
-              <ul className='nav' style={{textAlign: 'center'}}>
+              <ul className='nav' style={{textAlign: 'center', display: click ? 'block' : 'none'}}>
                 <li>
                   <a href='#l'>Home</a>
                 </li>
@@ -77,7 +81,7 @@ export function Header() {
                   </div>
                 </li>
               </ul>
-              <a className='menu-trigger'>
+              <a className={click ? 'menu-trigger active' : 'menu-trigger'} onClick={handleClick}>
                 <span>Menu</span>
               </a>
             </nav>
