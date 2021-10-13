@@ -1,123 +1,123 @@
-
+.mail-bg {
+  background: #2d294e;
+}
 /* 
 ---------------------------------------------
 footer
 --------------------------------------------- 
 */
 footer {
-    background: #2d294e;
-    
-  }
-  .defipayfooter{
-    padding-top: 90px;
-  }
-  footer img.logo {
-    margin-bottom: 30px;
-  }
-  footer .text {
-    font-weight: 400;
-    font-size: 14px;
-    color: #FFF;
-    line-height: 26px;
-    letter-spacing: 0.88px;
-  }
-  footer h5 {
-    font-weight: 400;
-    font-size: 16px;
-    color: #FFF;
-    letter-spacing: 0.69px;
-    line-height: 30px;
-    margin-bottom: 30px !important;
-  }
-  footer .footer-nav li a {
-    display: block;
-    overflow: hidden;
-  }
-  footer .footer-nav li a:hover span {
-    padding-left: 5px;
-  }
-  footer .footer-nav li a i {
-    float: left;
-    height: 32px;
-    line-height: 32px;
-    margin-right: 12px;
-    font-size: 14px;
-    color: #FFF;
-  }
-  footer .footer-nav li a span {
-    float: left;
-    height: 32px;
-    line-height: 32px;
-    font-weight: 400;
-    font-size: 14px;
-    color: #FFF;
-    -webkit-transition: all 0.3s ease 0s;
-    -moz-transition: all 0.3s ease 0s;
-    -o-transition: all 0.3s ease 0s;
-    transition: all 0.3s ease 0s;
-  }
-  footer .address p {
-    display: block;
-    overflow: hidden;
-    font-weight: 400;
-    font-size: 14px;
-    color: #FFF;
-    line-height: 26px;
-    letter-spacing: 0.88px;
-    margin-bottom: 5px;
-  }
-  footer .address p a {
-    color: #FFF;
-  }
-  footer .address .social {
-    overflow: hidden;
-    margin-top: 5px;
-  }
-  footer .address .social li {
-    float: left;
-    font-size: 26px;
-    margin-right: 20px;
-  }
-  footer .address .social li a {
-    color: #FFF;
-  }
-  
-   footer .copyright {
-    text-align: center;
-    margin-top: 30px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    font-weight: 400;
-    font-size: 14px;
-    color: #FFF;
-    letter-spacing: 0.88px;
-  } 
-  h1 {
-    overflow: hidden;
-    text-align: center;
-  }
-  
-  footer .copyright:before,
-  footer .copyright:after {
-    background-color: #FFF;
-    content: "";
-    display: inline-block;
-    height: 1px;
-    position: relative;
-     vertical-align: middle;
-       width: 25%;
-   
-  }
-  .defipaycenter {
-    margin: auto;
-    margin-top:80% ;
-    width: 90%;
-    font-weight: bold;
-   font-size: x-large;
-   color: #2d294e;
-  }
-  #defipaycurve{
-     /* 
+  background: #2d294e;
+}
+.defipayfooter {
+  padding-top: 90px;
+}
+footer img.logo {
+  margin-bottom: 30px;
+}
+footer .text {
+  font-weight: 400;
+  font-size: 14px;
+  color: #fff;
+  line-height: 26px;
+  letter-spacing: 0.88px;
+}
+footer h5 {
+  font-weight: 400;
+  font-size: 16px;
+  color: #fff;
+  letter-spacing: 0.69px;
+  line-height: 30px;
+  margin-bottom: 30px !important;
+}
+footer .footer-nav li a {
+  display: block;
+  overflow: hidden;
+}
+footer .footer-nav li a:hover span {
+  padding-left: 5px;
+}
+footer .footer-nav li a i {
+  float: left;
+  height: 32px;
+  line-height: 32px;
+  margin-right: 12px;
+  font-size: 14px;
+  color: #fff;
+}
+footer .footer-nav li a span {
+  float: left;
+  height: 32px;
+  line-height: 32px;
+  font-weight: 400;
+  font-size: 14px;
+  color: #fff;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+footer .address p {
+  display: block;
+  overflow: hidden;
+  font-weight: 400;
+  font-size: 14px;
+  color: #fff;
+  line-height: 26px;
+  letter-spacing: 0.88px;
+  margin-bottom: 5px;
+}
+footer .address p a {
+  color: #fff;
+}
+footer .address .social {
+  overflow: hidden;
+  margin-top: 5px;
+}
+footer .address .social li {
+  float: left;
+  font-size: 26px;
+  margin-right: 20px;
+}
+footer .address .social li a {
+  color: #fff;
+}
+
+footer .copyright {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-weight: 400;
+  font-size: 14px;
+  color: #fff;
+  letter-spacing: 0.88px;
+}
+h1 {
+  overflow: hidden;
+  text-align: center;
+}
+
+footer .copyright:before,
+footer .copyright:after {
+  background-color: #fff;
+  content: '';
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 25%;
+}
+.defipaycenter {
+  margin: auto;
+  margin-top: 80%;
+  width: 90%;
+  font-weight: bold;
+  font-size: x-large;
+  color: #2d294e;
+}
+#defipaycurve {
+  /* 
     
     position: absolute;
     top: 50%;
@@ -126,88 +126,74 @@ footer {
     
       border-radius: 150px 150px 0 0;
    */
-   
-   text-align: center;
-  height: 56%;
-  
-     width: 200px;
-    border-radius: 0px 200px 200px 0px;
-    background-color: #ffbf18;
-    clear: both;
-    position: absolute;
-  
-  }
-  footer .copyright:before {
-    right: 0.5em;
-    margin-left: -50%;
-  }
-  
-  footer .copyright:after {
-    left: 0.5em;
-    margin-right: -50%;
-  }
-  @media (max-width: 991px) {
-    footer .text {
-      margin-bottom: 30px;
-    }
-    footer h5 {
-      margin-bottom: 15px;
-    }
-    footer .footer-nav {
-      margin-bottom: 30px;
-    }
-  }
-   /* Footer Main sender */
-  .mailing-wrapper{
-      /* background-color: #2D294E; */
-      height: 64px; 
-      margin-bottom: 1px;
-  }
 
-  footer .mailing-wrapper:after {
-    background-color: #FFF;
-    content: "";
-    display: table-cell;
-    height: 1px;
-    /* position: relative; */
-     vertical-align: middle;
-       width: 100%;
-   
+  text-align: center;
+  height: 56%;
+
+  width: 200px;
+  border-radius: 0px 200px 200px 0px;
+  background-color: #ffbf18;
+  clear: both;
+  position: absolute;
+}
+footer .copyright:before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+
+footer .copyright:after {
+  left: 0.5em;
+  margin-right: -50%;
+}
+@media (max-width: 991px) {
+  footer .text {
+    margin-bottom: 30px;
   }
-  
-  .mailing-wrapper label {
-      color: #fff;
-      font-size: 24px;
-      font-style: normal;
-      font-weight: bold;
-      line-height: 29px;
-      padding-left: 20px;
+  footer h5 {
+    margin-bottom: 15px;
   }
-   .mail-input-box{
-      /* background-color: #fff;
-      border-radius: 8px;
-      width: 100px;
-      height: 44px;
-      padding-left: 528px;
-      padding-right:40px; */
-      /* position: relative;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: stretch;
-      width: 30%; */
+  footer .footer-nav {
+    margin-bottom: 30px;
   }
-  
-  .mail-subscribe {
-      background-color: #FFBF18;
-      border: none;
-      /* position: absolute; */
-       color: white; 
-      /* padding: 15px 32px; */
-      /* padding-left: 10px; */
-      text-align: center;
-      text-decoration: none;
-      height: 44px;
-      border-radius: 8px;
-      font-size: 16px; 
-  }
-  
+}
+/* Footer Main sender */
+.mailing-wrapper {
+  /* background-color: #2D294E; */
+  height: 64px;
+  margin-bottom: 1px;
+}
+
+footer .mailing-wrapper:after {
+  background-color: #fff;
+  content: '';
+  display: table-cell;
+  height: 1px;
+  /* position: relative; */
+  vertical-align: middle;
+  width: 100%;
+}
+
+.mailing-wrapper label {
+  color: #fff;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 29px;
+  padding-left: 20px;
+}
+
+.mail-subscribe {
+  background-color: #ffbf18;
+  border: none;
+  position: absolute;
+  color: white;
+  /* padding: 15px 32px; */
+  /* padding-left: 10px; */
+  text-align: center;
+  text-decoration: none;
+  height: 44px;
+  border-radius: 8px;
+  font-size: 16px;
+  z-index: 2;
+  transform: translateX(2px);
+}

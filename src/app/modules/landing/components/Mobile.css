@@ -1,0 +1,44 @@
+.mobile-bg {
+  background: #2d294e;
+}
+.mobile-title {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 39px;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 10%;
+}
+.defipaymobile {
+  margin-top: 30%;
+  color: #fff !important;
+  font-size: 14px;
+}
+
+.collaboration-area .section-right-image {
+  position: absolute;
+  right: 30px;
+  height: 100%;
+  width: 35%;
+  top: 0;
+  z-index: 5;
+}
+.collaborate-section {
+  margin-bottom: 35px;
+}
+
+.collaborate-section .collaborate-text-block {
+  padding-bottom: 130px;
+  padding-top: 140px;
+}
+
+.collaborate-section .preview-image-v2 {
+  margin-bottom: -115px;
+  margin-top: -95px;
+}
+
+.collaborate-section .preview-image-v2 img {
+  max-height: 800px;
+}

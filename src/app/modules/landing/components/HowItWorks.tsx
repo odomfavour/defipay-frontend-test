@@ -1,5 +1,6 @@
 import React from 'react'
 import {toAbsoluteUrl} from '../../../../shared/helpers'
+import './HowItWorks.css'
 
 const HowItWorks = () => {
   return (
@@ -7,10 +8,10 @@ const HowItWorks = () => {
       <div className='container'>
         <div className='row'>
           <div className='col-lg-5 col-md-12 col-12 align-self-center'>
-            <div className='defipaytitle2'>
+            <div className='howitworks-title'>
               <strong>How it Works</strong>
             </div>
-            <div className='defipaytext2'>
+            <div className='howitworks-description'>
               <p>
                 Defipay payments are processed through a private network of computers linked through
                 a shared ledger.Each transaction is simultaneouly recorded in a "Blockchain"
@@ -31,15 +32,16 @@ const HowItWorks = () => {
                   <div className='icon-outer'>
                     <div className='icon-box'>
                       <img src={toAbsoluteUrl('/media/images/createaccount.svg')} alt='' />
+                      {/* <h1 className='howitworks-dashes'></h1> */}
                       {/* <span className='icon flaticon-business-and-finance-1'></span> */}
                     </div>
                   </div>
                 </div>
               </div>
-              <h5 className='defi-text'>
+              <h5 className='howitworks-title-2'>
                 <strong>Create Account</strong>
               </h5>
-              <div className='defipaytext2'>
+              <div className='howitworks-description-2'>
                 <p>
                   Defipay payments are processed through a private network of computers linked
                   through a shared ledger.Each transaction is simultaneouly recorded in a
@@ -64,10 +66,10 @@ const HowItWorks = () => {
                 </div>
               </div>
 
-              <h5 className='defi-text'>
+              <h5 className='howitworks-title-2'>
                 <strong>Create a Store</strong>
               </h5>
-              <div className='defipaytext2'>
+              <div className='howitworks-description-2'>
                 <p>
                   Defipay payments are processed through a private network of computers linked
                   through a shared ledger.Each transaction is simultaneouly recorded in a
@@ -90,10 +92,10 @@ const HowItWorks = () => {
                   </div>
                 </div>
               </div>
-              <h5 className='defi-text'>
+              <h5 className='howitworks-title-2'>
                 <strong>Receive Payment</strong>
               </h5>
-              <div className='defipaytext2'>
+              <div className='howitworks-description-2'>
                 <p>
                   Defipay payments are processed through a private network of computers linked
                   through a shared ledger.Each transaction is simultaneouly recorded in a

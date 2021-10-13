@@ -4,9 +4,9 @@ import './Home.css'
 import {toAbsoluteUrl} from '../../../../shared/helpers'
 export function Home() {
   return (
-    <section className='welcome-area' data-bg={toAbsoluteUrl('/media/images/photos/welcome.jpg')}>
+    <section className='welcome-area' data-bg={toAbsoluteUrl('/media/images/photos/welcome.png')}>
       <div className='welcome-bg'>
-        <img src={toAbsoluteUrl('/media/images/bg.svg')} alt='' />
+        {/* <img src={toAbsoluteUrl('/media/images/bg.svg')} alt='' /> */}
       </div>
       <div className='welcome-content'>
         <div className='container'>

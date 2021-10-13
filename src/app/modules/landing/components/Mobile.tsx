@@ -1,18 +1,15 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
+import './Mobile.css'
 import {toAbsoluteUrl} from '../../../../shared/helpers'
 const Mobile = () => {
   return (
-    <section className='collaborate-section bg-grey-color section-one-third-right-map defipaybg'>
+    <section className='collaborate-section bg-grey-color section-one-third-right-map mobile-bg'>
       <div className='container'>
         <div className='row justify-content-lg-between justify-content-center'>
           <div className='col-xl-5 col-lg-6 col-md-9 col-sm-11'>
             <div className='defipaymobile'>
-              <div className='defipaytitle'>Download Our Mobile Apps</div>
-              <p>
-                Feeling Stressed from the morning, why not star your day with a cup of freash cup of
-                coffe with a profesionally unique taste and aroma from CoffeCiano
-              </p>
+              <div className='mobile-title'>Download Our Mobile Apps</div>
               <p>
                 Feeling Stressed from the morning, why not star your day with a cup of freash cup of
                 coffe with a profesionally unique taste and aroma from CoffeCiano

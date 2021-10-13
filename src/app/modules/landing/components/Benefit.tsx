@@ -1,9 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import {toAbsoluteUrl} from '../../../../shared/helpers'
+import './Benefit.css'
 const Benefit = () => {
   return (
-    <section className='section defipaybg'>
+    <section className='section benefit-bg'>
       <div className='container'>
         <div className='row'>
           <div className='col-lg-5 col-md-12 col-12 align-self-center'>
@@ -15,8 +16,8 @@ const Benefit = () => {
           </div>
 
           <div className='col-lg-5 col-md-12 align-self-center'>
-            <div className='defipaytitle'>Benefits of Using Defipay For Payments</div>
-            <div className='defipaytext'>
+            <div className='benefit-title position'>Benefits of Using Defipay For Payments</div>
+            <div className='benefit-description'>
               <p>
                 Defipay payments are processed through a private network of computers linked through
                 a shared ledger

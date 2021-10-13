@@ -4,7 +4,7 @@ import './Footer.css'
 export function Footer() {
   return (
     <>
-      <section className='defipaybg mailing-wrapper'>
+      <section className='mail-bg mailing-wrapper'>
         <div className='container'>
           <div className='row text-center justify-content-center'>
             {/* <div className='row  justify-content-center'> */}
@@ -14,7 +14,10 @@ export function Footer() {
             >
               Join Our Mailing List
             </label>
-            <div className='col-sm-5' style={{paddingTop: '10px', marginLeft: '-160px'}}>
+            <div
+              className='col-sm-5'
+              style={{paddingTop: '10px', marginLeft: '-160px', position: 'relative'}}
+            >
               <div className='input-group-lg input-group mb-3 '>
                 <input
                   type='text'

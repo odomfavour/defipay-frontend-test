@@ -7,7 +7,7 @@ import HowItWorks from './components/HowItWorks'
 import Mobile from './components/Mobile'
 import Partners from './components/Partners'
 import StoreSection from './components/StoreSection'
-import Testimony from './components/Testimony'
+import WhatPeopleSay from './components/WhatPeopleSay'
 import './HomePage.css'
 export function HomePage() {
   return (
@@ -16,9 +16,9 @@ export function HomePage() {
       <Home />
       <HowItWorks />
       <StoreSection />
-      <Experience />
+      {/* <Experience /> */}
       <Benefit />
-      <Testimony />
+      <WhatPeopleSay />
       <Mobile />
       <Partners />
       <Footer />
