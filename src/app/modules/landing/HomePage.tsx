@@ -16,7 +16,7 @@ export function HomePage() {
       <Home />
       <HowItWorks />
       <StoreSection />
-      {/* <Experience /> */}
+      <Experience />
       <Benefit />
       <WhatPeopleSay />
       <Mobile />

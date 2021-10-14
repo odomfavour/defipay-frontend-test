@@ -23,7 +23,7 @@ export function Header() {
         setNavBar(false)
       }
     } else {
-      setNavBar(true)
+      // setNavBar(true)
     }
   }
 
@@ -66,6 +66,12 @@ export function Header() {
 
                 <li>
                   <a href='#'>Blog</a>
+                </li>
+                <li className='mobile-display'>
+                  <Link to='/auth/login'>Login</Link>
+                </li>
+                <li className='mobile-display'>
+                  <Link to='/auth/registration'>Sign Up</Link>
                 </li>
                 <li>
                   <div className='dropdown'>

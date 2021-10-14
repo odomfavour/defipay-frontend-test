@@ -35,17 +35,17 @@ export function Home() {
                         <div className='icon'>
                           <img
                             src={toAbsoluteUrl('/media/images/icons/apps/defipay_lady.png')}
-                            className='img-fluid'
+                            className='img-fluid img-first'
                             alt=''
                           />
                         </div>
                       </a>
                     </div>
 
-                    <div className='col-lg-2 col-md-2 col-sm-2 col-2'></div>
+                    <div className='col-lg-2 col-md-2 col-sm-2 col-2 img-second'></div>
 
                     <div
-                      className='col-lg-6 col-md-6 col-sm-6 col-6'
+                      className='col-lg-6 col-md-6 col-sm-6 col-6 img-third'
                       style={{marginTop: '-50px', marginLeft: '-20px'}}
                     >
                       <a href='#' className='app-item'>
@@ -67,7 +67,7 @@ export function Home() {
                         <div className='icon'>
                           <img
                             src={toAbsoluteUrl('/media/images/icons/apps/defipay_guy.png')}
-                            className='img-fluid'
+                            className='img-fluid img-four'
                             alt=''
                           />
                         </div>
