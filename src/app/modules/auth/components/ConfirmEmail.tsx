@@ -1,7 +1,43 @@
-import React, {useEffect} from 'react'
-import {Link} from 'react-router-dom'
+import React, {useEffect, useState} from 'react'
+import {useDispatch} from 'react-redux'
+import {useFormik} from 'formik'
+import * as Yup from 'yup'
+import clsx from 'clsx'
+import * as auth from '../redux/AuthRedux'
+import {confirmemail} from '../redux/AuthCRUD'
+const initialValues = {
+  email: '',
+}
 
+const confirmEmailSchema = Yup.object().shape({
+  email: Yup.string()
+    .email('Wrong email format')
+    .min(3, 'Minimum 3 symbols')
+    .max(50, 'Maximum 50 symbols')
+    .required('Email is required'),
+})
 export function ConfirmEmail() {
+  const [loading, setLoading] = useState(false)
+  const dispatch = useDispatch()
+  const formik = useFormik({
+    initialValues,
+    validationSchema: confirmEmailSchema,
+    onSubmit: (values, {setStatus, setSubmitting}) => {
+      setLoading(true)
+      setTimeout(() => {
+        confirmemail(values.email)
+          .then(({data: {accessToken}}) => {
+            setLoading(false)
+            dispatch(auth.actions.login(accessToken))
+          })
+          .catch(() => {
+            setLoading(false)
+            setSubmitting(false)
+            setStatus('Registration process has broken')
+          })
+      }, 1000)
+    },
+  })
   useEffect(() => {
     document.body.classList.add('bg-white')
     return () => {
@@ -24,18 +60,68 @@ export function ConfirmEmail() {
           </h2>
           {/* begin::Wrapper */}
           <div className='w-lg-500px bg-white rounded shadow-sm p-10 p-lg-15 mx-auto'>
-            <div className='d-flex flex-wrap justify-content-center pb-lg-0'>
-              <Link to='/auth/login'>
+            <form
+              className='form w-100 fv-plugins-bootstrap5 fv-plugins-framework'
+              noValidate
+              id='kt_login_signup_form'
+              onSubmit={formik.handleSubmit}
+            >
+              {/* begin::Heading */}
+              <div className='mb-10 text-center'>
+                {/* begin::Title */}
+                <h1 className='text-dark mb-3'>Confirm Email</h1>
+                {/* end::Title */}
+              </div>
+              {/* end::Heading */}
+              {formik.status && (
+                <div className='mb-lg-15 alert alert-danger'>
+                  <div className='alert-text font-weight-bold'>{formik.status}</div>
+                </div>
+              )}
+              {/* begin::Form group Email */}
+              <div className='fv-row mb-7'>
+                {/* <label className='form-label fw-bolder text-dark fs-6'>Email</label> */}
+                <input
+                  placeholder='Email'
+                  type='email'
+                  autoComplete='off'
+                  {...formik.getFieldProps('email')}
+                  className={clsx(
+                    'form-control form-control-lg form-control-solid',
+                    {'is-invalid': formik.touched.email && formik.errors.email},
+                    {
+                      'is-valid': formik.touched.email && !formik.errors.email,
+                    }
+                  )}
+                />
+                {formik.touched.email && formik.errors.email && (
+                  <div className='fv-plugins-message-container'>
+                    <div className='fv-help-block'>
+                      <span role='alert'>{formik.errors.email}</span>
+                    </div>
+                  </div>
+                )}
+              </div>
+              {/* end::Form group */}
+              {/* begin::Form group */}
+              <div className='text-center'>
                 <button
-                  type='button'
-                  id='kt_confirm_mail_button'
-                  className='btn btn-lg defi-base-button fw-bolder'
-                  //   disabled={formik.isSubmitting || !formik.isValid}
+                  type='submit'
+                  id='kt_sign_up_submit'
+                  className='btn btn-lg defi-base-button w-100 mb-5'
+                  disabled={formik.isSubmitting || !formik.isValid}
                 >
-                  Go to mail
+                  {!loading && <span className='indicator-label'>Continue</span>}
+                  {loading && (
+                    <span className='indicator-progress' style={{display: 'block'}}>
+                      Please wait...{' '}
+                      <span className='spinner-border spinner-border-sm align-middle ms-2'></span>
+                    </span>
+                  )}
                 </button>
-              </Link>{' '}
-            </div>
+              </div>
+              {/* end::Form group */}
+            </form>
           </div>
           {/* end::Wrapper */}
         </div>

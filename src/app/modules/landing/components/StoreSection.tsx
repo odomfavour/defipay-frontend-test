@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import {toAbsoluteUrl} from '../../../../shared/helpers'
-
+import './StoreSection.css'
 const StoreSection = () => {
   return (
-    <section className='section'>
+    <section className='section store-bg'>
       <div className='container'>
         <div className='row'>
           <div className='col-lg-5 col-md-12 col-12 align-self-center'>
@@ -14,21 +14,21 @@ const StoreSection = () => {
               alt=''
             />
           </div>
-          <div className='col-lg-5 col-md-12 col-12'>
-            <div className='defipaytitle2'>
+          <div className='col-lg-5 col-md-12 col-12 store-text-wrapper'>
+            <div className='store-title'>
               <strong>Create your online store</strong>
             </div>
 
-            <div className='defipaytext2'>
+            <div className='store-description'>
               <p>
                 Defipay payments are processed through a private network of computers linked through
                 a shared ledger.Each transaction is simultaneouly recorded in a "Blockchain"
               </p>
             </div>
-            <div className='defipaytitle2'>
+            <div className='store-title'>
               <strong>Defipay is here for you</strong>
             </div>
-            <div className='defipaytext2'>
+            <div className='store-description'>
               <p>
                 Defipay payments are processed through a private network of computers linked through
                 a shared ledger.Each transaction is simultaneouly recorded in a "Blockchain"

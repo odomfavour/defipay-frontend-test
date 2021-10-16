@@ -1,17 +1,29 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, {useState} from 'react'
+import {Link} from 'react-router-dom'
+import {toAbsoluteUrl} from '../../../../shared/helpers'
 import './Header.css'
 export function Header() {
   const [navbar, setNavBar] = useState(false)
+  const [click, setClick] = useState(false)
+
+  const handleClick = () => setClick(!click)
+
+  // const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)
+  // const [tooglebar, setToogleBar] = useState(false)
+  // const myRef = useRef(null)
   const scrollNavBar = () => {
+    // debugger
     const pgwidth = window.innerWidth
     if (pgwidth > 991) {
-      const scroll = window.scrollY
+      const scroll = document.documentElement.scrollTop
       if (scroll >= 30) {
         setNavBar(true)
       } else {
         setNavBar(false)
       }
+    } else {
+      // setNavBar(true)
     }
   }
 
@@ -41,7 +53,7 @@ export function Header() {
                   <h3 className='light-logo'> Defipay</h3>
                 )}
               </a>
-              <ul className='nav' style={{textAlign: 'center'}}>
+              <ul className='nav' style={{textAlign: 'center', display: click ? 'block' : 'none'}}>
                 <li>
                   <a href='#l'>Home</a>
                 </li>
@@ -55,31 +67,27 @@ export function Header() {
                 <li>
                   <a href='#'>Blog</a>
                 </li>
+                <li className='mobile-display'>
+                  <Link to='/auth/login'>Login</Link>
+                </li>
+                <li className='mobile-display'>
+                  <Link to='/auth/registration'>Sign Up</Link>
+                </li>
                 <li>
-                  {/* <div className='dropdown'>
-                    <button className='dropbtn'>Dropdown</button>
+                  <div className='dropdown'>
+                    <img
+                      src={toAbsoluteUrl('/media/images/touchbutton.svg')}
+                      alt=''
+                      className='toggleimage'
+                    />
                     <div className='dropdown-content'>
-                      <a href='#'>Link 1</a>
-                      <a href='#'>Link 2</a>
-                      <a href='#'>Link 3</a>
+                      <Link to='/auth/login'>Login</Link>
+                      <Link to='/auth/registration'>Sign Up</Link>
                     </div>
-                  </div> */}
-                  {/* <ul className=''>
-                    <li>
-                      <Link to='/auth/login' />
-                      Login
-                    </li>
-                    <li>
-                      <Link to='/auth/register' />
-                      Sign Up
-                    </li>
-                  </ul> */}
-                  <a href='#' className='btn-nav-line'>
-                    CONTACT
-                  </a>
+                  </div>
                 </li>
               </ul>
-              <a className='menu-trigger'>
+              <a className={click ? 'menu-trigger active' : 'menu-trigger'} onClick={handleClick}>
                 <span>Menu</span>
               </a>
             </nav>

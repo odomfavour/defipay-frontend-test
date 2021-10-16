@@ -28,6 +28,8 @@ const AsideMenuItem: React.FC<Props> = ({
 
   return (
     <div className='menu-item'>
+      <b></b>
+      <b></b>
       <Link className={clsx('menu-link without-sub', {active: isActive})} to={to}>
         {hasBullet && (
           <span className='menu-bullet'>

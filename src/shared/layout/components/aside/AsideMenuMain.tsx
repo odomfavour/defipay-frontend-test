@@ -11,15 +11,24 @@ export function AsideMenuMain() {
     <>
       <AsideMenuItem
         to='/dashboard'
-        icon='/media/icons/duotune/art/art002.svg'
+        icon=''
         title={intl.formatMessage({id: 'MENU.DASHBOARD'})}
         fontIcon='bi-app-indicator'
       />
-      <div className='menu-item'>
+      {/* <b></b>
+      <b></b> */}
+      <br />
+      <AsideMenuItem
+        to='/getstarted'
+        icon=''
+        title={intl.formatMessage({id: 'MENU.GETSTARTED'})}
+        fontIcon='bi-app-indicator'
+      />
+      {/* <div className='menu-item'>
         <div className='menu-content'>
           <div className='separator mx-1 my-4'></div>
         </div>
-      </div>
+      </div> */}
     </>
   )
 }
