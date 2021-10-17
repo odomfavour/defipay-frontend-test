@@ -234,6 +234,9 @@
   border: 1px solid #4886ff;
   color: #4886ff;
 }
+.mobile-display {
+  display: none !important;
+}
 @media (max-width: 320px) {
   .header-area {
     background: none !important;
@@ -266,9 +269,7 @@
   .header-area .dark-logo {
     display: none !important;
   }
-  .mobile-display {
-    display: none;
-  }
+
   .header-area .menu-trigger {
     display: block !important;
     left: 300px;

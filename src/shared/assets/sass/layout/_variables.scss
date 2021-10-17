@@ -59,13 +59,13 @@ $toolbar-config: (
 
 // Aside
 $aside-config: (
-  z-index: 101,
+  z-index: 101, //101
   // Aside's z-index property
   transition-speed: 0.3s,
   // transition speed
   padding-x: 25px,
   menu-indention: 0.75rem,
-  bg-color: #333067,
+  bg-color:  #29297b,
   // bg-color: #1e1e2d,
   // logo-bg-color: darken(#1e1e2d, 2%),
   logo-bg-color: #ffffff,

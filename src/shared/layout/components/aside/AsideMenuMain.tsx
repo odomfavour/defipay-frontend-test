@@ -10,6 +10,13 @@ export function AsideMenuMain() {
   return (
     <>
       <AsideMenuItem
+        to='/getstarted'
+        icon=''
+        title={intl.formatMessage({id: 'MENU.GETSTARTED'})}
+        fontIcon='bi-app-indicator'
+      />
+      <br />
+      <AsideMenuItem
         to='/dashboard'
         icon=''
         title={intl.formatMessage({id: 'MENU.DASHBOARD'})}
@@ -19,9 +26,9 @@ export function AsideMenuMain() {
       <b></b> */}
       <br />
       <AsideMenuItem
-        to='/getstarted'
+        to='/compliance'
         icon=''
-        title={intl.formatMessage({id: 'MENU.GETSTARTED'})}
+        title={intl.formatMessage({id: 'MENU.COMPLIANCE'})}
         fontIcon='bi-app-indicator'
       />
       {/* <div className='menu-item'>

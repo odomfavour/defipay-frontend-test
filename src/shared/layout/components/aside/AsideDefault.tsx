@@ -5,8 +5,8 @@ import {Link} from 'react-router-dom'
 import clsx from 'clsx'
 import {useLayout} from '../../core'
 import {AsideMenu} from './AsideMenu'
-import { KTSVG } from '../../../helpers'
-
+import {KTSVG} from '../../../helpers'
+import '../../../assets/extracss/SideBar.css'
 const AsideDefault: FC = () => {
   const {config, classes} = useLayout()
   const {aside} = config
@@ -14,7 +14,7 @@ const AsideDefault: FC = () => {
   return (
     <div
       id='kt_aside'
-      className={clsx('aside', classes.aside.join(' '))}
+      className={clsx('aside', classes.aside.join(' '), 'sidebar-adjuster')}
       data-kt-drawer='true'
       data-kt-drawer-name='aside'
       data-kt-drawer-activate='{default: true, lg: false}'
@@ -24,9 +24,9 @@ const AsideDefault: FC = () => {
       data-kt-drawer-toggle='#kt_aside_mobile_toggle'
     >
       {/* begin::Brand */}
-      <div className='aside-logo flex-column-auto' id='kt_aside_logo'>
+      <div className='aside-logo flex-column-auto white-calculate' id='kt_aside_logo'>
         {/* begin::Aside toggler */}
-            {aside.minimize && (
+        {aside.minimize && (
           <div
             id='kt_aside_toggle'
             className='btn btn-icon w-auto px-0 btn-active-color-primary aside-toggle'
@@ -39,13 +39,12 @@ const AsideDefault: FC = () => {
               path={'/media/icons/duotune/abstract/abs015.svg'}
               className={'svg-icon-1 rotate-180'}
             />
-      
           </div>
         )}
         {/* end::Aside toggler */}
         {aside.theme === 'dark' && (
           <Link to='/dashboard'>
-                    <h3 style={{color:'#2D294E'}}>Dashboard</h3>
+            <h3 style={{color: '#2D294E'}}>Dashboard</h3>
             {/* <img
               alt='Logo'
               className='h-25px logo'
@@ -54,8 +53,6 @@ const AsideDefault: FC = () => {
           </Link>
         )}
         {/* end::Logo */}
-
-    
       </div>
       {/* end::Brand */}
 

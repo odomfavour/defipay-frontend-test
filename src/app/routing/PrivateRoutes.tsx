@@ -1,6 +1,7 @@
 import React, {Suspense, lazy} from 'react'
 import {Redirect, Route, Switch} from 'react-router-dom'
 import {FallbackView} from '../../shared/partials'
+import {ComplianceWrapper} from '../pages/compliance/ComplianceWrapper'
 import {DashboardWrapper} from '../pages/dashboard/DashboardWrapper'
 import {GetStartedWrapper} from '../pages/getstarted/GetStartedWrapper'
 
@@ -12,6 +13,7 @@ export function PrivateRoutes() {
       <Switch>
         <Route path='/dashboard' component={DashboardWrapper} />
         <Route path='/getstarted' component={GetStartedWrapper} />
+        <Route path='/compliance' component={ComplianceWrapper} />
         <Route path='/crafted/account' component={AccountPage} />
         <Redirect from='/auth' to='/dashboard' />
         <Redirect from='/home' to='/dashboard' />

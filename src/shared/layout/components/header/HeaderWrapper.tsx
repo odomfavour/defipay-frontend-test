@@ -5,9 +5,10 @@ import {Link, useLocation} from 'react-router-dom'
 import {MenuComponent} from '../../../assets/ts/components'
 import {KTSVG} from '../../../helpers'
 import {useLayout} from '../../core'
-import {Header} from './Header'
+// import {Header} from './Header'
 import {DefaultTitle} from './page-title/DefaultTitle'
 import {Topbar} from './Topbar'
+import '../../../assets/extracss/TopBar.css'
 
 export function HeaderWrapper() {
   const {pathname} = useLocation()
@@ -21,7 +22,12 @@ export function HeaderWrapper() {
   return (
     <div
       id='kt_header'
-      className={clsx('header', classes.header.join(' '), 'align-items-stretch')}
+      className={clsx(
+        'header',
+        classes.header.join(' '),
+        'align-items-stretch',
+        'header-desktop-adjustment'
+      )}
       {...attributes.headerMenu}
     >
       <div
@@ -46,7 +52,9 @@ export function HeaderWrapper() {
         {!aside.display && (
           <div className='d-flex align-items-center flex-grow-1 flex-lg-grow-0'>
             <Link to='/dashboard' className='d-lg-none'>
-            <h1 className='h-30px' style={{paddingTop:'5px'}} >DefiPay</h1>
+              <h1 className='h-30px' style={{paddingTop: '5px'}}>
+                DefiPay
+              </h1>
               {/* <img alt='Logo' src={toAbsoluteUrl('/media/logos/logo-2.svg')} className='h-30px' /> */}
             </Link>
           </div>
@@ -56,7 +64,9 @@ export function HeaderWrapper() {
         {aside.display && (
           <div className='d-flex align-items-center flex-grow-1 flex-lg-grow-0'>
             <Link to='/' className='d-lg-none'>
-                  <h1 className='h-30px'style={{paddingTop:'5px'}} >DefiPay</h1>
+              <h1 className='h-30px' style={{paddingTop: '5px'}}>
+                DefiPay
+              </h1>
               {/* <img alt='Logo' src={toAbsoluteUrl('/media/logos/logo-2.svg')} className='h-30px' /> */}
             </Link>
           </div>
@@ -67,7 +77,7 @@ export function HeaderWrapper() {
           {/* begin::Navbar */}
           {header.left === 'menu' && (
             <div className='d-flex align-items-stretch' id='kt_header_nav'>
-              <Header />
+              {/* <Header /> */}
             </div>
           )}
 
@@ -76,7 +86,27 @@ export function HeaderWrapper() {
               <DefaultTitle />
             </div>
           )}
-          <div className='header-menu-wrapper header-menu-wrapper-left'></div>
+          <div className='d-flex justify-content-start smart-side-text'>
+            <div className='aside-logo flex-column-auto' id='kt_aside_logo'>
+              {aside.minimize && (
+                <div
+                  id='kt_aside_toggle'
+                  className='btn btn-icon w-auto px-0 btn-active-color-primary aside-toggle'
+                  data-kt-toggle='true'
+                  data-kt-toggle-state='active'
+                  data-kt-toggle-target='body'
+                  data-kt-toggle-name='aside-minimize'
+                >
+                  <KTSVG
+                    path={'/media/icons/duotune/abstract/abs015.svg'}
+                    className={'svg-icon-1 rotate-180'}
+                  />
+                </div>
+              )}
+            </div>
+
+            <h1>Dashboard</h1>
+          </div>
           <div className='d-flex align-items-stretch flex-shrink-0'>
             <Topbar />
           </div>
