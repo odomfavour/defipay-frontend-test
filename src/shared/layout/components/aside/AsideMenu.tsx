@@ -8,7 +8,7 @@ import {
   ScrollComponent,
   ToggleComponent,
 } from '../../../assets/ts/components'
-
+import {toAbsoluteUrl} from '../../../helpers'
 type Props = {
   asideMenuCSSClasses: string[]
 }
@@ -34,7 +34,11 @@ const AsideMenu: React.FC<Props> = ({asideMenuCSSClasses}) => {
     <div
       id='kt_aside_menu_wrapper'
       ref={scrollRef}
-      className='hover-scroll-overlay-y my-5 my-lg-5'
+      className='hover-scroll-overlay-y my-5 my-lg-5 defi-side-look'
+      style={{
+        backgroundImage: `url(${toAbsoluteUrl('/media/imagespexels-worldspectrum-8437001.png')})`,
+        backgroundBlendMode: '',
+      }}
       data-kt-scroll='true'
       data-kt-scroll-activate='{default: false, lg: true}'
       data-kt-scroll-height='auto'

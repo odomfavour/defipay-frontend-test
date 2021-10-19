@@ -8,6 +8,7 @@ import {
   VerifyEmail,
   PasswordSetup,
   BusinessType,
+  GoToDashboard,
 } from '../modules/auth'
 import {HomePage} from '../modules/landing'
 
@@ -20,6 +21,7 @@ export function PublicRoutes() {
       <Redirect from='/' exact={true} to='/home' />
       <Route path='/auth/login' component={Login} />
       <Route path='/auth/confirmemail' component={ConfirmEmail} />
+      <Route path='/auth/gotodashboard' component={GoToDashboard} />
       <Route path='/auth/verifyemail' component={VerifyEmail} />
       <Route path='/auth/registration' component={Registration} />
       <Route path='/auth/forgot-password' component={ForgotPassword} />
