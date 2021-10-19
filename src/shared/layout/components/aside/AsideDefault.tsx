@@ -58,6 +58,11 @@ const AsideDefault: FC = () => {
 
       {/* begin::Aside menu */}
       <div className='aside-menu flex-column-fluid'>
+        <div className='text-center'>
+          <img className='card-img-top defi-link-image' alt='' src='images/img1' />
+          <h2 style={{color: '#ffff'}}>Adeshina & co. </h2>
+          <h2 style={{color: '#ffff', marginTop: '-20px', marginBottom: '15px'}}>AB 00288 </h2>
+        </div>
         <AsideMenu asideMenuCSSClasses={classes.asideMenu} />
       </div>
       {/* end::Aside menu */}

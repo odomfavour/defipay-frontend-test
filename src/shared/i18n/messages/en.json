@@ -1,8 +1,10 @@
 {
   "TRANSLATOR.SELECT": "Select your language",
   "MENU.NEW": "new",
-  "MENU.GETSTARTED": "Get Started",
-  "MENU.COMPLIANCE": "Compliance",
+  "MENU.GETSTARTED": "GET STARTED",
+  "MENU.COMPLIANCE": "COMPLIANCE",
+  "MENU.COMMEERCE" : "COMMERCE",
+  "MENU.PAYMENTS" : "PAYMENTS",
   "MENU.ACTIONS": "Actions",
   "MENU.CREATE_POST": "Create New Post",
   "MENU.PAGES": "Pages",

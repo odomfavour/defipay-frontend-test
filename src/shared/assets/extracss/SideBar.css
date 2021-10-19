@@ -1,17 +1,14 @@
 .sidebar-adjuster {
-  /* position: relative !important; */
-  /* position: relative; */
-  /* top: 50%;
-  transform: translateY(2%); */
   margin-top: 65px;
   border-radius: 0px 24px 24px 0px;
-  /* z-index: 0; */
+}
+
+.defi-side-look {
+  background: #333067;
 }
 
 .white-calculate {
   display: none !important;
-  /* top: 190px;
-  border-bottom-right-radius: 0px; */
 }
 
 .menu-item.menu-link.active b:nth-child(1)::before {
