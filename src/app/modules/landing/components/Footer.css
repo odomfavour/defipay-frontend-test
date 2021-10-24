@@ -117,20 +117,17 @@ footer .copyright:after {
   color: #2d294e;
 }
 #defipaycurve {
-  /* 
-    
+  /*
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
       border-radius: 150px 150px 0 0;
    */
-
   text-align: center;
-  height: 56%;
+  height: 90%;
 
-  width: 200px;
+  width: 180px;
   border-radius: 0px 200px 200px 0px;
   background-color: #ffbf18;
   clear: both;
@@ -145,6 +142,11 @@ footer .copyright:after {
   left: 0.5em;
   margin-right: -50%;
 }
+
+.defipayfooter {
+  padding-left: 100px !important;
+}
+
 @media (max-width: 991px) {
   footer .text {
     margin-bottom: 30px;
@@ -155,11 +157,24 @@ footer .copyright:after {
   footer .footer-nav {
     margin-bottom: 30px;
   }
+
+  #defipaycurve {
+    height: 78%;
+    width: 108px;
+  }
+
+  .defipayfooter {
+    padding-left: 120px !important;
+  }
+
+  .mailing-input {
+    margin-left: -80px !important;
+  }
 }
 /* Footer Main sender */
 .mailing-wrapper {
   /* background-color: #2D294E; */
-  height: 64px;
+  min-height: 64px;
   margin-bottom: 1px;
 }
 
@@ -182,6 +197,12 @@ footer .mailing-wrapper:after {
   padding-left: 20px;
 }
 
+.mailing-input {
+  padding-top: 10px;
+  margin-left: -160px;
+  position: relative;
+}
+
 .mail-subscribe {
   background-color: #ffbf18;
   border: none;
@@ -196,4 +217,47 @@ footer .mailing-wrapper:after {
   font-size: 16px;
   z-index: 2;
   transform: translateX(2px);
+}
+
+.mail-subscribee {
+  background-color: #ffbf18 !important;
+  color: #fff !important;
+  font-size: 16px;
+}
+
+.defipaytextfooter {
+  padding-left: 0;
+}
+
+@media(max-width: 426px) {
+  .mailing-input {
+    margin-left: 0 !important;
+  }
+
+  footer .copyright {
+    font-size: 12px;
+  }
+
+  footer .copyright:before,
+  footer .copyright:after {
+    width: 13%;
+  }
+
+  .defipayfooter {
+    padding-left: 100px !important;
+  }
+
+  .defipaycenter {
+    font-size: 20px;
+  }
+
+  #defipaycurve {
+    width: 90px;
+    height: 50%;
+  }
+
+  .defipaytextfooter {
+    padding-left: 0;
+    margin-top: 30px;
+  }
 }
