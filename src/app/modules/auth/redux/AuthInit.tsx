@@ -1,12 +1,12 @@
 import {FC, useRef, useEffect, useState} from 'react'
 import {shallowEqual, useSelector, connect, useDispatch, ConnectedProps} from 'react-redux'
 import {LayoutSplashScreen} from '../../../../shared/layout/core'
-import * as auth from './AuthRedux'
+import * as authactions from './AuthActions'
 import {getUserByToken} from './AuthCRUD'
 import {RootState} from '../../../../setup'
 
 const mapState = (state: RootState) => ({auth: state.auth})
-const connector = connect(mapState, auth.actions)
+const connector = connect(mapState, authactions.actions)
 type PropsFromRedux = ConnectedProps<typeof connector>
 
 const AuthInit: FC<PropsFromRedux> = (props) => {

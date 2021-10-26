@@ -1,16 +1,13 @@
 import MockAdapter from 'axios-mock-adapter'
-import {UserModel} from '../models/UserModel'
+import { UserModel } from '../models/UserModel'
 import {
-  LOGIN_URL,
-  GET_USER_BY_ACCESSTOKEN_URL,
-  REGISTER_URL,
-  REQUEST_PASSWORD_URL,
-} from '../redux/AuthCRUD'
-import {UsersTableMock} from './usersTableMock'
+  authEndpoints
+} from '../redux/AuthUrls'
+import { UsersTableMock } from './usersTableMock'
 
 export function mockAuth(mock: MockAdapter) {
-  mock.onPost(LOGIN_URL).reply(({data}) => {
-    const {email, password} = JSON.parse(data)
+  mock.onPost(authEndpoints.LOGIN_URL).reply(({ data }) => {
+    const { email, password } = JSON.parse(data)
 
     if (email && password) {
       const user = UsersTableMock.table.find(
@@ -19,15 +16,15 @@ export function mockAuth(mock: MockAdapter) {
 
       if (user) {
         const auth = user.auth
-        return [200, {...auth, password: undefined}]
+        return [200, { ...auth, password: undefined }]
       }
     }
 
     return [400]
   })
 
-  mock.onPost(REGISTER_URL).reply(({data}) => {
-    const {email, firstname, lastname, password} = JSON.parse(data)
+  mock.onPost(authEndpoints.REGISTER_URL).reply(({ data }) => {
+    const { email, firstname, lastname, password } = JSON.parse(data)
 
     if (email && firstname && lastname && password) {
       const user: UserModel = {
@@ -48,14 +45,14 @@ export function mockAuth(mock: MockAdapter) {
       UsersTableMock.table.push(user)
       const auth = user.auth
 
-      return [200, {...auth, password: undefined}]
+      return [200, { ...auth, password: undefined }]
     }
 
     return [400]
   })
 
-  mock.onPost(REQUEST_PASSWORD_URL).reply(({data}) => {
-    const {email} = JSON.parse(data)
+  mock.onPost(authEndpoints.REQUEST_PASSWORD_URL).reply(({ data }) => {
+    const { email } = JSON.parse(data)
 
     if (email) {
       const user = UsersTableMock.table.find((x) => x.email.toLowerCase() === email.toLowerCase())
@@ -63,14 +60,14 @@ export function mockAuth(mock: MockAdapter) {
       if (user) {
         user.password = undefined
         result = true
-        return [200, {result, password: undefined}]
+        return [200, { result, password: undefined }]
       }
     }
 
     return [400]
   })
 
-  mock.onGet(GET_USER_BY_ACCESSTOKEN_URL).reply(({headers: {Authorization}}) => {
+  mock.onGet(authEndpoints.GET_USER_BY_ACCESSTOKEN_URL).reply(({ headers: { Authorization } }) => {
     const accessToken =
       Authorization && Authorization.startsWith('Bearer ') && Authorization.slice('Bearer '.length)
 
@@ -78,7 +75,7 @@ export function mockAuth(mock: MockAdapter) {
       const user = UsersTableMock.table.find((x) => x.auth?.accessToken === accessToken)
 
       if (user) {
-        return [200, {...user, password: undefined}]
+        return [200, { ...user, password: undefined }]
       }
     }
 

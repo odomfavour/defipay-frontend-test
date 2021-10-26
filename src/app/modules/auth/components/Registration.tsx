@@ -1,11 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, {useState, useEffect} from 'react'
-import {useDispatch} from 'react-redux'
+// import {useDispatch} from 'react-redux'
 import {useFormik} from 'formik'
 import * as Yup from 'yup'
 import clsx from 'clsx'
-import * as auth from '../redux/AuthRedux'
-import {register} from '../redux/AuthCRUD'
+// import * as auth from '../redux/AuthRedux'
+import {validate} from '../redux/AuthCRUD'
+// import {Redirect} from 'react-router'
 
 const initialValues = {
   businessname: '',
@@ -31,22 +32,44 @@ const registrationSchema = Yup.object().shape({
 
 export function Registration() {
   const [loading, setLoading] = useState(false)
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
   const formik = useFormik({
     initialValues,
     validationSchema: registrationSchema,
     onSubmit: (values, {setStatus, setSubmitting}) => {
       setLoading(true)
       setTimeout(() => {
-        register(values.email, values.businessname, values.country)
-          .then(({data: {accessToken}}) => {
-            setLoading(false)
-            dispatch(auth.actions.login(accessToken))
+        validate(values.email, values.businessname, values.country)
+          .then((res) => {
+            console.log(res.data)
+            if (res.data.success) {
+              setLoading(false)
+              switch (res.data.message) {
+                case 'Available for Use':
+                  localStorage.setItem('businessname', values.businessname)
+                  localStorage.setItem('email', values.email)
+                  localStorage.setItem('countrycode', values.country)
+                  window.location.href = '/auth/setup-password'
+                  break
+
+                default:
+                  break
+              }
+              return
+            }
+
+            // dispatch(auth.actions.login(accessToken))
           })
-          .catch(() => {
+          .catch((e) => {
             setLoading(false)
             setSubmitting(false)
-            setStatus('Registration process has broken')
+            if (e.response) {
+              setStatus(e.response.data.message)
+            } else if (e.request) {
+              setStatus('Registration process has broken')
+            } else {
+              setStatus('Registration process has broken')
+            }
           })
       }, 1000)
     },
@@ -161,7 +184,7 @@ export function Registration() {
                   }
                 )}
               >
-                <option value='' disabled selected>
+                <option value='' disabled>
                   Select Country
                 </option>
                 <option value='Afganistan'>Afghanistan</option>

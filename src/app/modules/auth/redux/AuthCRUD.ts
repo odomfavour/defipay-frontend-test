@@ -1,41 +1,41 @@
 import axios from 'axios'
 import { AuthModel } from '../models/AuthModel'
 import { UserModel } from '../models/UserModel'
-
-const API_URL = process.env.REACT_APP_API_URL || 'api'
-
-export const GET_USER_BY_ACCESSTOKEN_URL = `${API_URL}/auth/get-user`
-export const LOGIN_URL = `${API_URL}/auth/login`
-export const REGISTER_URL = `${API_URL}/auth/register`
-export const REQUEST_PASSWORD_URL = `${API_URL}/auth/forgot-password`
+import { authEndpoints } from './AuthUrls'
 
 // Server should return AuthModel
-export function login(email: string, password: string) {
-  return axios.post(LOGIN_URL, { email, password })
+export function login(username: string, password: string) {
+  return axios.post(authEndpoints.LOGIN_URL, { username, password })
 }
 
 // Server should return AuthModel
-export function register(email: string, businessname: string, country: string) {
-  return axios.post<AuthModel>(REGISTER_URL, {
+export function register(email: string, businessname: string, countrycode: string, password: string) {
+  return axios.post(authEndpoints.REGISTER_URL, {
     email,
     businessname,
-    country,
+    countrycode,
+    password
   })
+}
+
+export function validate(email: string, businessname: string, country: string) {
+  return axios.post(authEndpoints.VALIDATION_URL, { email, businessname, country, })
 }
 
 // Server should return object => { result: boolean } (Is Email in DB)
 export function requestPassword(email: string) {
-  return axios.post<{ result: boolean }>(REQUEST_PASSWORD_URL, { email })
+  return axios.post<{ result: boolean }>(authEndpoints.REQUEST_PASSWORD_URL, { email })
 }
 
 export function getUserByToken() {
   // Authorization head should be fulfilled in interceptor.
   // Check common redux folder => setupAxios
-  return axios.get<UserModel>(GET_USER_BY_ACCESSTOKEN_URL)
+  return axios.get<UserModel>(authEndpoints.GET_USER_BY_ACCESSTOKEN_URL)
 }
 
-export function confirmemail(email: string) {
-  return axios.post<AuthModel>(REGISTER_URL, {
-    email,
+export function confirmemail(userid: string, callcode: string) {
+  return axios.post<AuthModel>(authEndpoints.CONFIRMEMAIL_URL, {
+    userid,
+    callcode
   })
 }

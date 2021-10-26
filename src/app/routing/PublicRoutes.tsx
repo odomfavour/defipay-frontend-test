@@ -22,7 +22,7 @@ export function PublicRoutes() {
       <Route path='/auth/login' component={Login} />
       <Route path='/auth/confirmemail' component={ConfirmEmail} />
       <Route path='/auth/gotodashboard' component={GoToDashboard} />
-      <Route path='/auth/verifyemail' component={VerifyEmail} />
+      <Route path='/auth/verifyemail/:id' component={VerifyEmail} />
       <Route path='/auth/registration' component={Registration} />
       <Route path='/auth/forgot-password' component={ForgotPassword} />
       <Route path='/auth/setup-password' component={PasswordSetup} />

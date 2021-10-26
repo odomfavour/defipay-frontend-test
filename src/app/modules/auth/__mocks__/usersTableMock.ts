@@ -22,7 +22,7 @@ export class UsersTableMock {
       phone: '456669067890',
       language: 'en',
       timeZone: 'International Date Line West',
-      website: 'https://keenthemes.com',
+      website: 'https://defipay.com',
       emailSettings: {
         emailNotification: true,
         sendCopyToPersonalEmail: false,
