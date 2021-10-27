@@ -4,9 +4,7 @@ import React, {useState, useEffect} from 'react'
 import {useFormik} from 'formik'
 import * as Yup from 'yup'
 import clsx from 'clsx'
-// import * as auth from '../redux/AuthRedux'
 import {validate} from '../redux/AuthCRUD'
-// import {Redirect} from 'react-router'
 
 const initialValues = {
   businessname: '',
@@ -98,7 +96,7 @@ export function Registration() {
       </a> */}
         {/* end::Logo */}
         {/* begin::Wrapper */}
-        <div className='w-lg-500px bg-white rounded shadow-sm p-10 p-lg-15 mx-auto'>
+        <div className='w-lg-500px bg-white rounded shadow-sm p-10 p-lg-15 mx-auto auth-box'>
           <form
             className='form w-100 fv-plugins-bootstrap5 fv-plugins-framework'
             noValidate

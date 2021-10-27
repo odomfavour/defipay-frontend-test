@@ -32,8 +32,10 @@
   line-height: 60px;
 }
 .clip-circle {
-  clip-path: circle(110px at center);
-  border: 1.5px solid #2d294e;
+  /*clip-path: circle(110px at center);*/
+  border: 2px solid #2d294e;
+  padding: 5px;
+  border-radius: 50%;
   box-sizing: border-box;
 }
 /* .carousel-inner {
@@ -51,4 +53,14 @@
 .align-self-bottom {
   -ms-flex-item-align: flex-end !important;
   align-self: flex-end !important;
+}
+
+@media(max-width: 426px) {
+  .testimony-title {
+    font-size: 22px;
+  }
+
+  .defipaytext2 p{
+    font-size: 18px;
+  }
 }

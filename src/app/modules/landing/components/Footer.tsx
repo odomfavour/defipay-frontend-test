@@ -9,30 +9,33 @@ export function Footer() {
           <div className='row text-center justify-content-center'>
             {/* <div className='row  justify-content-center'> */}
             <label
-              className='col-sm-7 text-center'
+              className='col-sm-7 col-md-6 text-center'
               style={{paddingLeft: '10px', paddingTop: '15px'}}
             >
               Join Our Mailing List
             </label>
             <div
-              className='col-sm-5'
-              style={{paddingTop: '10px', marginLeft: '-160px', position: 'relative'}}
-            >
-              <div className='input-group-lg input-group mb-3 '>
-                <input
-                  type='text'
-                  className='form-control'
-                  placeholder='Enter your e-mail address'
-                  aria-label="Recipient's username"
-                  aria-describedby='button-addon2'
-                />
-                <div className='input-group-append'>
-                  <button className='mail-subscribe' type='button' id='button-addon2'>
-                    {' '}
-                    <b>Subscribe</b>
-                  </button>
-                </div>
-                {/* </div> */}
+              className='col-sm-5 col-md-6 mailing-input'>
+              {/*<div className='input-group-lg input-group mb-3 '>*/}
+              {/*  <input*/}
+              {/*    type='text'*/}
+              {/*    className='form-control'*/}
+              {/*    placeholder='Enter your e-mail address'*/}
+              {/*    aria-label="Recipient's username"*/}
+              {/*    aria-describedby='button-addon2'*/}
+              {/*  />*/}
+              {/*  /!*<div className='input-group-append'>*!/*/}
+              {/*  /!*  <button className='mail-subscribe btn' type='button' id='button-addon2'>*!/*/}
+              {/*  /!*    {' '}*!/*/}
+              {/*  /!*    <b>Subscribe</b>*!/*/}
+              {/*  /!*  </button>*!/*/}
+              {/*  /!*</div>*!/*/}
+              {/*  /!* </div> *!/*/}
+              {/*</div>*/}
+              <div className="input-group mb-3">
+                <input type="text" className="form-control" placeholder="Enter your e-mail address"
+                       aria-label="Recipient's username" aria-describedby="button-addon2"/>
+                  <button className="btn mail-subscribee" type="button" id="button-addon2"><b>Subscribe</b></button>
               </div>
             </div>
             {/* <div className='col-md-4'>
@@ -54,13 +57,13 @@ export function Footer() {
         </div>
         <div className='container defipayfooter'>
           <div className='row'>
-            <div className='col-lg-5 col-md-12 col-sm-12'>
+            <div className='col-lg-5 col-md-4 col-sm-12'>
               <div className='text defipaytextfooter'>
                 Defipay payment are processed through a private network of computers linked of
                 through a shared ledgde.Business Opportunity .
               </div>
             </div>
-            <div className='col-lg-2 col-md-4 col-sm-6 col-6'>
+            <div className='col-lg-2 col-md-2 col-sm-6 col-6'>
               <h5>SERVICE</h5>
               <ul className='footer-nav'>
                 <li>
@@ -90,7 +93,7 @@ export function Footer() {
                 </li>
               </ul>
             </div>
-            <div className='col-lg-2 col-md-4 col-sm-6 col-6'>
+            <div className='col-lg-2 col-md-2 col-sm-6 col-6'>
               <h5>COMPANY</h5>
               <ul className='footer-nav'>
                 <li>
@@ -153,6 +156,8 @@ export function Footer() {
               </div>
             </div>
           </div>
+        </div>
+        <div className='container'>
           <div className='row'>
             <div className='col-lg-12'>
               <p className='copyright'>© 2021 Deficonnect. All Simple Rights Observed.</p>
