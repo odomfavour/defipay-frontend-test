@@ -45,6 +45,10 @@
   right: 0px;
   z-index: 5;
 } */
+
+.welcome-content h1 {
+  font-size: 30px;
+}
 @media (max-width: 991px) {
   body {
     all: initial !important;
@@ -59,11 +63,6 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-  }
-  .welcome-content h1 {
-    font-weight: 600;
-    font-size: 21px !important;
-    line-height: 32px;
   }
   .img-second {
     display: none !important;
@@ -108,7 +107,7 @@
     padding-top: 100px;
   }
   .welcome-area .welcome-content h1 {
-    font-size: 26px !important;
+    font-size: 20px !important;
     line-height: 36px !important;
   }
   .welcome-area .welcome-content .apps {

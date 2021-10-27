@@ -11,8 +11,8 @@ export function Home() {
       <div className='welcome-content'>
         <div className='container'>
           <div className='row'>
-            <div className='col-lg-6 col-md-12 align-self-centerX'>
-              <h1 style={{fontSize: '30px'}}>
+            <div className='col-lg-6 col-md-6 col-12 align-self-centerX'>
+              <h1>
                 <strong>
                   Make seamless transactions with{' '}
                   <span className='Defipayyellow'>cryptocurrency</span>
@@ -26,7 +26,7 @@ export function Home() {
                 Get Started
               </a>
             </div>
-            <div className='offset-lg-1 col-lg-5 col-md-12 align-self-center'>
+            <div className='offset-lg-1 col-lg-5 col-md-6 col-12 align-self-center'>
               <div className='apps'>
                 <div className='container-fluid'>
                   <div className='row'>
