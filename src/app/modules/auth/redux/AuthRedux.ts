@@ -1,22 +1,14 @@
 import { Action } from '@reduxjs/toolkit'
 import { persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import { put, takeLatest } from 'redux-saga/effects'
+import { MerchantRegisterModel } from '../models/MerchantRegisterModel'
 import { UserModel } from '../models/UserModel'
-import { getUserByToken } from './AuthCRUD'
+import { actionTypes } from './AuthActionTypes'
 
 export interface ActionWithPayload<T> extends Action {
   payload?: T
 }
 
-export const actionTypes = {
-  Login: '[Login] Action',
-  Logout: '[Logout] Action',
-  Register: '[Register] Action',
-  UserRequested: '[Request User] Action',
-  UserLoaded: '[Load User] Auth API',
-  SetUser: '[Set User] Action',
-}
 
 const initialAuthState: IAuthState = {
   user: undefined,
@@ -26,6 +18,7 @@ const initialAuthState: IAuthState = {
 export interface IAuthState {
   user?: UserModel
   accessToken?: string
+  merchant?: MerchantRegisterModel
 }
 
 export const reducer = persistReducer(
@@ -34,12 +27,18 @@ export const reducer = persistReducer(
     switch (action.type) {
       case actionTypes.Login: {
         const accessToken = action.payload?.accessToken
+        // console.log("login", accessToken)
         return { accessToken, user: undefined }
       }
 
       case actionTypes.Register: {
         const accessToken = action.payload?.accessToken
         return { accessToken, user: undefined }
+      }
+
+      case actionTypes.VerifyEmail: {
+        const merchant = action.payload?.merchant
+        return { accessToken: undefined, merchant }
       }
 
       case actionTypes.Logout: {
@@ -54,7 +53,9 @@ export const reducer = persistReducer(
         const user = action.payload?.user
         return { ...state, user }
       }
-
+      case actionTypes.ConfirmEmail: {
+        return { ...state }
+      }
       case actionTypes.SetUser: {
         const user = action.payload?.user
         return { ...state, user }
@@ -66,31 +67,4 @@ export const reducer = persistReducer(
   }
 )
 
-export const actions = {
-  login: (accessToken: string) => ({ type: actionTypes.Login, payload: { accessToken } }),
-  register: (accessToken: string) => ({
-    type: actionTypes.Register,
-    payload: { accessToken },
-  }),
-  logout: () => ({ type: actionTypes.Logout }),
-  requestUser: () => ({
-    type: actionTypes.UserRequested,
-  }),
-  fulfillUser: (user: UserModel) => ({ type: actionTypes.UserLoaded, payload: { user } }),
-  setUser: (user: UserModel) => ({ type: actionTypes.SetUser, payload: { user } }),
-}
 
-export function* saga() {
-  yield takeLatest(actionTypes.Login, function* loginSaga() {
-    yield put(actions.requestUser())
-  })
-
-  yield takeLatest(actionTypes.Register, function* registerSaga() {
-    yield put(actions.requestUser())
-  })
-
-  yield takeLatest(actionTypes.UserRequested, function* userRequested() {
-    const { data: user } = yield getUserByToken()
-    yield put(actions.fulfillUser(user))
-  })
-}

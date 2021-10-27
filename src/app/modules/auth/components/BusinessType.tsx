@@ -3,7 +3,8 @@ import {useDispatch} from 'react-redux'
 import {useFormik} from 'formik'
 import * as Yup from 'yup'
 import clsx from 'clsx'
-import * as auth from '../redux/AuthRedux'
+// import * as auth from '../redux/AuthRedux'
+import * as authactions from '../redux/AuthActions'
 import {confirmemail} from '../redux/AuthCRUD'
 const initialValues = {
   businesstype: '',
@@ -23,10 +24,10 @@ export function BusinessType() {
     onSubmit: (values, {setStatus, setSubmitting}) => {
       setLoading(true)
       setTimeout(() => {
-        confirmemail(values.businesstype)
+        confirmemail(values.businesstype, values.businesstype)
           .then(({data: {accessToken}}) => {
             setLoading(false)
-            dispatch(auth.actions.login(accessToken))
+            dispatch(authactions.actions.login(accessToken))
           })
           .catch(() => {
             setLoading(false)

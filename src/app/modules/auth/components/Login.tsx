@@ -5,7 +5,8 @@ import * as Yup from 'yup'
 import clsx from 'clsx'
 import {Link} from 'react-router-dom'
 import {useFormik} from 'formik'
-import * as auth from '../redux/AuthRedux'
+// import * as auth from '../redux/AuthRedux'
+import * as authactions from '../redux/AuthActions'
 import {login} from '../redux/AuthCRUD'
 
 const loginSchema = Yup.object().shape({
@@ -34,15 +35,24 @@ export function Login() {
     onSubmit: (values, {setStatus, setSubmitting}) => {
       setLoading(true)
       setTimeout(() => {
-        login(values.email, values.password)
-          .then(({data: {accessToken}}) => {
+        let username = values.email
+        login(username, values.password)
+          .then((res) => {
             setLoading(false)
-            dispatch(auth.actions.login(accessToken))
+            const {token} = res.data.data
+            let accessToken = token
+            dispatch(authactions.actions.login(accessToken))
           })
-          .catch(() => {
+          .catch((e) => {
             setLoading(false)
             setSubmitting(false)
-            setStatus('The login detail is incorrect')
+            if (e.response) {
+              setStatus(e.response.data.message)
+            } else if (e.request) {
+              setStatus('The login detail is incorrect')
+            } else {
+              setStatus('The login detail is incorrect')
+            }
           })
       }, 1000)
     },
