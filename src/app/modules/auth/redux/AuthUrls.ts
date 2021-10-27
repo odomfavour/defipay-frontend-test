@@ -3,7 +3,7 @@ import { config } from '../../../../apiBaseUrl'
 
 const API_URL = config.url.apiUrl;
 
-const GET_USER_BY_ACCESSTOKEN_URL = `${API_URL}/auth/get-user`
+const GET_USER_BY_ACCESSTOKEN_URL = `${API_URL}/account/getuser`
 const LOGIN_URL = `${API_URL}/account/login`
 const LOGOUT_URL = `${API_URL}/account/logout`
 const CONFIRMEMAIL_URL = `${API_URL}/account/confirmemail`

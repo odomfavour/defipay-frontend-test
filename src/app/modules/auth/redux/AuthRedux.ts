@@ -1,6 +1,7 @@
 import { Action } from '@reduxjs/toolkit'
 import { persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
+import { MerchantRegisterModel } from '../models/MerchantRegisterModel'
 import { UserModel } from '../models/UserModel'
 import { actionTypes } from './AuthActionTypes'
 
@@ -17,6 +18,7 @@ const initialAuthState: IAuthState = {
 export interface IAuthState {
   user?: UserModel
   accessToken?: string
+  merchant?: MerchantRegisterModel
 }
 
 export const reducer = persistReducer(
@@ -25,12 +27,18 @@ export const reducer = persistReducer(
     switch (action.type) {
       case actionTypes.Login: {
         const accessToken = action.payload?.accessToken
+        // console.log("login", accessToken)
         return { accessToken, user: undefined }
       }
 
       case actionTypes.Register: {
         const accessToken = action.payload?.accessToken
         return { accessToken, user: undefined }
+      }
+
+      case actionTypes.VerifyEmail: {
+        const merchant = action.payload?.merchant
+        return { accessToken: undefined, merchant }
       }
 
       case actionTypes.Logout: {

@@ -3,8 +3,11 @@ import {Link} from 'react-router-dom'
 import {Redirect} from 'react-router'
 import {toAbsoluteUrl} from '../../../../shared/helpers'
 import queryString from 'query-string'
+
 export function VerifyEmail() {
-  const {id, email} = queryString.parse(window.location.search)
+  const email = localStorage.getItem('email')
+  let useremail = email !== null ? email.toString() : ''
+  const {id} = queryString.parse(window.location.search)
   console.log(id)
   useEffect(() => {
     document.body.classList.add('bg-white')
@@ -37,8 +40,7 @@ export function VerifyEmail() {
               <br />
               <h1 className='defi-text'>Verify Your Email</h1>
               <h4 className='defi-text'>
-                Please click the link that was sent to your email (shinaimpact@gmail.com) to verify
-                your email
+                Please click the link that was sent to your email ({useremail}) to verify your email
               </h4>
               <div className='d-flex flex-wrap justify-content-center pb-lg-0'>
                 <Link to='/auth/login'>

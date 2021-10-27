@@ -37,8 +37,10 @@ export function Login() {
       setTimeout(() => {
         let username = values.email
         login(username, values.password)
-          .then(({data: {accessToken}}) => {
+          .then((res) => {
             setLoading(false)
+            const {token} = res.data.data
+            let accessToken = token
             dispatch(authactions.actions.login(accessToken))
           })
           .catch((e) => {

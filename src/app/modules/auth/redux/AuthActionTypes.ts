@@ -6,4 +6,5 @@ export const actionTypes = {
     UserLoaded: '[Load User] Auth API',
     SetUser: '[Set User] Action',
     ConfirmEmail: '[Confirm Email] Action',
+    VerifyEmail: '[Verify Email] Action',
 }

@@ -7,6 +7,7 @@ import * as Yup from 'yup'
 import clsx from 'clsx'
 import {register} from '../redux/AuthCRUD'
 import {Redirect} from 'react-router'
+import {MerchantRegisterModel} from '../models/MerchantRegisterModel'
 
 const initialValues = {
   password: '',
@@ -60,14 +61,18 @@ export function PasswordSetup() {
             console.log(res.data)
             if (res.data.success) {
               setLoading(false)
+              const merchant: MerchantRegisterModel = {
+                userId: res.data.data.userid,
+                email: res.data.data.email,
+              }
+              dispatch(authactions.actions.verifyemail(merchant))
               window.location.href = `/auth/verifyemail/${res.data.data.userid}`
-              //dispatch(authactions.actions.confirmemail(accessToken))
             }
           })
           .catch((e) => {
             setLoading(false)
             setSubmitting(false)
-            if (e.response) {
+            if (e.response && e.response.data) {
               setStatus(e.response.data.message)
             } else if (e.request) {
               setStatus('Registration process has broken')

@@ -1,5 +1,6 @@
 import { actionTypes } from "./AuthActionTypes"
 import { UserModel } from '../models/UserModel'
+import { MerchantRegisterModel } from '../models/MerchantRegisterModel'
 export const actions = {
     login: (accessToken: string) => ({ type: actionTypes.Login, payload: { accessToken } }),
     register: (accessToken: string) => ({
@@ -8,6 +9,7 @@ export const actions = {
     }),
     logout: () => ({ type: actionTypes.Logout }),
     confirmemail: () => ({ type: actionTypes.ConfirmEmail }),
+    verifyemail: (merchant: MerchantRegisterModel) => ({ type: actionTypes.VerifyEmail, payload: { merchant } }),
     requestUser: () => ({
         type: actionTypes.UserRequested,
     }),
