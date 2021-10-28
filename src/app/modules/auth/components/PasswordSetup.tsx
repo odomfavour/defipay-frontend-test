@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, {useState, useEffect} from 'react'
 // import {useDispatch} from 'react-redux'
-// import {Link} from 'react-router-dom'
 import {useFormik} from 'formik'
 import * as Yup from 'yup'
 import clsx from 'clsx'
+import {Link} from 'react-router-dom'
 
 const initialValues = {
   email: '',
@@ -82,7 +82,13 @@ export function PasswordSetup() {
                 )}
               </div>
               {/* end::Form group */}
-
+              <div className="form-check my-4">
+                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                <label className="form-check-label" htmlFor="flexCheckDefault">
+                  By creating this account, you agree to accept our <Link to="#">Privacy Policy</Link>
+                  and <Link to="#">Terms of Service</Link>.
+                </label>
+              </div>
               {/* begin::Form group */}
               <div className='d-flex flex-wrap justify-content-center pb-lg-0'>
                 <button
