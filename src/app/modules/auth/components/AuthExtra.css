@@ -8,3 +8,7 @@
   margin-top: -19px;
   color: rgba(45, 41, 78, 0.55);
 }
+
+.auth-box {
+  width: 100% !important;
+}

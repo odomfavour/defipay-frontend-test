@@ -3,8 +3,10 @@ import {useDispatch} from 'react-redux'
 import {useFormik} from 'formik'
 import * as Yup from 'yup'
 import clsx from 'clsx'
-import * as auth from '../redux/AuthRedux'
+// import * as auth from '../redux/AuthRedux'
+import * as auth2 from '../../auth/index'
 import {confirmemail} from '../redux/AuthCRUD'
+import queryString from 'query-string'
 const initialValues = {
   email: '',
 }
@@ -17,6 +19,10 @@ const confirmEmailSchema = Yup.object().shape({
     .required('Email is required'),
 })
 export function ConfirmEmail() {
+  const {userid, appcode} = queryString.parse(window.location.search)
+  console.log(userid, appcode)
+  // this.props.userConfirmEmail(userid, decodeURIComponent(code));
+
   const [loading, setLoading] = useState(false)
   const dispatch = useDispatch()
   const formik = useFormik({
@@ -25,10 +31,10 @@ export function ConfirmEmail() {
     onSubmit: (values, {setStatus, setSubmitting}) => {
       setLoading(true)
       setTimeout(() => {
-        confirmemail(values.email)
+        confirmemail(values.email, values.email)
           .then(({data: {accessToken}}) => {
             setLoading(false)
-            dispatch(auth.actions.login(accessToken))
+            dispatch(auth2.actions.login(accessToken))
           })
           .catch(() => {
             setLoading(false)

@@ -442,9 +442,9 @@ blockquote .text:after {
   font-size: 40px;
   color: #e1ecf4;
 }
-.defipaytextfooter {
-  padding-left: 20%;
-}
+/*.defipaytextfooter {*/
+/*  padding-left: 20%;*/
+/*}*/
 blockquote .author {
   color: #3b566e;
   text-align: center;

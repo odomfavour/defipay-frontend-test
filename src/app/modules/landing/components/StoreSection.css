@@ -22,3 +22,11 @@
 .store-text-wrapper {
   padding-top: 90px;
 }
+
+
+@media(max-width: 426px) {
+  .store-title {
+    font-size: 22px;
+    letter-spacing: 0;
+  }
+}

@@ -129,7 +129,7 @@
   cursor: pointer;
   display: block;
   position: absolute;
-  top: 23px;
+  top: 14px;
   width: 32px;
   height: 40px;
   text-indent: -9999em;
@@ -272,8 +272,8 @@
 
   .header-area .menu-trigger {
     display: block !important;
-    left: 300px;
-    margin-top: -5px;
+    left: 700px;
+    margin-top: 0px;
   }
 
   .header-area .main-nav .menu-trigger span:before,
@@ -304,7 +304,9 @@
   }
   .header-area .main-nav .nav {
     float: none;
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
+    cursor: pointer;
     margin-top: 80px !important;
     display: none;
     -webkit-transition: all 0s ease 0s;
@@ -398,4 +400,10 @@
 
 .dropdown:hover .dropbtn {
   background-color: #3e8e41;
+}
+
+@media(max-width: 426px) {
+  .header-area .main-nav .menu-trigger {
+    left: 366px;
+  }
 }

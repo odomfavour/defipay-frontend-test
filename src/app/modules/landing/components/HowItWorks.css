@@ -49,3 +49,14 @@
   transform: rotate(-0.23deg);
   margin-bottom: -90px;
 }
+
+@media(max-width: 426px) {
+
+  .howitworks-title {
+    font-size: 20px;
+  }
+
+  .howitworks-description {
+    margin-bottom: 70px;
+  }
+}

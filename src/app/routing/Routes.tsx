@@ -17,10 +17,16 @@ import {RootState} from '../../setup'
 
 const Routes: FC = () => {
   const isAuthorized = useSelector<RootState>(({auth}) => auth.user, shallowEqual)
-
+  // console.log('isauthorized', isAuthorized)
   return (
     <Switch>
-    {!isAuthorized ? <Route><PublicRoutes/></Route> :<Redirect from='/auth' to='/' /> }
+      {!isAuthorized ? (
+        <Route>
+          <PublicRoutes />
+        </Route>
+      ) : (
+        <Redirect from='/auth' to='/' />
+      )}
       <Route path='/error' component={ErrorsPage} />
       <Route path='/logout' component={Logout} />
       {!isAuthorized ? (
