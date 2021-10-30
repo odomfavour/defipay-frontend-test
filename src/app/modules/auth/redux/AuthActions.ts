@@ -9,6 +9,7 @@ export const actions = {
     }),
     logout: () => ({ type: actionTypes.Logout }),
     confirmemail: () => ({ type: actionTypes.ConfirmEmail }),
+    passwordchanged: (passwordChanged: boolean) => ({ type: actionTypes.ConfirmEmail }),
     verifyemail: (merchant: MerchantRegisterModel) => ({ type: actionTypes.VerifyEmail, payload: { merchant } }),
     requestUser: () => ({
         type: actionTypes.UserRequested,

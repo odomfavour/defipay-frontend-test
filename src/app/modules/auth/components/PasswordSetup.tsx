@@ -6,7 +6,6 @@ import {useFormik} from 'formik'
 import * as Yup from 'yup'
 import clsx from 'clsx'
 import {register} from '../redux/AuthCRUD'
-import {Redirect} from 'react-router'
 import {MerchantRegisterModel} from '../models/MerchantRegisterModel'
 
 const initialValues = {
@@ -54,8 +53,6 @@ export function PasswordSetup() {
         if (values.countrycode === null || values.countrycode === '') {
           setStatus('Registration process has broken')
         }
-        // To clear a specific item
-        // localStorage.removeItem('Name')
         register(values.email, values.businessname, values.countrycode, values.password)
           .then((res) => {
             console.log(res.data)

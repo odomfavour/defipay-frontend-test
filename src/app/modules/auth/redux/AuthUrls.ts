@@ -10,10 +10,10 @@ const CONFIRMEMAIL_URL = `${API_URL}/account/confirmemail`
 const REFERESHUSER_URL = `${API_URL}/account/referesh`
 const REGISTER_URL = `${API_URL}/account/register`
 const VALIDATION_URL = `${API_URL}/account/validatemerchant`
-const REQUEST_PASSWORD_URL = `${API_URL}/auth/forgot-password`
+const REQUEST_PASSWORD_URL = `${API_URL}/password/forgotpassword`
+const RESET_PASSWORD_URL = `${API_URL}/password/resetpassword`
 
 // const checkexistmerchant = apiUrl + "/account/checkmerchant";
-// const forgotPassword = apiUrl + "/password/forgotpassword";
 // const resetPassword = apiUrl + "/password/resetpassword";
 
 // const changePassword = apiUrl + "/password/inapp_passwordchange";
@@ -28,5 +28,5 @@ export const authEndpoints = {
     REGISTER_URL,
     VALIDATION_URL,
     REQUEST_PASSWORD_URL,
-    // passwordPolicy
+    RESET_PASSWORD_URL
 };
