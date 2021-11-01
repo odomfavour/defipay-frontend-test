@@ -10,6 +10,7 @@ import {
   BusinessType,
   GoToDashboard,
 } from '../modules/auth'
+import ResetPassword from '../modules/auth/components/ResetPassword'
 import {HomePage} from '../modules/landing'
 
 export function PublicRoutes() {
@@ -26,6 +27,7 @@ export function PublicRoutes() {
       <Route path='/auth/registration' component={Registration} />
       <Route path='/auth/forgot-password' component={ForgotPassword} />
       <Route path='/auth/setup-password' component={PasswordSetup} />
+      <Route path='/auth/reset-password' component={ResetPassword} />
       <Route path='/auth/business-type' component={BusinessType} />
     </Switch>
   )

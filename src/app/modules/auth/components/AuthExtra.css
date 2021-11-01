@@ -12,3 +12,13 @@
 .auth-box {
   width: 100% !important;
 }
+
+.defi-form-h1 {
+  margin-left: -250px;
+}
+
+@media (max-width: 600px) {
+  .defi-form-h1 {
+    margin-left: 0px;
+  }
+}

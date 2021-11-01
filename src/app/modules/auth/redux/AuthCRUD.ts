@@ -24,8 +24,13 @@ export function validate(email: string, businessname: string, country: string) {
 
 // Server should return object => { result: boolean } (Is Email in DB)
 export function requestPassword(email: string) {
-  return axios.post<{ result: boolean }>(authEndpoints.REQUEST_PASSWORD_URL, { email })
+  return axios.post(authEndpoints.REQUEST_PASSWORD_URL + '/' + email, null)
 }
+
+export function resetPassword(password: string, confirmpassword: string, code: string | null | string[], userid: string | null | string[]) {
+  return axios.post(authEndpoints.RESET_PASSWORD_URL, { password, code, userid, confirmpassword })
+}
+
 
 export function getUserByToken() {
   // Authorization head should be fulfilled in interceptor.
@@ -34,7 +39,7 @@ export function getUserByToken() {
 }
 
 export function confirmemail(userid: string, callcode: string) {
-  return axios.post<AuthModel>(authEndpoints.CONFIRMEMAIL_URL, {
+  return axios.post(authEndpoints.CONFIRMEMAIL_URL, {
     userid,
     callcode
   })
