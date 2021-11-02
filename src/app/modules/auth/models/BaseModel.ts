@@ -1,8 +1,8 @@
-import { OtPaymentModel } from "./OtPaymentModel";
+import { UserModel } from "./UserModel";
 
 export interface BaseModel {
     message: string
     code?: string
     success: boolean
-    data: OtPaymentModel
+    data: UserModel
 }

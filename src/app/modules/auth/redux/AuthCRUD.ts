@@ -1,6 +1,5 @@
 import axios from 'axios'
-import { AuthModel } from '../models/AuthModel'
-import { UserModel } from '../models/UserModel'
+import { BaseModel } from '../models/BaseModel'
 import { authEndpoints } from './AuthUrls'
 
 // Server should return AuthModel
@@ -35,12 +34,18 @@ export function resetPassword(password: string, confirmpassword: string, code: s
 export function getUserByToken() {
   // Authorization head should be fulfilled in interceptor.
   // Check common redux folder => setupAxios
-  return axios.get<UserModel>(authEndpoints.GET_USER_BY_ACCESSTOKEN_URL)
+  return axios.get<BaseModel>(authEndpoints.GET_USER_BY_ACCESSTOKEN_URL)
 }
 
-export function confirmemail(userid: string, callcode: string) {
+export function confirmemail(userid: string, code: string) {
   return axios.post(authEndpoints.CONFIRMEMAIL_URL, {
     userid,
-    callcode
+    code
   })
+}
+
+export function logOutUser() {
+  // Authorization head should be fulfilled in interceptor.
+  // Check common redux folder => setupAxios
+  return axios.post(authEndpoints.LOGOUT_URL)
 }
