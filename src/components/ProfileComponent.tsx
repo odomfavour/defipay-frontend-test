@@ -26,12 +26,14 @@ const ProfileComponent: React.FC<Props> = ({setActiveStep, activeStep}) =>  {
         </select>
       </div>
       <div className="mb-5">
-        <select className="form-select" aria-label="Default select example">
-          <option selected>Industry</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
+        <input className="form-control" list="industrylistOptions" id="exampleDataList" placeholder="Industry"/>
+        <datalist id="industrylistOptions">
+          <option value="San Francisco"></option>
+          <option value="New York"></option>
+          <option value="Seattle"></option>
+          <option value="Los Angeles"></option>
+          <option value="Chicago"></option>
+        </datalist>
       </div>
       <div className="mb-5">
         <select className="form-select" aria-label="Default select example">
@@ -42,12 +44,14 @@ const ProfileComponent: React.FC<Props> = ({setActiveStep, activeStep}) =>  {
         </select>
       </div>
       <div className="mb-5">
-        <select className="form-select" aria-label="Default select example">
-          <option selected>Business type</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
+        <input className="form-control" list="businesslistOptions" id="exampleDataList" placeholder="Business Type"/>
+        <datalist id="businesslistOptions">
+          <option value="San Francisco"></option>
+          <option value="New York"></option>
+          <option value="Seattle"></option>
+          <option value="Los Angeles"></option>
+          <option value="Chicago"></option>
+        </datalist>
       </div>
       <div className='mb-5'>
         <div className='text-center'>
