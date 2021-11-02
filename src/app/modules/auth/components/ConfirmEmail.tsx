@@ -6,8 +6,8 @@ import {Link} from 'react-router-dom'
 export function ConfirmEmail() {
   const [status, setStatus] = useState('')
   const [loading, setLoading] = useState(false)
-  const {userid, appcode} = queryString.parse(window.location.search)
-  if (appcode === '' || appcode === null) {
+  const {userid, callcode} = queryString.parse(window.location.search)
+  if (callcode === '' || callcode === null) {
     setLoading(true)
     setStatus('Invalid Password Link')
   }
@@ -19,7 +19,8 @@ export function ConfirmEmail() {
 
   setTimeout(() => {
     // setLoading(true)
-    confirmemail(userid as string, appcode as string)
+
+    confirmemail(userid as string, callcode as string)
       .then((res) => {
         if (res.data.success) {
           localStorage.removeItem('businessname')

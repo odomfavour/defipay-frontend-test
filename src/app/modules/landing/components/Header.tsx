@@ -27,14 +27,6 @@ export function Header() {
     }
   }
 
-  // Menu Dropdown Toggle
-  // if ($('.menu-trigger').length) {
-  //   $('.menu-trigger').on('click', function () {
-  //     $(this).toggleClass('active')
-  //     $('.header-area .nav').slideToggle(200)
-  //   })
-  // }
-
   window.addEventListener('scroll', scrollNavBar)
 
   return (
