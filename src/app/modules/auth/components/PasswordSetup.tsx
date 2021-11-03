@@ -7,6 +7,7 @@ import * as Yup from 'yup'
 import clsx from 'clsx'
 import {register} from '../redux/AuthCRUD'
 import {MerchantRegisterModel} from '../models/MerchantRegisterModel'
+import {Link} from 'react-router-dom'
 
 const initialValues = {
   password: '',
@@ -167,7 +168,13 @@ export function PasswordSetup() {
                 )}
               </div>
               {/* end::Form group */}
-
+              <div className="form-check my-4">
+                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                <label className="form-check-label" htmlFor="flexCheckDefault">
+                  By creating this account, you agree to accept our <Link to="#">Privacy Policy</Link>
+                  and <Link to="#">Terms of Service</Link>.
+                </label>
+              </div>
               {/* begin::Form group */}
               <div className='d-flex flex-wrap justify-content-center pb-lg-0'>
                 <button

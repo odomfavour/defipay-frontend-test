@@ -1,0 +1,14 @@
+.d-card, d-heading {
+    width: 60%;
+    margin: 0 auto
+}
+
+.btn-learning {
+    width: 50%;
+}
+
+@media(max-width: 426px) {
+    .d-card {
+        width: 100%;
+    }
+}
