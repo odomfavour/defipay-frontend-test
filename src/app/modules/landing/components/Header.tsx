@@ -78,10 +78,10 @@ export function Header() {
                       alt=''
                       className='toggleimage'
                     />
-                    <div className='dropdown-content'>
+                    {/* <div className='dropdown-content'>
                       <Link to='/auth/login'>Login</Link>
                       <Link to='/auth/registration'>Sign Up</Link>
-                    </div>
+                    </div> */}
                   </div>
                 </li>
               </ul>

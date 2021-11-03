@@ -101,7 +101,7 @@ export function Home() {
                       />
                     </div>
                   </div>
-                 <form>
+                 <form  action="https://app.getresponse.com/add_subscriber.html" accept-charset="utf-8" method="post">
                     <div className="mb-3">
                       <div className="row">
                         <div className="col-md-6">
