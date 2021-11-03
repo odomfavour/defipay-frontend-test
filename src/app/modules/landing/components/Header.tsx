@@ -42,7 +42,13 @@ export function Header() {
                     Defipay
                   </h3>
                 ) : (
-                  <h3 className='light-logo'> Defipay</h3>
+                  // <h3 className='light-logo'> Defipay</h3>
+                  <img
+                        src={toAbsoluteUrl('/media/images/defipay-logo.jpg')}
+                        className='img-fluid'
+                        alt=''
+                        style={{height: '40px', textAlign: 'center'}}
+                      />
                 )}
               </a>
               <ul className='nav' style={{textAlign: 'center', display: click ? 'block' : 'none'}}>
