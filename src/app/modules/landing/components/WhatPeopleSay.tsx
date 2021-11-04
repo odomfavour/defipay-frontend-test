@@ -25,16 +25,13 @@ const WhatPeopleSay = () => {
               </div>
               <div className='defipaytext2'>
                 <p>
-                  Defipay payments are processed through a private network of computers linked
-                  through a shared ledger.Each transaction is simultaneouly recorded in a
-                  "Blockchain".Defipay payment are processes through a private network pf computers
-                  linked through a shared ledger
+                 I was skeptical initially but the user interface and the ease of usage really beat all my objections. Thanks for Defipay
                 </p>
                 <p></p>
                 <div className='eli'>
-                  <strong>Elizabeth Lopez</strong>
+                  <strong>Sophia Titus</strong>
                 </div>
-                <span>GMD Lopez Groups</span>
+                <span>SOSO store</span>
               </div>
             </div>
             <div className='col-2'></div>
