@@ -38,7 +38,7 @@
 .features li .count {
   float: left;
   width: 68px;
-  min-height: 150px;
+  /* min-height: 150px; */
   /* background: url(../images/features-bg.svg) center bottom no-repeat; */
 }
 .features li .count span {

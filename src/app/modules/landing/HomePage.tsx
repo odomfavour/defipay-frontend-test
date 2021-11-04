@@ -19,8 +19,8 @@ export function HomePage() {
       <Experience />
       <Benefit />
       <WhatPeopleSay />
-      <Mobile />
-      <Partners />
+      {/* <Mobile /> */}
+      {/* <Partners /> */}
       <Footer />
     </div>
   )

@@ -110,7 +110,7 @@ footer .copyright:after {
 }
 .defipaycenter {
   margin: auto;
-  margin-top: 80%;
+  margin-top: 40%;
   width: 90%;
   font-weight: bold;
   font-size: x-large;
@@ -125,7 +125,7 @@ footer .copyright:after {
       border-radius: 150px 150px 0 0;
    */
   text-align: center;
-  height: 50%;
+  height: 30%;
   width: 180px;
   border-radius: 0px 200px 200px 0px;
   background-color: #ffbf18;
