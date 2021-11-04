@@ -13,8 +13,7 @@ const HowItWorks = () => {
             </div>
             <div className='howitworks-description'>
               <p>
-                Defipay payments are processed through a private network of computers linked through
-                a shared ledger.Each transaction is simultaneouly recorded in a "Blockchain"
+                All you need to do is sign up your Defipay account and then you can easily pay for anything you desire online using Defipay.
               </p>
             </div>
           </div>

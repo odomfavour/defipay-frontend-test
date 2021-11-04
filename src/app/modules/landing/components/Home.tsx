@@ -346,7 +346,7 @@ export function Home() {
                         </div>
                         <div className="col-md-6">
                              <label className="form-label">Country</label>
-                              <select className="form-select" aria-label="Default select example">
+                              <select className="form-select" aria-label="Default select example" name="custom_country">
                                 <option selected disabled>Select your country</option>
                                 {
                                   countries.map((country, index) =>
@@ -359,7 +359,7 @@ export function Home() {
                     </div>
                     <div className="mb-3">
                         <label className="form-label">Industry</label>
-                          <select name="industry" className="form-select">
+                          <select name="industry" className="form-select" name="custom_company">
                           <option selected disabled>Select your Industry</option>
                             <option value="Agriculture">Agriculture</option>
                             <option value="Commerce">Commerce</option>
@@ -375,16 +375,14 @@ export function Home() {
                             <option value="Utilities">Utilities</option>
                           </select>
                     </div>
-                    <div className="mb-3">
-                      <label className="form-label">Description</label>
-                      <textarea className="form-control" name="" id="" rows={5}></textarea>
-                    </div>
                     <div>
+                      {/*Get the token at: https://app.getresponse.com/campaign_list.html*/}
                       <input type="hidden" name="campaign_token" value="zsM3y" />
-                      {/* Thank you page (optional) */}
+                      {/*Thank you page (optional) */}
                       <input type="hidden" name="thankyou_url" value="http://www.defipaylanding.tech/thankyou/"/>
-                      {/* Add subscriber to the follow-up sequence with a specified day (optional) */}
+                      {/*Add subscriber to the follow-up sequence with a specified day (optional)*/}
                       <input type="hidden" name="start_day" value="0" />
+                       {/*Subscriber button*/}
                     </div>
                     <div className="d-flex justify-content-end">
                       <button type="submit" className="btn btn-primary">Submit</button>
