@@ -359,7 +359,7 @@ export function Home() {
                     </div>
                     <div className="mb-3">
                         <label className="form-label">Industry</label>
-                          <select name="industry" className="form-select" name="custom_company">
+                          <select className="form-select" name="custom_company">
                           <option selected disabled>Select your Industry</option>
                             <option value="Agriculture">Agriculture</option>
                             <option value="Commerce">Commerce</option>
