@@ -1,12 +1,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, {useState, useEffect} from 'react'
-// import {useDispatch} from 'react-redux'
+import React, {useState, useEffect, FC} from 'react'
 import {useFormik} from 'formik'
 import * as Yup from 'yup'
 import clsx from 'clsx'
-// import * as auth from '../redux/AuthRedux'
+import * as merchant from '../../merchant/index'
 import {validate} from '../redux/AuthCRUD'
 import {Redirect} from 'react-router'
+import {CountryModel} from '../../merchant/models/country/CountryModel'
+import {RootState} from '../../../../setup'
+import {shallowEqual, useDispatch, useSelector, connect} from 'react-redux'
 
 const initialValues = {
   businessname: '',
@@ -29,11 +31,17 @@ const registrationSchema = Yup.object().shape({
     .max(50, 'Maximum 50 symbols')
     .required('Country is required'),
 })
-
-export function Registration() {
+const Registration: FC = () => {
+  const country: CountryModel[] = useSelector<RootState>(
+    ({merchant}) => merchant.country,
+    shallowEqual
+  ) as CountryModel[]
+  console.log(country)
+  // export function Registration() {
   const [loading, setLoading] = useState(false)
+  const [countries, setCountries] = useState(null)
   const [passwordpage, setPasswordPage] = useState(false)
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch()
   const formik = useFormik({
     initialValues,
     validationSchema: registrationSchema,
@@ -57,8 +65,6 @@ export function Registration() {
               }
               return
             }
-
-            // dispatch(auth.actions.login(accessToken))
           })
           .catch((e) => {
             setLoading(false)
@@ -80,6 +86,7 @@ export function Registration() {
       document.body.classList.remove('bg-white')
     }
   }, [])
+
   return (
     <>
       {passwordpage && <Redirect to='/auth/setup-password' />}
@@ -472,3 +479,12 @@ export function Registration() {
     </>
   )
 }
+// export {Registration}
+const mapState = (state: RootState) => ({merchant: state.merchant})
+// const connector = connect(mapState, merchant.actions)
+// type PropsFromRedux = ConnectedProps<typeof connector>
+
+// const mapDispatch = {
+//    ,
+// }
+export default connect(mapState, merchant.actions)(Registration)
