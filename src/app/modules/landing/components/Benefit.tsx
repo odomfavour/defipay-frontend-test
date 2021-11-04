@@ -16,11 +16,10 @@ const Benefit = () => {
           </div>
 
           <div className='col-lg-5 col-md-12 align-self-center'>
-            <div className='benefit-title position'>Benefits of Using Defipay For Payments</div>
+            <div className='benefit-title position'>WHY YOU SHOULD USE DEFIPAY</div>
             <div className='benefit-description'>
               <p>
-                Defipay payments are processed through a private network of computers linked through
-                a shared ledger
+                DEFIPAY provides users with several amazing features which crypto payment option offers over traditional payment methods.
               </p>
             </div>
             <ul className='features'>
@@ -33,11 +32,7 @@ const Benefit = () => {
                   />
                 </div>
                 <div className='text'>
-                  <h5 className='title'>Fast Payment Platform</h5>
-                  <p>
-                    Defipay payment are processes through a private network pf computers linked
-                    through a shared ledger
-                  </p>
+                  <h5 className='title'>High level customer privacy</h5>
                 </div>
               </li>
               <li data-scroll-reveal='enter bottom move 30px over 0.6s after 0.3s'>
@@ -49,11 +44,7 @@ const Benefit = () => {
                   />
                 </div>
                 <div className='text'>
-                  <h5 className='title'>Fast Payment Platform</h5>
-                  <p>
-                    Defipay payment are processes through a private network pf computers linked
-                    through a shared ledger
-                  </p>
+                  <h5 className='title'>Micro transactions</h5>
                 </div>
               </li>
               <li data-scroll-reveal='enter bottom move 30px over 0.6s after 0.4s'>
@@ -65,11 +56,43 @@ const Benefit = () => {
                   />
                 </div>
                 <div className='text'>
-                  <h5 className='title'>Fast Payment Platform</h5>
-                  <p>
-                    Defipay payment are processes through a private network pf computers linked
-                    through a shared ledger
-                  </p>
+                  <h5 className='title'>More prospective customers</h5>
+                </div>
+              </li>
+               <li data-scroll-reveal='enter bottom move 30px over 0.6s after 0.4s'>
+                <div className='count'>
+                  <img
+                    src={toAbsoluteUrl('/media/images/icons/apps/dot.png')}
+                    className='img-fluid d-block mx-auto'
+                    alt=''
+                  />
+                </div>
+                <div className='text'>
+                  <h5 className='title'>More affordable fees</h5>
+                </div>
+              </li>
+               <li data-scroll-reveal='enter bottom move 30px over 0.6s after 0.4s'>
+                <div className='count'>
+                  <img
+                    src={toAbsoluteUrl('/media/images/icons/apps/dot.png')}
+                    className='img-fluid d-block mx-auto'
+                    alt=''
+                  />
+                </div>
+                <div className='text'>
+                  <h5 className='title'>Freedom from volatile currency fluctuation and heavy bank charges.</h5>
+                </div>
+              </li>
+               <li data-scroll-reveal='enter bottom move 30px over 0.6s after 0.4s'>
+                <div className='count'>
+                  <img
+                    src={toAbsoluteUrl('/media/images/icons/apps/dot.png')}
+                    className='img-fluid d-block mx-auto'
+                    alt=''
+                  />
+                </div>
+                <div className='text'>
+                  <h5 className='title'>Payments in lower denominators like Satoshi’s for Bitcoin.</h5>
                 </div>
               </li>
             </ul>

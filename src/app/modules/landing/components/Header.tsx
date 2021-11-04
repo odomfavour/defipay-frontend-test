@@ -44,10 +44,10 @@ export function Header() {
                 ) : (
                   // <h3 className='light-logo'> Defipay</h3>
                   <img
-                        src={toAbsoluteUrl('/media/images/defipay-logo.jpg')}
+                        src={toAbsoluteUrl('/media/images/defipay-main.jpg')}
                         className='img-fluid'
                         alt=''
-                        style={{height: '40px', textAlign: 'center'}}
+                        style={{height: '50px', textAlign: 'center'}}
                       />
                 )}
               </a>
@@ -72,17 +72,17 @@ export function Header() {
                   <Link to='/auth/registration'>Sign Up</Link>
                 </li>
                 <li>
-                  <div className='dropdown'>
+                  {/* <div className='dropdown'>
                     <img
                       src={toAbsoluteUrl('/media/images/touchbutton.svg')}
                       alt=''
                       className='toggleimage'
                     />
-                    {/* <div className='dropdown-content'>
+                    <div className='dropdown-content'>
                       <Link to='/auth/login'>Login</Link>
                       <Link to='/auth/registration'>Sign Up</Link>
-                    </div> */}
-                  </div>
+                    </div>
+                  </div> */}
                 </li>
               </ul>
               <a className={click ? 'menu-trigger active' : 'menu-trigger'} onClick={handleClick}>
