@@ -1,13 +1,17 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import {useState, } from 'react'
+import {useState,useEffect } from 'react'
 import React from 'react'
 import {Button, Modal} from 'react-bootstrap-v5'
 import './Home.css'
 import {toAbsoluteUrl} from '../../../../shared/helpers'
 export function Home() {
   const [show, setShow] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false)
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const handleSuccessClose = () => {setShowAlert(false); document.location.href = `http://localhost:3011/home`};
+  const handleSuccessShow = () => setShowAlert(true);
 
   let countries = ['Afganistan','Albania','Algeria','American Samoa','Andorra','Angola','Anguilla','Antigua & Barbuda','Argentina', 'Armenia', 'Aruba','Australia','Austria','Azerbaijan','Bahamas', 'Bahrain','Bangladesh', 'Barbados','Belarus', 'Belgium',
     'Belize',
@@ -229,7 +233,24 @@ export function Home() {
     'Venezuela',
     'Vietnam',
     'Virgin Islands (Brit)', 'Virgin Islands (USA)', 'Wake Island', 'Wallis & Futana Is', 'Yemen', 'Zaire', 'Zambia', 'Zimbabwe'];
-
+   
+      useEffect(() => {
+           handleClose();
+           setShowSuccessModal(false);
+            if(document.location.href === `http://localhost:3011/home?thankyou`) {
+            console.info(performance.navigation.type);
+            if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+              console.info( "This page is reloaded" );
+              document.location.href = `http://localhost:3011/home`
+            } else {
+              setShowAlert(true);
+              setShowSuccessModal(false)
+              console.info( "This page is not reloaded");
+            }
+          }
+    }, []);
+    
+    
 
   return (
     <section className='welcome-area' data-bg={toAbsoluteUrl('/media/images/photos/welcome.png')}>
@@ -308,7 +329,7 @@ export function Home() {
             {/* Modal */}
             <Modal className="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" size="lg" centered aria-hidden="true" show={show} onHide={handleClose} >
               <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">Register</h5>
+                <h5 className="modal-title" id="exampleModalLabel">Subscribe</h5>
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={handleClose}></button>
               </div>
               <div className="modal-lg">
@@ -371,10 +392,23 @@ export function Home() {
                        {/*Subscriber button*/}
                     </div>
                     <div className="d-flex justify-content-end">
-                      <button type="submit" className="btn btn-primary">Submit</button>
+                      <button type="submit" className="btn btn-primary" onClick={() => setShowSuccessModal(true)}>Subscribe</button>
                     </div>
                   </form>
                 </div>
+              </div>
+              </div>
+            </Modal>
+            <Modal className="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" size="sm" centered aria-hidden="true" show={showAlert} onHide={handleSuccessClose} >
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel">Congratulations</h5>
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={handleSuccessClose}></button>
+              </div>
+              <div className="modal-lg">
+                <div className="modal-content">
+                  <div className="modal-body">
+                  <h1 className="text-center">Congrats</h1>
+                   </div>
               </div>
               </div>
             </Modal>

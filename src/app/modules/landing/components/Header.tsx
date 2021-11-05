@@ -57,16 +57,16 @@ export function Header() {
                 <li>
                   <a href='#l'>Home</a>
                 </li>
-                <li>
-                  <a href='#'>Trade</a>
-                </li>
-                <li>
-                  <a href='#'>About</a>
-                </li>
+                {/*<li>*/}
+                {/*  <a href='#'>Trade</a>*/}
+                {/*</li>*/}
+                {/*<li>*/}
+                {/*  <a href='#'>About</a>*/}
+                {/*</li>*/}
 
-                <li>
-                  <a href='#'>Blog</a>
-                </li>
+                {/*<li>*/}
+                {/*  <a href='#'>Blog</a>*/}
+                {/*</li>*/}
                 <li className='mobile-display'>
                   <Link to='/auth/login'>Login</Link>
                 </li>
