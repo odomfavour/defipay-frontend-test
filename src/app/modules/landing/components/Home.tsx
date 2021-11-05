@@ -387,7 +387,7 @@ export function Home() {
                       {/*Get the token at: https://app.getresponse.com/campaign_list.html*/}
                       <input type="hidden" name="campaign_token" value="zsM3y" />
                       {/*Thank you page (optional) */}
-                      <input type="hidden" name="thankyou_url" value="http://localhost:3011/home?thankyou"/>
+                      <input type="hidden" name="thankyou_url" value="https://defipay.tech/home?thankyou"/>
                       {/*Add subscriber to the follow-up sequence with a specified day (optional)*/}
                       <input type="hidden" name="start_day" value="0" />
                        {/*Subscriber button*/}
