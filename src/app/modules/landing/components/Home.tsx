@@ -1,13 +1,17 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import {useState, } from 'react'
+import {useState,useEffect } from 'react'
 import React from 'react'
 import {Button, Modal} from 'react-bootstrap-v5'
 import './Home.css'
 import {toAbsoluteUrl} from '../../../../shared/helpers'
 export function Home() {
   const [show, setShow] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false)
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const handleSuccessClose = () => {setShowAlert(false); document.location.href = `https://defipay.tech/home`};
+  const handleSuccessShow = () => setShowAlert(true);
 
   let countries = ['Afganistan','Albania','Algeria','American Samoa','Andorra','Angola','Anguilla','Antigua & Barbuda','Argentina', 'Armenia', 'Aruba','Australia','Austria','Azerbaijan','Bahamas', 'Bahrain','Bangladesh', 'Barbados','Belarus', 'Belgium',
     'Belize',
@@ -229,7 +233,24 @@ export function Home() {
     'Venezuela',
     'Vietnam',
     'Virgin Islands (Brit)', 'Virgin Islands (USA)', 'Wake Island', 'Wallis & Futana Is', 'Yemen', 'Zaire', 'Zambia', 'Zimbabwe'];
-
+   
+      useEffect(() => {
+           handleClose();
+           setShowSuccessModal(false);
+            if(document.location.href === `https://defipay.tech/home?thankyou`) {
+            console.info(performance.navigation.type);
+            if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+              console.info( "This page is reloaded" );
+              document.location.href = `https://defipay.tech/home`
+            } else {
+              setShowAlert(true);
+              setShowSuccessModal(false)
+              console.info( "This page is not reloaded");
+            }
+          }
+    }, []);
+    
+    
 
   return (
     <section className='welcome-area' data-bg={toAbsoluteUrl('/media/images/photos/welcome.png')}>
@@ -251,7 +272,7 @@ export function Home() {
                 a shared ledger. Each transaction is simultaneously recorded in a "blockchain"
               </p>
               <button className='btn-yellow-line' type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={handleShow}>
-                Get Started
+                Subscribe
               </button>
             </div>
             <div className='offset-lg-1 col-lg-5 col-md-6 col-12 align-self-center'>
@@ -308,12 +329,13 @@ export function Home() {
             {/* Modal */}
             <Modal className="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" size="lg" centered aria-hidden="true" show={show} onHide={handleClose} >
               <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">Register</h5>
+                <h5 className="modal-title" id="exampleModalLabel">Subscribe</h5>
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={handleClose}></button>
               </div>
               <div className="modal-lg">
                 <div className="modal-content">
                 <div className="modal-body">
+                  <h3 className='text-center'>Subscribe now to get first hand update on Defipay.</h3>
                  <form  action="https://app.getresponse.com/add_subscriber.html" accept-charset="utf-8" method="post">
                     <div className="mb-3">
                       <div className="row">
@@ -371,10 +393,23 @@ export function Home() {
                        {/*Subscriber button*/}
                     </div>
                     <div className="d-flex justify-content-end">
-                      <button type="submit" className="btn btn-primary">Submit</button>
+                      <button type="submit" className="btn btn-primary" onClick={() => setShowSuccessModal(true)}>Subscribe</button>
                     </div>
                   </form>
                 </div>
+              </div>
+              </div>
+            </Modal>
+            <Modal className="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" size="sm" centered aria-hidden="true" show={showAlert} onHide={handleSuccessClose} >
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel">Subscription</h5>
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={handleSuccessClose}></button>
+              </div>
+              <div className="modal-lg">
+                <div className="modal-content">
+                  <div className="modal-body">
+                    <p>Your subscription was successful. Check your mail for more information</p>
+                   </div>
               </div>
               </div>
             </Modal>
