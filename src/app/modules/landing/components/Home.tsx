@@ -272,7 +272,7 @@ export function Home() {
                 a shared ledger. Each transaction is simultaneously recorded in a "blockchain"
               </p>
               <button className='btn-yellow-line' type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={handleShow}>
-                Get Started
+                Subscribe
               </button>
             </div>
             <div className='offset-lg-1 col-lg-5 col-md-6 col-12 align-self-center'>
@@ -401,13 +401,13 @@ export function Home() {
             </Modal>
             <Modal className="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" size="sm" centered aria-hidden="true" show={showAlert} onHide={handleSuccessClose} >
               <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">Congratulations</h5>
+                <h5 className="modal-title" id="exampleModalLabel">Subscription</h5>
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={handleSuccessClose}></button>
               </div>
               <div className="modal-lg">
                 <div className="modal-content">
                   <div className="modal-body">
-                  <h1 className="text-center">Congrats</h1>
+                    <p>Your subscription was successful. Check your mail for more information</p>
                    </div>
               </div>
               </div>
