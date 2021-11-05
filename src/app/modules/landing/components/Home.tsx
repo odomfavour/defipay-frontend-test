@@ -335,6 +335,7 @@ export function Home() {
               <div className="modal-lg">
                 <div className="modal-content">
                 <div className="modal-body">
+                  <h3 className='text-center'>Subscribe now to get first hand update on Defipay.</h3>
                  <form  action="https://app.getresponse.com/add_subscriber.html" accept-charset="utf-8" method="post">
                     <div className="mb-3">
                       <div className="row">
