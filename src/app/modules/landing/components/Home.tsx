@@ -10,7 +10,7 @@ export function Home() {
   const [showSuccessModal, setShowSuccessModal] = useState(false)
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const handleSuccessClose = () => {setShowAlert(false); document.location.href = `http://localhost:3011/home`};
+  const handleSuccessClose = () => {setShowAlert(false); document.location.href = `https://defipay.tech/home`};
   const handleSuccessShow = () => setShowAlert(true);
 
   let countries = ['Afganistan','Albania','Algeria','American Samoa','Andorra','Angola','Anguilla','Antigua & Barbuda','Argentina', 'Armenia', 'Aruba','Australia','Austria','Azerbaijan','Bahamas', 'Bahrain','Bangladesh', 'Barbados','Belarus', 'Belgium',
@@ -237,11 +237,11 @@ export function Home() {
       useEffect(() => {
            handleClose();
            setShowSuccessModal(false);
-            if(document.location.href === `http://localhost:3011/home?thankyou`) {
+            if(document.location.href === `https://defipay.tech/home?thankyou`) {
             console.info(performance.navigation.type);
             if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
               console.info( "This page is reloaded" );
-              document.location.href = `http://localhost:3011/home`
+              document.location.href = `https://defipay.tech/home`
             } else {
               setShowAlert(true);
               setShowSuccessModal(false)
