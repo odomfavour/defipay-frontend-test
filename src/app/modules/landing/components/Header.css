@@ -129,7 +129,7 @@
   cursor: pointer;
   display: block;
   position: absolute;
-  top: 14px;
+  top: 31px;
   width: 32px;
   height: 40px;
   text-indent: -9999em;
@@ -404,6 +404,6 @@
 
 @media(max-width: 426px) {
   .header-area .main-nav .menu-trigger {
-    left: 366px;
+    left: 332px;
   }
 }

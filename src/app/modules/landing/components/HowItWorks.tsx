@@ -13,7 +13,8 @@ const HowItWorks = () => {
             </div>
             <div className='howitworks-description'>
               <p>
-                All you need to do is sign up your Defipay account and then you can easily pay for anything you desire online using Defipay.
+                {/* All you need to do is sign up your Defipay account and then you can easily pay for anything you desire online using Defipay. */}
+                Ever thought of making payments for anything you desire at a fast, reliable and affordable rate? Defipay makes it easy peasy, just sign up and enjoy unending payment possibilities.
               </p>
             </div>
           </div>

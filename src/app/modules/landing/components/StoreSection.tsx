@@ -21,13 +21,12 @@ const StoreSection = () => {
 
             <div className='store-description'>
               <p className='lh-base'>
-                Defipay act as a gateway for merchants to pay with Crypto, for buying and selling of goods as services where Crypto act as the curreneny for exchange
+                Defipay acts as a gateway that allows merchants to pay with crypto for buying and selling where crypto acts as the currency for exchange.
               </p>
             </div>
             <div className='store-description'>
               <p>
-                Defipay is the future of Crypto, it's here to stay and forever.
-                Imagine not having to walk Into a store or need to pay for any utility such as transportation, why carry cash when you can simply use Defipay to pay your utilities? Perfect isn't it? Get into it asap
+               Defipay is the future of crypto and it is here to stay. With Defipay, not having to walk into a store to buy or sell is feasible and their is absolutely no need to carry cash around when you have to pay for any utility such as transportation, electricity etc. Perfect isn't it? Get into it asap.
               </p>
             </div>
             <div>
