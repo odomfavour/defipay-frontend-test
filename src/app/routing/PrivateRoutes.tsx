@@ -4,6 +4,7 @@ import {FallbackView} from '../../shared/partials'
 import {ComplianceWrapper} from '../pages/compliance/ComplianceWrapper'
 import {DashboardWrapper} from '../pages/dashboard/DashboardWrapper'
 import {GetStartedWrapper} from '../pages/getstarted/GetStartedWrapper'
+import {OnetimePaymentWrapper} from '../pages/onetimepayment/OnetimePaymentWrapper'
 
 export function PrivateRoutes() {
   const AccountPage = lazy(() => import('../modules/accounts/AccountPage'))
@@ -15,6 +16,7 @@ export function PrivateRoutes() {
         <Route path='/getstarted' component={GetStartedWrapper} />
         <Route path='/compliance' component={ComplianceWrapper} />
         <Route path='/crafted/account' component={AccountPage} />
+        <Route path='/onetimepayment' component={OnetimePaymentWrapper} />
         <Redirect from='/auth' to='/dashboard' />
         <Redirect from='/home' to='/dashboard' />
         <Redirect exact from='/' to='/dashboard' />
