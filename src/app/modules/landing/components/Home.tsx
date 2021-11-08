@@ -340,7 +340,7 @@ export function Home() {
                     <div className="mb-3">
                       <div className="row">
                         <div className="col-md-12">
-                            <label className="form-label"> Full Name <em>(firstname first)</em></label>
+                            <label className="form-label"> First Name/ Last Name </label>
                             <input type="text" className="form-control" id="name" aria-describedby="emailHelp" name="name"/>
                         </div>
                       </div>
