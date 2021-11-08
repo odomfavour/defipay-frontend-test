@@ -1,9 +1,8 @@
-import { BaseModel } from "../BaseModel";
-
-export interface CountryModel extends BaseModel {
-    data: {
-        countryid: number
-        name: string
-        code: string
-    }
+export interface CountryModel {
+    countryid: Number
+    countrycode: String
+    name: String,
+    nationalcurrency: String,
+    nationality: String,
+    vat: Number
 }

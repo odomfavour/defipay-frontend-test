@@ -1,13 +1,16 @@
 import axios from 'axios'
-import { CountryModel } from '../models/country/CountryModel'
+import { BaseModel } from '../../merchant/models/BaseModel'
 import { merchantEndpoints } from './MerchantUrls'
 
-// Server should return AuthModel
 export function getcountries() {
-    return axios.get(merchantEndpoints.GET_COUNTRIES)
+    return axios.get<BaseModel>(merchantEndpoints.GET_COUNTRIES)
 }
 
+export function getIndustry() {
+    return axios.get<BaseModel>(merchantEndpoints.GET_COUNTRIES)
+}
 
-// export function getindustris() {
-//     return axios.get<CountryModel>(merchantEndpoints.GET_COUNTRIES)
-// }
+export function getBusinessType() {
+    return axios.get<BaseModel>(merchantEndpoints.GET_BUSINESSTYPES)
+}
+

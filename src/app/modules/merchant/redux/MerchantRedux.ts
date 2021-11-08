@@ -1,8 +1,5 @@
 import { Action } from '@reduxjs/toolkit'
-import { persistReducer } from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
-import { BaseModel } from '../models/BaseModel'
-import { CountryModel } from '../models/country/CountryModel'
+import { IndustryModel, CountryModel, BusinessTypeModel } from '..'
 import { merchantActionTypes } from './MerchantActionTypes'
 
 export interface ActionWithPayload<T> extends Action {
@@ -11,32 +8,45 @@ export interface ActionWithPayload<T> extends Action {
 
 
 const initialMerchantState: IMerchantState = {
-    baseModel: undefined,
+    country: undefined,
+    industry: undefined,
+    businesstype: undefined
 }
 
 export interface IMerchantState {
-    baseModel?: BaseModel
-    country?: CountryModel
+    country?: CountryModel[]
+    industry?: IndustryModel[]
+    businesstype?: BusinessTypeModel[]
 }
 
-const persistConfig = {
-    storage, key: 'defi-pay-auth', whitelist: ['user', 'accessToken']
-}
-
-export const reducer = persistReducer(persistConfig,
-    (state: IMerchantState = initialMerchantState, action: ActionWithPayload<IMerchantState>) => {
-        switch (action.type) {
-            case merchantActionTypes.Country: {
-                return { ...state }
-            }
-            case merchantActionTypes.FulfilCountry: {
-                const country = action.payload?.country
-                return { ...state, country }
-            }
-            default:
-                return state
+export const reducer = (state: IMerchantState = initialMerchantState,
+    action: ActionWithPayload<IMerchantState>) => {
+    switch (action.type) {
+        case merchantActionTypes.Country: {
+            return { ...state }
         }
+        case merchantActionTypes.FulfilCountry: {
+            const country = action.payload?.country
+            return { ...state, country }
+        }
+        case merchantActionTypes.Business: {
+            return { ...state }
+        }
+        case merchantActionTypes.FulfilBusiness: {
+            const businesstype = action.payload?.businesstype
+            return { ...state, businesstype }
+        }
+        case merchantActionTypes.Industry: {
+            return { ...state }
+        }
+        case merchantActionTypes.FufilIndustry: {
+            const industry = action.payload?.industry
+            return { ...state, industry }
+        }
+        default:
+            return state
     }
-)
+}
+
 
 
