@@ -14,9 +14,8 @@ const Experience = () => {
                 </div>
                 <div className='experience-description'>
                   <p className='lh-base'>
-                    Defipay payments are processed through a private network of computers linked
-                    through a shared ledger. Each transaction is simultaneouly recorded in a
-                    "Blockchain"
+                    Most of us have experienced scams trading through p2p.
+                    Now with Defipay you don't need to swap your tokens for fiat through p2p you can easily make purchases with Defipay
                   </p>
                 </div>
               </div>

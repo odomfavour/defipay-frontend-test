@@ -17,7 +17,6 @@ import {RootState} from '../../setup'
 
 const Routes: FC = () => {
   const isAuthorized = useSelector<RootState>(({auth}) => auth.user, shallowEqual)
-  // console.log('isauthorized', isAuthorized)
   return (
     <Switch>
       {!isAuthorized ? (

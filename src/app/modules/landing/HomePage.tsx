@@ -4,8 +4,8 @@ import {Footer} from './components/Footer'
 import {Header} from './components/Header'
 import {Home} from './components/Home'
 import HowItWorks from './components/HowItWorks'
-import Mobile from './components/Mobile'
-import Partners from './components/Partners'
+// import Mobile from './components/Mobile'
+// import Partners from './components/Partners'
 import StoreSection from './components/StoreSection'
 import WhatPeopleSay from './components/WhatPeopleSay'
 import './HomePage.css'
@@ -19,8 +19,8 @@ export function HomePage() {
       <Experience />
       <Benefit />
       <WhatPeopleSay />
-      <Mobile />
-      <Partners />
+      {/* <Mobile /> */}
+      {/* <Partners /> */}
       <Footer />
     </div>
   )

@@ -12,4 +12,6 @@ const test = {
 
 
 
-export const config = process.env.NODE_ENV === 'development' ? test : prod;
+
+export const config = process.env.NODE_ENV === 'development' ? prod : prod;
+

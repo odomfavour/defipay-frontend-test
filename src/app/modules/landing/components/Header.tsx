@@ -27,14 +27,6 @@ export function Header() {
     }
   }
 
-  // Menu Dropdown Toggle
-  // if ($('.menu-trigger').length) {
-  //   $('.menu-trigger').on('click', function () {
-  //     $(this).toggleClass('active')
-  //     $('.header-area .nav').slideToggle(200)
-  //   })
-  // }
-
   window.addEventListener('scroll', scrollNavBar)
 
   return (
@@ -45,28 +37,36 @@ export function Header() {
             <nav className='main-nav'>
               <a href='#' className='logo'>
                 {navbar ? (
-                  <h3 className='dark-logo' style={{display: 'block'}}>
-                    {' '}
-                    Defipay
-                  </h3>
+                  <img
+                        src={toAbsoluteUrl('/media/images/defipay-current.png')}
+                        className='img-fluid'
+                        alt=''
+                        style={{height: '50px', textAlign: 'center'}}
+                      />
                 ) : (
-                  <h3 className='light-logo'> Defipay</h3>
+                  // <h3 className='light-logo'> Defipay</h3>
+                  <img
+                        src={toAbsoluteUrl('/media/images/defipay-for-dark.png')}
+                        className='img-fluid'
+                        alt=''
+                        style={{height: '50px', textAlign: 'center'}}
+                      />
                 )}
               </a>
               <ul className='nav' style={{textAlign: 'center', display: click ? 'block' : 'none'}}>
                 <li>
                   <a href='#l'>Home</a>
                 </li>
-                <li>
-                  <a href='#'>Trade</a>
-                </li>
-                <li>
-                  <a href='#'>About</a>
-                </li>
+                {/*<li>*/}
+                {/*  <a href='#'>Trade</a>*/}
+                {/*</li>*/}
+                {/*<li>*/}
+                {/*  <a href='#'>About</a>*/}
+                {/*</li>*/}
 
-                <li>
-                  <a href='#'>Blog</a>
-                </li>
+                {/*<li>*/}
+                {/*  <a href='#'>Blog</a>*/}
+                {/*</li>*/}
                 <li className='mobile-display'>
                   <Link to='/auth/login'>Login</Link>
                 </li>
@@ -74,7 +74,7 @@ export function Header() {
                   <Link to='/auth/registration'>Sign Up</Link>
                 </li>
                 <li>
-                  <div className='dropdown'>
+                  {/* <div className='dropdown'>
                     <img
                       src={toAbsoluteUrl('/media/images/touchbutton.svg')}
                       alt=''
@@ -84,7 +84,7 @@ export function Header() {
                       <Link to='/auth/login'>Login</Link>
                       <Link to='/auth/registration'>Sign Up</Link>
                     </div>
-                  </div>
+                  </div> */}
                 </li>
               </ul>
               <a className={click ? 'menu-trigger active' : 'menu-trigger'} onClick={handleClick}>

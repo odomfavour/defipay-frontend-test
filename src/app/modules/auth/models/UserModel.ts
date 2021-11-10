@@ -4,7 +4,7 @@ import { UserEmailSettingsModel } from './UserEmailSettingsModel'
 
 export interface UserModel {
   userId: string
-  businessName?: string
+  businessname?: string
   password: string | undefined
   email: string
   phone?: string

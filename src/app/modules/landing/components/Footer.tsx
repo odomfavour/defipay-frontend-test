@@ -4,41 +4,17 @@ import './Footer.css'
 export function Footer() {
   return (
     <>
-      <section className='mail-bg mailing-wrapper'>
+      {/* <section className='mail-bg mailing-wrapper'>
         <div className='container'>
           <div className='row text-center justify-content-center'>
-            {/* <div className='row  justify-content-center'> */}
+            <div className='row  justify-content-center'>
             <label
               className='col-sm-7 col-md-6 text-center'
               style={{paddingLeft: '10px', paddingTop: '15px'}}
             >
               Join Our Mailing List
             </label>
-            <div
-              className='col-sm-5 col-md-6 mailing-input'>
-              {/*<div className='input-group-lg input-group mb-3 '>*/}
-              {/*  <input*/}
-              {/*    type='text'*/}
-              {/*    className='form-control'*/}
-              {/*    placeholder='Enter your e-mail address'*/}
-              {/*    aria-label="Recipient's username"*/}
-              {/*    aria-describedby='button-addon2'*/}
-              {/*  />*/}
-              {/*  /!*<div className='input-group-append'>*!/*/}
-              {/*  /!*  <button className='mail-subscribe btn' type='button' id='button-addon2'>*!/*/}
-              {/*  /!*    {' '}*!/*/}
-              {/*  /!*    <b>Subscribe</b>*!/*/}
-              {/*  /!*  </button>*!/*/}
-              {/*  /!*</div>*!/*/}
-              {/*  /!* </div> *!/*/}
-              {/*</div>*/}
-              <div className="input-group mb-3">
-                <input type="text" className="form-control" placeholder="Enter your e-mail address"
-                       aria-label="Recipient's username" aria-describedby="button-addon2"/>
-                  <button className="btn mail-subscribee" type="button" id="button-addon2"><b>Subscribe</b></button>
-              </div>
-            </div>
-            {/* <div className='col-md-4'>
+            <div className='col-md-4'>
               <div className='input-group mb-3'>
                 <input
                   className='form-control form-control-sm'
@@ -46,10 +22,11 @@ export function Footer() {
                 />
                 <button className='mail-subscribe'>Subscribe</button>
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
-      </section>
+      </div>
+      </section> */}
       {/* <hr className='mx-0 px-0'></hr> */}
       <footer>
         <div id='defipaycurve'>
@@ -63,7 +40,7 @@ export function Footer() {
                 through a shared ledgde.Business Opportunity .
               </div>
             </div>
-            <div className='col-lg-2 col-md-2 col-sm-6 col-6'>
+            {/* <div className='col-lg-2 col-md-2 col-sm-6 col-6'>
               <h5>SERVICE</h5>
               <ul className='footer-nav'>
                 <li>
@@ -154,7 +131,7 @@ export function Footer() {
                   </li>
                 </ul>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className='container'>

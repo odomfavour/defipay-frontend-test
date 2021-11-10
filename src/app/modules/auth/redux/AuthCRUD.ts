@@ -1,6 +1,5 @@
 import axios from 'axios'
-import { AuthModel } from '../models/AuthModel'
-import { UserModel } from '../models/UserModel'
+import { BaseModel } from '../models/BaseModel'
 import { authEndpoints } from './AuthUrls'
 
 // Server should return AuthModel
@@ -24,18 +23,29 @@ export function validate(email: string, businessname: string, country: string) {
 
 // Server should return object => { result: boolean } (Is Email in DB)
 export function requestPassword(email: string) {
-  return axios.post<{ result: boolean }>(authEndpoints.REQUEST_PASSWORD_URL, { email })
+  return axios.post(authEndpoints.REQUEST_PASSWORD_URL + '/' + email, null)
 }
+
+export function resetPassword(password: string, confirmpassword: string, code: string | null | string[], userid: string | null | string[]) {
+  return axios.post(authEndpoints.RESET_PASSWORD_URL, { password, code, userid, confirmpassword })
+}
+
 
 export function getUserByToken() {
   // Authorization head should be fulfilled in interceptor.
   // Check common redux folder => setupAxios
-  return axios.get<UserModel>(authEndpoints.GET_USER_BY_ACCESSTOKEN_URL)
+  return axios.get<BaseModel>(authEndpoints.GET_USER_BY_ACCESSTOKEN_URL)
 }
 
-export function confirmemail(userid: string, callcode: string) {
-  return axios.post<AuthModel>(authEndpoints.CONFIRMEMAIL_URL, {
+export function confirmemail(userid: string, code: string) {
+  return axios.post(authEndpoints.CONFIRMEMAIL_URL, {
     userid,
-    callcode
+    code
   })
+}
+
+export function logOutUser() {
+  // Authorization head should be fulfilled in interceptor.
+  // Check common redux folder => setupAxios
+  return axios.post(authEndpoints.LOGOUT_URL)
 }

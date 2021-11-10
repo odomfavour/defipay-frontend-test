@@ -20,4 +20,9 @@ export function* authSaga() {
         const { data: user } = yield getUserByToken()
         yield put(actions.fulfillUser(user))
     })
+
+    // yield takeLatest(actionTypes.Logout, function* userLogOut() {
+    //     const { data: user } = yield logOutUser()
+    //     yield put(actions.logout())
+    // })
 }

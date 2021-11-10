@@ -19,6 +19,7 @@ export interface IAuthState {
   user?: UserModel
   accessToken?: string
   merchant?: MerchantRegisterModel
+  passwordChanged?: boolean
 }
 
 export const reducer = persistReducer(
@@ -34,6 +35,11 @@ export const reducer = persistReducer(
       case actionTypes.Register: {
         const accessToken = action.payload?.accessToken
         return { accessToken, user: undefined }
+      }
+
+      case actionTypes.PasswordChanged: {
+        const passwordChanged = action.payload?.passwordChanged;
+        return { passwordChanged }
       }
 
       case actionTypes.VerifyEmail: {

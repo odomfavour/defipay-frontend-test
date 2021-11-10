@@ -4,9 +4,9 @@ import clsx from 'clsx'
 import {Link} from 'react-router-dom'
 import {useFormik} from 'formik'
 import {requestPassword} from '../redux/AuthCRUD'
-
+import './AuthExtra.css'
 const initialValues = {
-  email: 'admin@demo.com',
+  email: '',
 }
 
 const forgotPasswordSchema = Yup.object().shape({
@@ -75,12 +75,21 @@ export function ForgotPassword() {
             >
               <div className='text-center mb-10'>
                 {/* begin::Title */}
-                <h1 className='text-dark mb-3'>Forgot Password ?</h1>
+                <h1 className='text-dark mb-3 defi-form-h1'>Reset Password</h1>
                 {/* end::Title */}
 
                 {/* begin::Link */}
-                <div className='text-gray-400 fw-bold fs-4'>
-                  Enter your email to reset your password.
+                <div
+                  className='fw-bold fs-14'
+                  style={{
+                    justifyContent: 'left',
+                    textAlign: 'left',
+                    marginLeft: '-23px',
+                    marginTop: '21px',
+                  }}
+                >
+                  Enter the email associated with your account and we’ll send an email with
+                  instructions to reset your password
                 </div>
                 {/* end::Link */}
               </div>
@@ -102,8 +111,16 @@ export function ForgotPassword() {
               {/* end::Title */}
 
               {/* begin::Form group */}
-              <div className='fv-row mb-10'>
-                <label className='form-label fw-bolder text-gray-900 fs-6'>Email</label>
+              <div
+                className='fv-row mb-10'
+                style={{
+                  justifyContent: 'left',
+                  textAlign: 'left',
+                  marginLeft: '-23px',
+                  marginTop: '21px',
+                }}
+              >
+                <label className='form-label fw-bolder text-gray-900 fs-6'>Email Address</label>
                 <input
                   type='email'
                   placeholder=''
@@ -133,25 +150,25 @@ export function ForgotPassword() {
                   type='submit'
                   id='kt_password_reset_submit'
                   className='btn btn-lg defi-base-button fw-bolder me-4'
+                  style={{width: !loading ? '362px' : ''}}
+                  disabled={formik.isSubmitting || !formik.isValid}
                 >
-                  <span className='indicator-label'>Submit</span>
+                  {!loading && <span className='indicator-label'>Send</span>}
                   {loading && (
-                    <span className='indicator-progress'>
+                    <span className='indicator-progress' style={{display: 'block'}}>
                       Please wait...
                       <span className='spinner-border spinner-border-sm align-middle ms-2'></span>
                     </span>
                   )}
                 </button>
-                <Link to='/auth/login'>
-                  <button
-                    type='button'
-                    id='kt_login_password_reset_form_cancel_button'
-                    className='btn btn-lg btn-light-primary fw-bolder'
-                    disabled={formik.isSubmitting || !formik.isValid}
-                  >
-                    Cancel
-                  </button>
-                </Link>{' '}
+                {!loading && (
+                  <span>
+                    Remember your password?{' '}
+                    <Link to='/auth/login' style={{color: 'black', fontWeight: 'bold'}}>
+                      Login
+                    </Link>{' '}
+                  </span>
+                )}
               </div>
               {/* end::Form group */}
             </form>
