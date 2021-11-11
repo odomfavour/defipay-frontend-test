@@ -42,7 +42,7 @@ export function AsideMenuMain() {
         <AsideMenuItem to='/crafted/pages/profile/projects' title='STOREFRONTS' hasBullet={false} />
         <AsideMenuItem to='/crafted/pages/profile/campaigns' title='ORDERS' hasBullet={false} />
         <AsideMenuItem
-          to='/crafted/pages/profile/documents'
+          to='/onetimepayment'
           title='PAYMENT PAGES'
           hasBullet={false}
         />
