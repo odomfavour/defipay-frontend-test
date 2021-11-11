@@ -1,0 +1,62 @@
+.howitworks-title {
+  color: #2d294e !important;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 32px;
+  letter-spacing: 1px;
+  line-height: 36px;
+  margin-bottom: 10px !important;
+}
+
+.howitworks-description {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.howitworks-title-2 {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 56px;
+  display: flex;
+  align-items: center;
+  color: #2d294e;
+}
+
+.howitworks-description-2 {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.howitworks-description-2 {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  color: rgba(45, 41, 78, 0.8);
+}
+.icon-box > img > hr {
+  border: 1.5px dashed rgba(45, 41, 78, 0.3);
+  box-sizing: border-box;
+  transform: rotate(-0.23deg);
+  margin-bottom: -90px;
+}
+
+@media(max-width: 426px) {
+
+  .howitworks-title {
+    font-size: 20px;
+  }
+
+  .howitworks-description {
+    margin-bottom: 70px;
+  }
+}

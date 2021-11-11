@@ -1,0 +1,32 @@
+.store-bg {
+  background: #ffffff;
+}
+.store-title {
+  color: #2d294e !important;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 32px;
+  letter-spacing: 1px;
+  line-height: 36px;
+  margin-bottom: 10px !important;
+}
+.store-description {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: justify;
+  display: flex;
+}
+.store-text-wrapper {
+  padding-top: 90px;
+}
+
+
+@media(max-width: 426px) {
+  .store-title {
+    font-size: 22px;
+    letter-spacing: 0;
+  }
+}
