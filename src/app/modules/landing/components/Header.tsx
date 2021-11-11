@@ -37,14 +37,16 @@ export function Header() {
             <nav className='main-nav'>
               <a href='#' className='logo'>
                 {navbar ? (
-                  <h3 className='dark-logo' style={{display: 'block'}}>
-                    {' '}
-                    Defipay
-                  </h3>
+                  <img
+                        src={toAbsoluteUrl('/media/images/defipay-current.png')}
+                        className='img-fluid'
+                        alt=''
+                        style={{height: '50px', textAlign: 'center'}}
+                      />
                 ) : (
                   // <h3 className='light-logo'> Defipay</h3>
                   <img
-                        src={toAbsoluteUrl('/media/images/defipay-main.jpg')}
+                        src={toAbsoluteUrl('/media/images/defipay-for-dark.png')}
                         className='img-fluid'
                         alt=''
                         style={{height: '50px', textAlign: 'center'}}
@@ -55,16 +57,16 @@ export function Header() {
                 <li>
                   <a href='#l'>Home</a>
                 </li>
-                <li>
-                  <a href='#'>Trade</a>
-                </li>
-                <li>
-                  <a href='#'>About</a>
-                </li>
+                {/*<li>*/}
+                {/*  <a href='#'>Trade</a>*/}
+                {/*</li>*/}
+                {/*<li>*/}
+                {/*  <a href='#'>About</a>*/}
+                {/*</li>*/}
 
-                <li>
-                  <a href='#'>Blog</a>
-                </li>
+                {/*<li>*/}
+                {/*  <a href='#'>Blog</a>*/}
+                {/*</li>*/}
                 <li className='mobile-display'>
                   <Link to='/auth/login'>Login</Link>
                 </li>

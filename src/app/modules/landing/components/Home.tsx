@@ -1,13 +1,20 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import React from 'react'
 import {Modal} from 'react-bootstrap-v5'
 import './Home.css'
 import {toAbsoluteUrl} from '../../../../shared/helpers'
 export function Home() {
   const [show, setShow] = useState(false)
+  const [showAlert, setShowAlert] = useState(false)
+  const [showSuccessModal, setShowSuccessModal] = useState(false)
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
+  const handleSuccessClose = () => {
+    setShowAlert(false)
+    document.location.href = `https://defipay.tech/home`
+  }
+  const handleSuccessShow = () => setShowAlert(true)
 
   let countries = [
     'Afganistan',
@@ -258,6 +265,22 @@ export function Home() {
     'Zimbabwe',
   ]
 
+  useEffect(() => {
+    handleClose()
+    setShowSuccessModal(false)
+    if (document.location.href === `https://defipay.tech/home?thankyou`) {
+      console.info(performance.navigation.type)
+      if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+        console.info('This page is reloaded')
+        document.location.href = `https://defipay.tech/home`
+      } else {
+        setShowAlert(true)
+        setShowSuccessModal(false)
+        console.info('This page is not reloaded')
+      }
+    }
+  }, [])
+
   return (
     <section className='welcome-area' data-bg={toAbsoluteUrl('/media/images/photos/welcome.png')}>
       <div className='welcome-bg'>
@@ -284,7 +307,7 @@ export function Home() {
                 data-bs-target='#exampleModal'
                 onClick={handleShow}
               >
-                Get Started
+                Subscribe
               </button>
             </div>
             <div className='offset-lg-1 col-lg-5 col-md-6 col-12 align-self-center'>
@@ -351,7 +374,7 @@ export function Home() {
             >
               <div className='modal-header'>
                 <h5 className='modal-title' id='exampleModalLabel'>
-                  Register
+                  Subscribe
                 </h5>
                 <button
                   type='button'
@@ -364,6 +387,9 @@ export function Home() {
               <div className='modal-lg'>
                 <div className='modal-content'>
                   <div className='modal-body'>
+                    <h3 className='text-center'>
+                      Subscribe now to get first hand update on Defipay.
+                    </h3>
                     <form
                       action='https://app.getresponse.com/add_subscriber.html'
                       accept-charset='utf-8'
@@ -372,10 +398,7 @@ export function Home() {
                       <div className='mb-3'>
                         <div className='row'>
                           <div className='col-md-12'>
-                            <label className='form-label'>
-                              {' '}
-                              Full Name <em>(firstname first)</em>
-                            </label>
+                            <label className='form-label'> First Name/ Last Name </label>
                             <input
                               type='text'
                               className='form-control'
@@ -385,40 +408,40 @@ export function Home() {
                             />
                           </div>
                         </div>
-                      </div>
-                      <div className='mb-3'>
-                        <div className='row'>
-                          <div className='col-md-6'>
-                            <label htmlFor='email' className='form-label'>
-                              Email address
-                            </label>
-                            <input
-                              type='email'
-                              className='form-control'
-                              id='email'
-                              aria-describedby='emailHelp'
-                              name='email'
-                            />
-                            <div id='emailHelp' className='form-text'>
-                              We'll never share your email with anyone else.
+                        <div className='mb-3'>
+                          <div className='row'>
+                            <div className='col-md-6'>
+                              <label htmlFor='email' className='form-label'>
+                                Email address
+                              </label>
+                              <input
+                                type='email'
+                                className='form-control'
+                                id='email'
+                                aria-describedby='emailHelp'
+                                name='email'
+                              />
+                              <div id='emailHelp' className='form-text'>
+                                We'll never share your email with anyone else.
+                              </div>
                             </div>
-                          </div>
-                          <div className='col-md-6'>
-                            <label className='form-label'>Country</label>
-                            <select
-                              className='form-select'
-                              aria-label='Default select example'
-                              name='custom_country'
-                            >
-                              <option selected disabled>
-                                Select your country
-                              </option>
-                              {countries.map((country, index) => (
-                                <option value={country} key={index}>
-                                  {country}
+                            <div className='col-md-6'>
+                              <label className='form-label'>Country</label>
+                              <select
+                                className='form-select'
+                                aria-label='Default select example'
+                                name='custom_country'
+                              >
+                                <option selected disabled>
+                                  Select your country
                                 </option>
-                              ))}
-                            </select>
+                                {countries.map((country, index) => (
+                                  <option value={country} key={index}>
+                                    {country}
+                                  </option>
+                                ))}
+                              </select>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -451,18 +474,52 @@ export function Home() {
                         <input
                           type='hidden'
                           name='thankyou_url'
-                          value='http://localhost:3011/home?thankyou'
+                          value='https://defipay.tech/home?thankyou'
                         />
                         {/*Add subscriber to the follow-up sequence with a specified day (optional)*/}
                         <input type='hidden' name='start_day' value='0' />
                         {/*Subscriber button*/}
                       </div>
                       <div className='d-flex justify-content-end'>
-                        <button type='submit' className='btn btn-primary'>
-                          Submit
+                        <button
+                          type='submit'
+                          className='btn btn-primary'
+                          onClick={() => setShowSuccessModal(true)}
+                        >
+                          Subscribe
                         </button>
                       </div>
                     </form>
+                  </div>
+                </div>
+              </div>
+            </Modal>
+            <Modal
+              className='modal fade'
+              id='exampleModal'
+              aria-labelledby='exampleModalLabel'
+              size='sm'
+              centered
+              aria-hidden='true'
+              show={showAlert}
+              onHide={handleSuccessClose}
+            >
+              <div className='modal-header'>
+                <h5 className='modal-title' id='exampleModalLabel'>
+                  Subscription
+                </h5>
+                <button
+                  type='button'
+                  className='btn-close'
+                  data-bs-dismiss='modal'
+                  aria-label='Close'
+                  onClick={handleSuccessClose}
+                ></button>
+              </div>
+              <div className='modal-lg'>
+                <div className='modal-content'>
+                  <div className='modal-body'>
+                    <p>Your subscription was successful. Check your mail for more information</p>
                   </div>
                 </div>
               </div>
