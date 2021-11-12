@@ -1,5 +1,6 @@
 import axios from 'axios'
-import { BaseModel } from '../../merchant/models/BaseModel'
+import { BaseModel } from '../../../basemodels/BaseModel'
+
 import { merchantEndpoints } from './MerchantUrls'
 
 export function getcountries() {
