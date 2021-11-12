@@ -10,6 +10,6 @@ export const actions = {
     fulfilpaymentplan: (paymentplans: PaymentPlanModel[]) =>
         ({ type: paymentActionTypes.FufilPaymentPlan, payload: { paymentplans } }),
     getpaymentsubscription: () => ({ type: paymentActionTypes.SubscriptionPage }),
-    fulfilindustry: (subscription: SucbscriptionModel[]) =>
+    fulfilsubscription: (subscription: SucbscriptionModel[]) =>
         ({ type: paymentActionTypes.FufilSubscriptionPage, payload: { subscription } })
 }
