@@ -12,7 +12,7 @@ export function* paymentSaga() {
         yield put(actions.fulfilpaymentplan(paymentplans))
     })
 
-    // yield takeLatest(actionTypes.Logout, function* userLogOut() {
+    // yield takeLatest(paymentActionTypes.LinkPusher, function* getLink() {
     //     const { data: user } = yield logOutUser()
     //     yield put(actions.logout())
     // })

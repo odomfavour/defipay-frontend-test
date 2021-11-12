@@ -1,6 +1,7 @@
 export const paymentActionTypes = {
     //One time Payment Page
     CreateOnetimePaymentPage: '[CreateOnetimePaymentPage] Action',
+    LinkPusher: '[LinkPusher] Action',
     UpdateOnetimePaymentPage: '[UpdateOnetimePaymentPage] Action',
     OnetimePaymentPage: '[OnetimePaymentPage] Action',
     FufilOnetimePaymentPage: '[Fulfil OnetimePaymentPage] Action',

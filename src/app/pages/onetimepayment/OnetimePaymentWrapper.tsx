@@ -8,13 +8,22 @@ import SuccessModal from '../../modules/payments/components/SuccessModal'
 import NewPaymentPageModal from '../../modules/payments/components/NewPaymentPageModal'
 import OneTimePaymentModal from '../../modules/payments/components/OneTimePaymentModal'
 import PersonalPageModal from '../../modules/payments/components/PersonalPageModal'
+import {UserModel} from '../../modules/auth/models/UserModel'
+import {RootState} from '../../../setup'
+import {shallowEqual, useSelector} from 'react-redux'
 
 const OnetimePaymentPage: FC = () => {
+  const user: UserModel = useSelector<RootState>(({auth}) => auth.user, shallowEqual) as UserModel
+  const link: String = useSelector<RootState>(
+    ({payment}) => payment.linkUrl,
+    shallowEqual
+  ) as String
   const [show, setShow] = useState(false)
   const [oneTimeModal, setOneTimeModal] = useState(false)
   const [showSuccess, setShowSuccess] = useState(false)
+  // link !== '' ? setShowSuccess(true) : setShowSuccess(false)
   const [showPersonalModal, setShowPersonalModal] = useState(false)
-  // const [showSuccessModal, setShowSuccessModal] = useState(false)
+  const [showSuccessModal, setShowSuccessModal] = useState(false)
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
   const handleOneTimeClose = () => setOneTimeModal(false)
@@ -36,7 +45,9 @@ const OnetimePaymentPage: FC = () => {
               <input type='text' className='form-control' placeholder='Search' />
             </div>
             <div className='text-center'>
-              <button className='btn main-btn'>+ New Page</button>
+              <button className='btn main-btn' onClick={handleShow}>
+                + New Page
+              </button>
             </div>
           </div>
           <section className='min-card d-flex justify-content-center align-items-center'>
@@ -49,7 +60,7 @@ const OnetimePaymentPage: FC = () => {
                 />
               </div>
               <span className='card-title d-flex justify-content-center title-extension'>
-                Hello, Adeshina & co
+                Hello, {user.businessname}
               </span>
               <p className='card-text d-flex justify-content-center text-extension'>
                 Simply create a page, share the link to your customers, and start accepting
@@ -79,11 +90,11 @@ const OnetimePaymentPage: FC = () => {
           handleClose={handleOneTimeClose}
           openSuccess={handleSuccessShow}
         />
-        <SuccessModal
+        {/* <SuccessModal
           show={showSuccess}
           handleClose={handleSuccessClose}
-          openPersonal={handlePersonalOpen}
-        />
+          //openPersonal={handlePersonalOpen}
+        /> */}
         <PersonalPageModal show={showPersonalModal} handleClose={handlePersonalClose} />
       </div>
     </>

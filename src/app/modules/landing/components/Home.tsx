@@ -270,7 +270,7 @@ export function Home() {
     setShowSuccessModal(false)
     if (document.location.href === `https://defipay.tech/home?thankyou`) {
       console.info(performance.navigation.type)
-      if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+      if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
         console.info('This page is reloaded')
         document.location.href = `https://defipay.tech/home`
       } else {

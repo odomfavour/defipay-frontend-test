@@ -1,5 +1,6 @@
 export * from './models/PaymentPlanModel'
-export * from './models/OneTimePaymentModel'
+export * from './models/OneTimePaymentDtoModel'
+export * from './models/OneTimePaymentViewModel'
 export * from './models/SubscriptionModel'
 export * from './redux/PaymentCRUD'
 export * from './redux/PaymentRedux'

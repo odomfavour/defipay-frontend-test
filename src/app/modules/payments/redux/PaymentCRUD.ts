@@ -1,10 +1,18 @@
 import axios from 'axios'
+import { OneTimePaymentDtoModel } from '..'
 import { BaseModel } from '../../../basemodels/BaseModel'
-
 import { paymentEndpoints } from './PaymentUrls'
 
-export function createOneTimePaymentPage() {
-    return axios.post<BaseModel>(paymentEndpoints.CREATE_ONE_TIMEPAYMENT)
+
+export function createOneTimePaymentPage(model: OneTimePaymentDtoModel) {
+    console.log(model)
+    return axios.post<BaseModel>(paymentEndpoints.CREATE_ONE_TIMEPAYMENT,
+        {
+            amount: model.amount, description: model.description,
+            emailaddress: model.emailaddress, pagename: model.pagename,
+            redirectLink: model.redirectLink, successmessage: model.successmessage,
+            paidBy: 1
+        })
 }
 
 //Payment Plan

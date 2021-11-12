@@ -4,8 +4,8 @@ import {shallowEqual, useSelector} from 'react-redux'
 import {useIntl} from 'react-intl'
 import {PageTitle} from '../../../shared/layout/core'
 import {UserModel} from '../../modules/auth/models/UserModel'
-import {GoToDashboardModal} from '../../modules/dashboard/components/GoToDashboardModal'
 import {RootState} from '../../../setup'
+import {BusinessActivation, GoToDashboardModal} from '../../modules/dashboard'
 
 const DashboardPage: FC = () => (
   <>
@@ -40,6 +40,7 @@ const DashboardWrapper: FC = () => {
     <>
       <PageTitle breadcrumbs={[]}>{intl.formatMessage({id: 'MENU.DASHBOARD'})}</PageTitle>
       <DashboardPage />
+      <BusinessActivation businessName={user.businessname} accountMode={user.accountmodel} />
       <GoToDashboardModal show={show} handleClose={handleClose} businessName={user.businessname} />
     </>
   )

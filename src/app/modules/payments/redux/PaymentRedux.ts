@@ -1,5 +1,5 @@
 import { Action } from '@reduxjs/toolkit'
-import { OneTimePaymentModel, PaymentPlanModel } from '..'
+import { OneTimePaymentViewModel, PaymentPlanModel } from '..'
 import { paymentActionTypes } from './PaymentActionTypes'
 
 export interface ActionWithPayload<T> extends Action {
@@ -10,13 +10,15 @@ export interface ActionWithPayload<T> extends Action {
 const initialMPaymentState: IPaymentState = {
     onetimepaymentpages: undefined,
     paymentplan: undefined,
-    subscriptionpages: undefined
+    subscriptionpages: undefined,
+    linkUrl: undefined
 }
 
 export interface IPaymentState {
-    onetimepaymentpages?: OneTimePaymentModel[],
+    onetimepaymentpages?: OneTimePaymentViewModel[],
     paymentplan?: PaymentPlanModel[],
     subscriptionpages?: PaymentPlanModel[],
+    linkUrl?: String
 }
 
 export const reducer = (state: IPaymentState = initialMPaymentState,
@@ -24,6 +26,10 @@ export const reducer = (state: IPaymentState = initialMPaymentState,
     switch (action.type) {
         case paymentActionTypes.OnetimePaymentPage: {
             return { ...state }
+        }
+        case paymentActionTypes.LinkPusher: {
+            const linkUrl = action.payload?.linkUrl
+            return { ...state, linkUrl }
         }
         case paymentActionTypes.FufilOnetimePaymentPage: {
             const otpayment = action.payload?.onetimepaymentpages

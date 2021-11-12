@@ -1,79 +1,128 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React, {FC} from 'react'
+import React, {FC, useState} from 'react'
 import {useIntl} from 'react-intl'
 import {PageTitle} from '../../../shared/layout/core'
+import AccountComponent from '../../modules/compliance/components/AccountComponent'
+import CompanyComponent from '../../modules/compliance/components/CompanyComponent'
+import OwnerIdComponent from '../../modules/compliance/components/OwnerIdComponent'
+import ProfileComponent from '../../modules/compliance/components/ProfileComponent'
 import './compliance.css'
 
-const CompliancePage: FC = () => (
-  <>
-    <div className='content-wrapper'>
-      <div className='card'>
-        <span className='card-title d-flex justify-content-center title-extension'>
-          Hello, Adeshina & co
-        </span>
-        <h5 className='d-flex justify-content-center sub-title-extension'>
-          Welcome on board, to Defipay
-        </h5>
-        <p className='card-text d-flex justify-content-center text-extension'>
-          Your business is currently in test mode, there is a few step to go to start recieving
-          payment from your customer online. to do this, see the guide below
-        </p>
-        <div className='card-body'>
-          <div className='row defi-card-link-wrapper'>
-            <div className='col-md-4'>
-              <div className='defi-card-link'>
-                <img className='card-img-top defi-link-image' alt='' src='images/img1' />
-                <h1 className='d-flex justify-content-center defi-compliance-link-title'>
-                  Activate business
-                </h1>
-                <p className='d-flex justify-content-center defi-compliance-link-description'>
-                  Submit compliance details to start receiving payments
-                </p>
-              </div>
-            </div>
-            <div className='col-md-4'>
-              <div className='defi-card-link'>
-                <img className='card-img-top defi-link-image' alt='' src='images/img1' />
-                <h1 className='d-flex justify-content-center defi-compliance-link-title'>
-                  Take a tour
-                </h1>
-                <p className='d-flex justify-content-center defi-compliance-link-description'>
-                  Want to know more about your dashboard?
-                </p>
-              </div>
-            </div>
-            <div className='col-md-4'>
-              <div className='defi-card-link'>
-                <img className='card-img-top defi-link-image' alt='' src='images/img1' />
-                <h1 className='d-flex justify-content-center defi-compliance-link-title'>
-                  Go to support
-                </h1>
-                <p className='d-flex justify-content-center defi-compliance-link-description'>
-                  Need help to answer questions?
-                </p>
-              </div>
-            </div>
-          </div>
-          <h5 className='d-flex justify-content-center api-document'>
-            API Documentation Go to docs
-          </h5>
-        </div>
-        {/* <a href='#' class='card-link'>
-          Card link
-        </a> */}
-      </div>
-    </div>
-  </>
-)
+// const setStep  = () => {
+//   [activeStep, setActiveStep] = useState(0);
+// }
 
 const ComplianceWrapper: FC = () => {
   const intl = useIntl()
+  const [activeStep, setActiveStep] = useState(0)
   return (
     <>
       <PageTitle breadcrumbs={[]}>{intl.formatMessage({id: 'MENU.COMPLIANCE'})}</PageTitle>
-      <CompliancePage />
+      <div className='row g-5 gx-xxl-8'>
+        <div className='d-flex'>
+          <div className='d-card'>
+            <div className='my-5'>
+              <div className='d-flex justify-content-between d-heading my-5'>
+                <div className='form-check'>
+                  <label className='form-check-label' htmlFor='flexCheckDefault'>
+                    Profile
+                  </label>
+                  <input
+                    className='form-check-input'
+                    type='checkbox'
+                    value=''
+                    id='flexCheckDefault'
+                    checked={activeStep > 0 ? true : false}
+                  />
+                </div>
+                <div className='form-check'>
+                  <label className='form-check-label' htmlFor='flexCheckDefault'>
+                    Company
+                  </label>
+                  <input
+                    className='form-check-input'
+                    type='checkbox'
+                    value=''
+                    id='flexCheckDefault'
+                    checked={activeStep > 1 ? true : false}
+                  />
+                </div>
+                <div className='form-check'>
+                  <label className='form-check-label' htmlFor='flexCheckDefault'>
+                    Owner
+                  </label>
+                  <input
+                    className='form-check-input'
+                    type='checkbox'
+                    value=''
+                    id='flexCheckDefault'
+                    checked={activeStep > 2 ? true : false}
+                  />
+                </div>
+                <div className='form-check'>
+                  <label className='form-check-label' htmlFor='flexCheckDefault'>
+                    Account
+                  </label>
+                  <input
+                    className='form-check-input'
+                    type='checkbox'
+                    value=''
+                    id='flexCheckDefault'
+                    checked={activeStep > 3 ? true : false}
+                  />
+                </div>
+              </div>
+              <div className='d-flex justify-content-end mb-3'>
+                <h6>{activeStep} of 4 steps completed</h6>
+              </div>
+              <div className='card'>
+                <div className='card-body'>
+                  {activeStep === 0 ? (
+                    <ProfileComponent setActiveStep={setActiveStep} activeStep={activeStep} />
+                  ) : activeStep === 1 ? (
+                    <CompanyComponent setActiveStep={setActiveStep} activeStep={activeStep} />
+                  ) : activeStep === 2 ? (
+                    <OwnerIdComponent setActiveStep={setActiveStep} activeStep={activeStep} />
+                  ) : activeStep === 3 ? (
+                    <AccountComponent setActiveStep={setActiveStep} activeStep={activeStep} />
+                  ) : (
+                    <section>
+                      <h4 className='text-center mb-5'>The following tasks are completed</h4>
+                      <div className='d-flex justify-content-between align-items-center mb-5'>
+                        <h3>Business information</h3>
+                        <button className='btn btn-light'>Edit</button>
+                      </div>
+                      <div className='d-flex justify-content-between align-items-center mb-5'>
+                        <h3>Personal information</h3>
+                        <button className='btn btn-light'>Edit</button>
+                      </div>
+                      <div className='d-flex justify-content-between align-items-center mb-5'>
+                        <h3>Owner Verification</h3>
+                        <button className='btn btn-light'>Edit</button>
+                      </div>
+                      <div className='d-flex justify-content-between align-items-center mb-5 border-bottom-2'>
+                        <h3>Account details</h3>
+                        <button className='btn btn-light'>Edit</button>
+                      </div>
+                      <div className='mb-5 text-center'>
+                        <button className='btn-learning btn btn-warning'>Activate Business</button>
+                      </div>
+                      <div className='mb-5 text-center'>
+                        <button
+                          className='btn-learning btn btn-light'
+                          onClick={() => setActiveStep(activeStep - 1)}
+                        >
+                          Prev-All Done
+                        </button>
+                      </div>
+                    </section>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   )
 }
-
 export {ComplianceWrapper}
