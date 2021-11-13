@@ -6,10 +6,78 @@ import {PageTitle} from '../../../shared/layout/core'
 import {UserModel} from '../../modules/auth/models/UserModel'
 import {GoToDashboardModal} from '../../modules/dashboard/components/GoToDashboardModal'
 import {RootState} from '../../../setup'
+import EarningsGraph from '../../modules/payments/components/EarningsGraph'
+import './Dashboard.css'
 
 const DashboardPage: FC = () => (
   <>
-    <div className='row g-5 gx-xxl-8'></div>
+    <div className='row g-5 gx-xxl-8'>
+      <div className="col-md-9">
+        <div className="card">
+          <div className="card-body">
+            <div className="top-section">
+              <div className="row">
+                <div className="col-md-3">
+                  <div className="mt-3">
+                    <select className="form-select" aria-label="Default select example">
+                      <option selected>Past 30 days</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="text-center my-2">
+              <h1>Earnings <span>DFC 0.00</span></h1>
+            </div>
+            <EarningsGraph/>
+            <section className="mt-5">
+              <div className="row">
+                <div className="col-md-6 b-right">
+                  <div className="px-5">
+                    <p className="mb-0">payment Errors</p>
+                    <p className="mb-0">System Errors</p>
+                    <p className="mb-0">Client Errors</p>
+                    <p className="mb-0">Sharp Practices</p>
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="px-5">
+                    <p className="mb-0">Completion Rate</p>
+                    <p className="mb-0">Transactions</p>
+                    <p className="mb-0">Abandoned</p>
+                    <p  className="mb-0">Pass rate: 0%</p>
+                    <p  className="mb-0">Processing errors</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+      <div className="col-md-3">
+          <div className="card h-100">
+            <div className="card-body">
+              <div className="top-section mb-5">
+              </div>
+              <div className="balance-section text-center px-5">
+                <div>
+                  <p className="mt-5 pt-5">Balance</p>
+                  <h1 className="mb-5">DFC <span className="font-weight-bold">0.00</span></h1>
+                  <div className="mt-5">
+                    <button className="btn btn-light w-100">Withdraw</button>
+                  </div>
+                  <div className="mt-5">
+                    <button className="btn btn-light w-100">Top Up</button>
+                  </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
   </>
 )
 

@@ -10,6 +10,8 @@ import OneTimePaymentModal from '../../modules/payments/components/OneTimePaymen
 import PersonalPageModal from '../../modules/payments/components/PersonalPageModal'
 import SubscriptionPaymentModal from '../../modules/payments/components/SubscriptionPaymentModal'
 import NewSubPaymentPage from '../../modules/payments/components/NewSubPaymentPage'
+import EarningsGraph from '../../modules/payments/components/EarningsGraph'
+import PublishedSubPage from '../../modules/payments/components/PublishedSubPage'
 
 
 const OnetimePaymentPage: FC = () => {
@@ -72,6 +74,7 @@ const OnetimePaymentPage: FC = () => {
         <PersonalPageModal show={showPersonalModal} handleClose={handlePersonalClose} />
         <SubscriptionPaymentModal show={subscription} handleClose={handleSubClose} openNewPage={handleNewPageOpen}/>
         <NewSubPaymentPage show={newPageOpen} handleClose={handleNewPageClose} openNewPage={handleNewPageOpen}/>
+        <PublishedSubPage show={newPageOpen} handleClose={handleNewPageClose} openNewPage={handleNewPageOpen}/>
       </div>
     </>
   )

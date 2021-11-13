@@ -7,6 +7,16 @@
     width: 50%;
 }
 
+.top-section {
+    height: 70px;
+    border-bottom: 2px solid #000;
+    margin-bottom: 40px;
+}
+
+.b-right {
+    border-right: 1px solid #000;
+}
+
 @media(max-width: 426px) {
     .d-card {
         width: 100%;
