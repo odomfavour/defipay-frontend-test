@@ -1,6 +1,37 @@
 import {Modal} from 'react-bootstrap-v5'
+import {Link} from 'react-router-dom'
 import {toAbsoluteUrl} from '../../../../shared/helpers'
-
+import {
+  // EmailShareButton,
+  FacebookIcon,
+  FacebookShareButton,
+  // HatenaShareButton,
+  // InstapaperShareButton,
+  // LineShareButton,
+  // LinkedinShareButton,
+  // LivejournalShareButton,
+  // MailruShareButton,
+  // OKShareButton,
+  // PinterestShareButton,
+  // PocketShareButton,
+  // RedditShareButton,
+  TelegramIcon,
+  TelegramShareButton,
+  // TumblrShareButton,
+  TwitterIcon,
+  TwitterShareButton,
+  // ViberShareButton,
+  // VKShareButton,
+  WhatsappIcon,
+  WhatsappShareButton,
+  // WorkplaceShareButton,
+} from 'react-share'
+let path = ''
+if (typeof window !== 'undefined') {
+  path = window.location.protocol + '//' + window.location.host + '/otpls/' // (or whatever)
+} else {
+  // work out what you want to do server-side...
+}
 const SuccessModal = (props: {
   show: boolean
   link: string
@@ -44,7 +75,7 @@ const SuccessModal = (props: {
                 <div className='mb-5'>
                   <input
                     type='text'
-                    value={props.link}
+                    value={path + props.link}
                     className='form-control'
                     id='exampleFormControlInput1'
                     placeholder='https//defipay.com/pay/'
@@ -52,13 +83,41 @@ const SuccessModal = (props: {
                 </div>
                 <div className='d-flex justify-content-between'>
                   <button className='btn btn-light'>Copy link </button>
-                  <button
-                    className='btn btn-warning'
-                    // onClick={props.openPersonal}
-                  >
+                  <Link className='btn btn-warning' to={'/otpls/' + props.link}>
                     Visit your page
-                  </button>
+                  </Link>
                 </div>
+              </div>
+              <div>
+                <FacebookShareButton
+                  url={path + props.link}
+                  quote={'Defi One time Payment Link'}
+                  className='Demo__some-network__share-button'
+                >
+                  <FacebookIcon size={32} round />
+                </FacebookShareButton>
+                <TwitterShareButton
+                  url={path + props.link}
+                  title={'Defi One time Payment Link'}
+                  className='Demo__some-network__share-button'
+                >
+                  <TwitterIcon size={32} round />
+                </TwitterShareButton>
+                <TelegramShareButton
+                  url={path + props.link}
+                  title={'Defi One time Payment Link'}
+                  className='Demo__some-network__share-button'
+                >
+                  <TelegramIcon size={32} round />
+                </TelegramShareButton>
+                <WhatsappShareButton
+                  url={path + props.link}
+                  title={'Defi One time Payment Link'}
+                  separator=':: '
+                  className='Demo__some-network__share-button'
+                >
+                  <WhatsappIcon size={32} round />
+                </WhatsappShareButton>
               </div>
             </div>
           </div>

@@ -4,8 +4,8 @@ import { paymentActionTypes } from "./PaymentActionTypes"
 export const actions = {
     createonetimepaymentpage: () => ({ type: paymentActionTypes.CreateOnetimePaymentPage }),
     getonetimepaymentpages: () => ({ type: paymentActionTypes.OnetimePaymentPage }),
-    fulfilonetimepaymentpages: (otppages: OneTimePaymentViewModel[]) =>
-        ({ type: paymentActionTypes.FufilOnetimePaymentPage, payload: { otppages } }),
+    fulfilonetimepaymentpages: (otpayments: OneTimePaymentViewModel[]) =>
+        ({ type: paymentActionTypes.FufilOnetimePaymentPage, payload: { otpayments } }),
     getpaymentplan: () => ({ type: paymentActionTypes.PaymentPlan }),
     fulfilpaymentplan: (paymentplans: PaymentPlanModel[]) =>
         ({ type: paymentActionTypes.FufilPaymentPlan, payload: { paymentplans } }),

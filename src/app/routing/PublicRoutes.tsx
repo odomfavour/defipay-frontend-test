@@ -12,6 +12,7 @@ import {
 import Registration from '../modules/auth/components/Registration'
 import ResetPassword from '../modules/auth/components/ResetPassword'
 import {HomePage} from '../modules/landing'
+import {PaymentCheckOutPage} from '../pages/onetimepayment/PaymentCheckOutPage'
 
 export function PublicRoutes() {
   return (
@@ -29,6 +30,7 @@ export function PublicRoutes() {
       <Route path='/auth/setup-password' component={PasswordSetup} />
       <Route path='/auth/reset-password' component={ResetPassword} />
       <Route path='/auth/business-type' component={BusinessType} />
+      <Route path='/otpls/:id' component={PaymentCheckOutPage} />
     </Switch>
   )
 }

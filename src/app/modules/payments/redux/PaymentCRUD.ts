@@ -14,6 +14,10 @@ export function createOneTimePaymentPage(model: OneTimePaymentDtoModel) {
             paidBy: 1
         })
 }
+export function readOneTimePaymentPages() {
+    return axios.get<BaseModel>(paymentEndpoints.GET_ONE_TIMEPAYMENT)
+}
+
 
 //Payment Plan
 export function createPaymentPlan() {

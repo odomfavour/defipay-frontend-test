@@ -49,7 +49,7 @@ export function AsideMenuMain() {
         <AsideMenuItem to='/storefronts' title='StoreFronts' hasBullet={true} />
         <AsideMenuItem to='/orders' title='Orders' hasBullet={true} />
         <AsideMenuItem to='/commerce/onetimepayment' title='Payment Pages' hasBullet={true} />
-        <AsideMenuItem to='/invoices' title='Invoices' hasBullet={true} />
+        <AsideMenuItem to='/commerce/invoices' title='Invoices' hasBullet={true} />
       </AsideMenuItemWithSub>
       <br />
       <AsideMenuItemWithSub

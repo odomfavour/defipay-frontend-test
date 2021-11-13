@@ -3,6 +3,7 @@ import { config } from '../../../../apiBaseUrl'
 const API_URL = config.url.apiUrl;
 
 const CREATE_ONE_TIMEPAYMENT = `${API_URL}/onetimepayment/createpaymentpage`
+const GET_ONE_TIMEPAYMENT = `${API_URL}/onetimepayment/getpagebymerchant`
 
 //Payment Plan
 const CREATE_PAYMENT_PLAN = `${API_URL}/paymentplan/createpaymentplan`
@@ -18,5 +19,6 @@ export const paymentEndpoints = {
     UPDATE_PAYMENT_PLAN,
     GET_PAYMENT_PLAN_BY_ID,
     GET_ALL_PAYMENT_PLANS,
+    GET_ONE_TIMEPAYMENT,
     CREATE_OSUBSCRIPTION_PAYMENT_PAGE
 };

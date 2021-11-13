@@ -1,0 +1,10 @@
+.checkout-box-wrapper {
+  top: 95px;
+  left: 450px;
+  width: 550px;
+  height: 567px;
+  justify-content: center;
+  /* margin-right: 415px; */
+  position: absolute;
+  /* background: #ffffff; */
+}

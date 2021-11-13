@@ -8,14 +8,14 @@ export interface ActionWithPayload<T> extends Action {
 
 
 const initialMPaymentState: IPaymentState = {
-    onetimepaymentpages: undefined,
+    otpayments: undefined,
     paymentplan: undefined,
     subscriptionpages: undefined,
     linkUrl: undefined
 }
 
 export interface IPaymentState {
-    onetimepaymentpages?: OneTimePaymentViewModel[],
+    otpayments?: OneTimePaymentViewModel[],
     paymentplan?: PaymentPlanModel[],
     subscriptionpages?: PaymentPlanModel[],
     linkUrl?: String
@@ -32,8 +32,8 @@ export const reducer = (state: IPaymentState = initialMPaymentState,
             return { ...state, linkUrl }
         }
         case paymentActionTypes.FufilOnetimePaymentPage: {
-            const otpayment = action.payload?.onetimepaymentpages
-            return { ...state, otpayment }
+            const otpayments = action.payload?.otpayments
+            return { ...state, otpayments }
         }
         case paymentActionTypes.CreateOnetimePaymentPage: {
             return { ...state }
