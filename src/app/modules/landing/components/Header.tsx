@@ -74,7 +74,7 @@ export function Header() {
                   <Link to='/auth/registration'>Sign Up</Link>
                 </li>
                 <li>
-                  {/* <div className='dropdown'>
+                  <div className='dropdown'>
                     <img
                       src={toAbsoluteUrl('/media/images/touchbutton.svg')}
                       alt=''
@@ -84,7 +84,7 @@ export function Header() {
                       <Link to='/auth/login'>Login</Link>
                       <Link to='/auth/registration'>Sign Up</Link>
                     </div>
-                  </div> */}
+                  </div>
                 </li>
               </ul>
               <a className={click ? 'menu-trigger active' : 'menu-trigger'} onClick={handleClick}>

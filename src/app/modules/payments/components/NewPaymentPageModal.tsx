@@ -1,11 +1,7 @@
 import {Modal} from 'react-bootstrap-v5'
 import {toAbsoluteUrl} from '../../../../shared/helpers'
 
-const NewPaymentPageModal = (props: {
-  show: boolean
-  handleClose: () => void
-  openOneTime: () => void
-}) => {
+const NewPaymentPageModal = (props: { show: boolean; handleClose: () => void; openOneTime: () => void; openSub: () => void;  }) => {
   return (
     <div>
       <Modal
@@ -63,6 +59,7 @@ const NewPaymentPageModal = (props: {
                     <div>
                       <h3>Subscription Payment</h3>
                       <p>Create a page for recurring payments and subscriptions </p>
+                      <button className='btn-light btn' onClick={props.openSub}>Select</button>
                     </div>
                   </div>
                   <div>
