@@ -16,7 +16,7 @@ export function PrivateRoutes() {
         <Route path='/getstarted' component={GetStartedWrapper} />
         <Route path='/compliance' component={ComplianceWrapper} />
         <Route path='/crafted/account' component={AccountPage} />
-        <Route path='/onetimepayment' component={OnetimePaymentWrapper} />
+        <Route path='/commerce/onetimepayment' component={OnetimePaymentWrapper} />
         <Redirect from='/auth' to='/dashboard' />
         <Redirect from='/home' to='/dashboard' />
         <Redirect exact from='/' to='/dashboard' />

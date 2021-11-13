@@ -2,7 +2,6 @@ import React from 'react'
 import {Redirect, Route, Switch} from 'react-router-dom'
 import {
   Login,
-  Registration,
   ForgotPassword,
   ConfirmEmail,
   VerifyEmail,
@@ -10,6 +9,7 @@ import {
   BusinessType,
   GoToDashboard,
 } from '../modules/auth'
+import Registration from '../modules/auth/components/Registration'
 import ResetPassword from '../modules/auth/components/ResetPassword'
 import {HomePage} from '../modules/landing'
 

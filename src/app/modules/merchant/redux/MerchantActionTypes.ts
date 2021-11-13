@@ -1,4 +1,8 @@
-export const merchantTypes = {
+export const merchantActionTypes = {
     Industry: '[Industry] Action',
-    Business: '[Business] Action'
+    FufilIndustry: '[Fulfil Industry] Action',
+    Business: '[Business] Action',
+    FulfilBusiness: '[Fulfil Business] Action',
+    Country: '[Country] Action',
+    FulfilCountry: '[Fulfil Country] Action',
 }

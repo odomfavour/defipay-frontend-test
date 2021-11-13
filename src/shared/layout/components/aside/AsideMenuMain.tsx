@@ -33,19 +33,34 @@ export function AsideMenuMain() {
         fontIcon='bi-app-indicator'
       />
       <br />
+      <AsideMenuItem
+        to='/wallet'
+        icon=''
+        title={intl.formatMessage({id: 'MENU.WALLET'})}
+        fontIcon='bi-app-indicator'
+      />
+      <br />
       <AsideMenuItemWithSub
-        to='/crafted/pages/profile'
+        to='/commerce'
         title={intl.formatMessage({id: 'MENU.COMMEERCE'})}
+        hasBullet={false}
+      >
+        <AsideMenuItem to='/products' title='Products' hasBullet={true} />
+        <AsideMenuItem to='/storefronts' title='StoreFronts' hasBullet={true} />
+        <AsideMenuItem to='/orders' title='Orders' hasBullet={true} />
+        <AsideMenuItem to='/commerce/onetimepayment' title='Payment Pages' hasBullet={true} />
+        <AsideMenuItem to='/invoices' title='Invoices' hasBullet={true} />
+      </AsideMenuItemWithSub>
+      <br />
+      <AsideMenuItemWithSub
+        to='/payments'
+        title={intl.formatMessage({id: 'MENU.PAYMENTS'})}
         hasBullet={false}
       >
         <AsideMenuItem to='/crafted/pages/profile/overview' title='PRODUCTS' hasBullet={false} />
         <AsideMenuItem to='/crafted/pages/profile/projects' title='STOREFRONTS' hasBullet={false} />
         <AsideMenuItem to='/crafted/pages/profile/campaigns' title='ORDERS' hasBullet={false} />
-        <AsideMenuItem
-          to='/onetimepayment'
-          title='PAYMENT PAGES'
-          hasBullet={false}
-        />
+        <AsideMenuItem to='/payments' title='PAYMENT PAGES' hasBullet={false} />
         <AsideMenuItem
           to='/crafted/pages/profile/connections'
           title='Connections'
@@ -53,25 +68,6 @@ export function AsideMenuMain() {
         />
       </AsideMenuItemWithSub>
       <br />
-      <AsideMenuItemWithSub
-        to='/crafted/pages/profile'
-        title={intl.formatMessage({id: 'MENU.PAYMENTS'})}
-        hasBullet={false}
-      >
-        <AsideMenuItem to='/crafted/pages/profile/overview' title='PRODUCTS' hasBullet={false} />
-        <AsideMenuItem to='/crafted/pages/profile/projects' title='STOREFRONTS' hasBullet={false} />
-        <AsideMenuItem to='/crafted/pages/profile/campaigns' title='ORDERS' hasBullet={false} />
-        <AsideMenuItem
-          to='/crafted/pages/profile/documents'
-          title='PAYMENT PAGES'
-          hasBullet={false}
-        />
-        <AsideMenuItem
-          to='/crafted/pages/profile/connections'
-          title='Connections'
-          hasBullet={false}
-        />
-      </AsideMenuItemWithSub>
       <div className='menu-item'>
         <div className='menu-content'>
           <div className='separator mx-1 my-4' style={{color: '#fffff'}}></div>

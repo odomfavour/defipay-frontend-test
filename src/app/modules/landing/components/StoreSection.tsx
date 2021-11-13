@@ -21,18 +21,16 @@ const StoreSection = () => {
 
             <div className='store-description'>
               <p className='lh-base'>
-                Defipay payments are processed through a private network of computers linked through
-                a shared ledger.Each transaction is simultaneouly recorded in a "Blockchain"
+                Defipay acts as a gateway that allows merchants to pay with crypto for buying and selling where crypto acts as the currency for exchange.
               </p>
-            </div>
-            <div className='store-title'>
-              <strong>Defipay is here for you</strong>
             </div>
             <div className='store-description'>
-              <p className='lh-base'>
-                Defipay payments are processed through a private network of computers linked through
-                a shared ledger.Each transaction is simultaneouly recorded in a "Blockchain"
+              <p>
+               Defipay is the future of crypto and it is here to stay. With Defipay, not having to walk into a store to buy or sell is feasible and their is absolutely no need to carry cash around when you have to pay for any utility such as transportation, electricity etc. Perfect isn't it? Get into it asap.
               </p>
+            </div>
+            <div>
+              <h5> <em>...Defipay is here for you!</em></h5>
             </div>
           </div>
           <div className='col-lg-2 col-md-12 col-12'></div>
