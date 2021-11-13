@@ -1,7 +1,7 @@
 import { put, takeLatest } from 'redux-saga/effects'
 import { paymentActionTypes } from './PaymentActionTypes'
 import { actions } from './PaymentActions'
-import { PaymentPlanModel, readAllPaymentPlan } from '..'
+import { OneTimePaymentViewModel, PaymentPlanModel, readAllPaymentPlan, readOneTimePaymentPages } from '..'
 
 
 export function* paymentSaga() {
@@ -12,8 +12,9 @@ export function* paymentSaga() {
         yield put(actions.fulfilpaymentplan(paymentplans))
     })
 
-    // yield takeLatest(paymentActionTypes.LinkPusher, function* getLink() {
-    //     const { data: user } = yield logOutUser()
-    //     yield put(actions.logout())
-    // })
+    yield takeLatest(paymentActionTypes.OnetimePaymentPage, function* requestOneTimePage() {
+        const { data } = yield readOneTimePaymentPages()
+        const otpayments = data.data as OneTimePaymentViewModel[];
+        yield put(actions.fulfilonetimepaymentpages(otpayments))
+    })
 }
