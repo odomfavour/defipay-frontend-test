@@ -12,7 +12,7 @@ import {
 import Registration from '../modules/auth/components/Registration'
 import ResetPassword from '../modules/auth/components/ResetPassword'
 import {HomePage} from '../modules/landing'
-import {PaymentCheckOutPage} from '../pages/onetimepayment/PaymentCheckOutPage'
+import {PaymentCheckOutPage} from '../pages/checkout/PaymentCheckOutPage'
 
 export function PublicRoutes() {
   return (

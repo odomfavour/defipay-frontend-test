@@ -40,6 +40,13 @@ export function AsideMenuMain() {
         fontIcon='bi-app-indicator'
       />
       <br />
+      <AsideMenuItem
+        to='/customers'
+        icon=''
+        title={intl.formatMessage({id: 'MENU.CUSTOMERS'})}
+        fontIcon='bi-app-indicator'
+      />
+      <br />
       <AsideMenuItemWithSub
         to='/commerce'
         title={intl.formatMessage({id: 'MENU.COMMEERCE'})}
