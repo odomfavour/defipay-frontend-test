@@ -8,6 +8,8 @@ import SuccessModal from '../../modules/payments/components/SuccessModal'
 import NewPaymentPageModal from '../../modules/payments/components/NewPaymentPageModal'
 import OneTimePaymentModal from '../../modules/payments/components/OneTimePaymentModal'
 import PersonalPageModal from '../../modules/payments/components/PersonalPageModal'
+import SubscriptionPaymentModal from '../../modules/payments/components/SubscriptionPaymentModal'
+import NewSubPaymentPage from '../../modules/payments/components/NewSubPaymentPage'
 
 
 const OnetimePaymentPage: FC = () => {
@@ -16,6 +18,10 @@ const OnetimePaymentPage: FC = () => {
   const [showSuccess, setShowSuccess] = useState(false);
   const [showPersonalModal, setShowPersonalModal] = useState(false)
   const [showSuccessModal, setShowSuccessModal] = useState(false)
+  const [subscription, setSubscription] = useState(false);
+  const [newPageOpen, setNewPageOpen] = useState(false)
+  const handleSubOpen = () => setSubscription(true)
+  const handleSubClose = () => setSubscription(false)
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleOneTimeClose = () => setOneTimeModal(false);
@@ -24,6 +30,8 @@ const OnetimePaymentPage: FC = () => {
   const handleSuccessShow = () => setShowSuccess(true);
   const handlePersonalOpen = () => setShowPersonalModal(true);
   const handlePersonalClose = () => setShowPersonalModal(false);
+  const handleNewPageOpen = () => setNewPageOpen(true)
+  const handleNewPageClose = () => setNewPageOpen(false)
   return (
     <>
       <div className='content-wrapper'>
@@ -58,10 +66,12 @@ const OnetimePaymentPage: FC = () => {
             </div>
           </section>
           </div>
-        <NewPaymentPageModal show={show} handleClose={handleClose} openOneTime={handleOneTimeShow} />
+        <NewPaymentPageModal show={show} handleClose={handleClose} openOneTime={handleOneTimeShow} openSub={handleSubOpen} />
         <OneTimePaymentModal show={oneTimeModal} handleClose={handleOneTimeClose} openSuccess={handleSuccessShow}/>
         <SuccessModal show={showSuccess} handleClose={handleSuccessClose} openPersonal={handlePersonalOpen} />
         <PersonalPageModal show={showPersonalModal} handleClose={handlePersonalClose} />
+        <SubscriptionPaymentModal show={subscription} handleClose={handleSubClose} openNewPage={handleNewPageOpen}/>
+        <NewSubPaymentPage show={newPageOpen} handleClose={handleNewPageClose} openNewPage={handleNewPageOpen}/>
       </div>
     </>
   )

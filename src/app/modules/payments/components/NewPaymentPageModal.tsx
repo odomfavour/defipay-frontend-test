@@ -1,7 +1,7 @@
 import {Button, Modal} from 'react-bootstrap-v5'
 import {toAbsoluteUrl} from '../../../../shared/helpers'
 
-const NewPaymentPageModal = (props: { show: boolean; handleClose: () => void; openOneTime: () => void;  }) => {
+const NewPaymentPageModal = (props: { show: boolean; handleClose: () => void; openOneTime: () => void; openSub: () => void;  }) => {
   return (
     <div>
       <Modal className="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" size="lg" centered aria-hidden="true" show={props.show} onHide={props.handleClose} >
@@ -35,7 +35,7 @@ const NewPaymentPageModal = (props: { show: boolean; handleClose: () => void; op
                       </div>
                     </div>
                     <div>
-                      <button className='btn-light btn'>Select</button>
+                      <button className='btn-light btn' onClick={props.openSub}>Select</button>
                     </div>
                   </div>
                   <div className='d-flex justify-content-between align-items-center mb-5'>
