@@ -138,6 +138,7 @@ const OneTimePaymentModal = (props: {
                       )}
                       id='pagename'
                       placeholder='Page Name'
+                      autoComplete='off'
                       {...formik.getFieldProps('pagename')}
                     />
                     {formik.touched.pagename && formik.errors.pagename && (

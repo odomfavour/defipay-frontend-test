@@ -1,12 +1,14 @@
 import React, {Suspense, lazy} from 'react'
 import {Redirect, Route, Switch} from 'react-router-dom'
 import {FallbackView} from '../../shared/partials'
+import {PaymentCheckOutPage} from '../pages/checkout/PaymentCheckOutPage'
 import {ComplianceWrapper} from '../pages/compliance/ComplianceWrapper'
+import CustomerPageWrapper from '../pages/customer/CustomerPageWrapper'
 import {DashboardWrapper} from '../pages/dashboard/DashboardWrapper'
 import {GetStartedWrapper} from '../pages/getstarted/GetStartedWrapper'
 import {InvoiceWrapper} from '../pages/invoice/InvoiceWrapper'
 import {OnetimePaymentWrapper} from '../pages/onetimepayment/OnetimePaymentWrapper'
-import {PaymentCheckOutPage} from '../pages/onetimepayment/PaymentCheckOutPage'
+import WalletPageWrapper from '../pages/wallet/WalletPageWrapper'
 
 export function PrivateRoutes() {
   const AccountPage = lazy(() => import('../modules/accounts/AccountPage'))
@@ -21,6 +23,8 @@ export function PrivateRoutes() {
         <Route path='/otpls/:id' component={PaymentCheckOutPage} />
         <Route path='/commerce/onetimepayment' component={OnetimePaymentWrapper} />
         <Route path='/commerce/invoices' component={InvoiceWrapper} />
+        <Route path='/customers' component={CustomerPageWrapper} />
+        <Route path='/wallet' component={WalletPageWrapper} />
         <Redirect from='/auth' to='/dashboard' />
         <Redirect from='/home' to='/dashboard' />
         <Redirect exact from='/' to='/dashboard' />

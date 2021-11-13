@@ -18,7 +18,7 @@ const checkoutSchema = Yup.object().shape({
     .max(50, 'Maximum 50 symbols')
     .required('Password is required'),
 })
-const CheckOutPage = () => {
+const SubscriptionCheckout = () => {
   const formik = useFormik({
     initialValues,
     validationSchema: checkoutSchema,
@@ -81,4 +81,4 @@ const CheckOutPage = () => {
   )
 }
 
-export default CheckOutPage
+export default SubscriptionCheckout
