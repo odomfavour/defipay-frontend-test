@@ -4,9 +4,10 @@ import {Link} from 'react-router-dom'
 import {CustomerViewModel} from '..'
 type Props = {
   customers?: CustomerViewModel[]
+  edit: (id: string) => void
 }
 
-const InvoiceGridView: FC<Props> = ({customers}) => {
+const CustomerGridView: FC<Props> = ({customers, edit}) => {
   return (
     <div>
       <Table striped bordered hover>
@@ -18,8 +19,8 @@ const InvoiceGridView: FC<Props> = ({customers}) => {
                 boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.25)',
                 width: '4px',
                 height: '4px',
-                clipPath: 'circle',
-                position: 'absolute',
+                clipPath: 'circle(10%)',
+                position: 'relative',
               }}
             ></th>
             <th>First Name</th>
@@ -31,15 +32,15 @@ const InvoiceGridView: FC<Props> = ({customers}) => {
         </thead>
         <tbody>
           {customers?.map((x) => (
-            <tr key={x.customerid.toString()}>
+            <tr key={x.customerId.toString()}>
               <td
                 style={{
                   background: '#FFBF18',
                   boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.25)',
                   width: '4px',
                   height: '4px',
-                  clipPath: 'circle',
-                  position: 'absolute',
+                  clipPath: 'circle(10%)',
+                  position: 'relative',
                   marginRight: '5px',
                 }}
               ></td>
@@ -48,7 +49,13 @@ const InvoiceGridView: FC<Props> = ({customers}) => {
               <td>{x.emailAddress}</td>
               <td>{x.phoneNumber}</td>
               <td>
-                {<Link to={'/invoice/getinvoice' + x.customerid.toString()}>Update Details</Link>}
+                <button
+                  type='button'
+                  className='btn btn-link btn-sm'
+                  onClick={() => edit(x.customerId.toString())}
+                >
+                  Update Details
+                </button>
               </td>
             </tr>
           ))}
@@ -58,4 +65,4 @@ const InvoiceGridView: FC<Props> = ({customers}) => {
   )
 }
 
-export default InvoiceGridView
+export default CustomerGridView
