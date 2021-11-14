@@ -1,0 +1,23 @@
+.min-card {
+    height: 450px;
+}
+
+.thin-font {
+    font-weight: 200 !important;
+}
+
+.thick-font {
+    font-weight: 900 !important;
+}
+
+.top-section {
+    height: 50px;
+    border-bottom: 3px solid rgba(229, 229, 229, 0.5);
+}
+
+.main-button {
+    background: #F3F3F3;
+    border-radius: 5px;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+}
