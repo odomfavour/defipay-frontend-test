@@ -1,4 +1,5 @@
 import React from 'react'
+import {toAbsoluteUrl} from '../../../../shared/helpers'
 import './checkoutpage.css'
 import * as Yup from 'yup'
 import {useFormik} from 'formik'
@@ -28,14 +29,22 @@ const OneTimePaymentCheckout = () => {
     <div className='checkout-box-wrapper'>
       <div className='card'>
         <div className='card-body'>
-          <img className='card-img-top defi-link-image' alt='' src='images/img1' />
+          <div className="text-center">
+            <div className="d-flex align-items-center justify-content-center mx-auto">
+              <div className="company-image">
+                <img src={toAbsoluteUrl('/media/images/circle.svg')} alt='' />           
+              </div>
+            <p className="mb-0 ms-2">SECURE CHECKOUT</p>
+          </div>
+          </div>
+          {/* <img className='card-img-top defi-link-image' alt='' src='images/img1' /> */}
           <p className='d-flex justify-content-center defi-compliance-link-description'>
-            Subscribe to Plan: AY Motors
+            AY Motors
           </p>
           <p className='d-flex justify-content-center defi-compliance-link-description'>
             BY HGR GLOBAL RESOURCES
           </p>
-          <div className='row'>
+          {/* <div className='row'>
             <div className='col-md-6'>
               <label>Monthly (DFC)</label>
               <input
@@ -74,6 +83,62 @@ const OneTimePaymentCheckout = () => {
                 {...formik.getFieldProps('period')}
               />
             </div>
+          </div> */}
+          <div className="mt-5">
+            <div className="row">
+              <div className="col-md-6">
+                <div className="mb-5">
+                  <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="First Name"/>
+                </div>
+              </div>
+              <div className="col-md-6">
+                <div className="mb-5">
+                  <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Last Name"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="mb-5">
+            <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Email"/>
+          </div>
+          <div className="mb-5">
+            <input type="tel" className="form-control" id="exampleFormControlInput1" placeholder="Phone Number"/>
+          </div>
+          <div className="mb-5">
+
+          </div>
+          <div className="row">
+            <div className="col-md-4">
+            <select className="form-select" aria-label="Default select example">
+              <option selected>DFC</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+            </div>
+            <div className="col-md-8">
+            <div className="mb-5">
+              <input type="text" className="form-control" id="amount" placeholder="5000"/>
+            </div>
+            </div>
+          </div>
+          <div className="mb-5">
+            <label htmlFor="payChoice" className="mb-3">Would you like to pay from the following?</label>
+            <div className="form-check form-check-inline">
+              <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"/>
+              <label className="form-check-label" htmlFor="inlineCheckbox1">Pay from my Account Balance</label>
+            </div>
+            <div className="form-check form-check-inline">
+              <input className="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/>
+              <label className="form-check-label" htmlFor="inlineCheckbox2">Peer to peer</label>
+            </div>
+            <div className="form-check form-check-inline">
+              <input className="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/>
+              <label className="form-check-label" htmlFor="inlineCheckbox2">Not required</label>
+            </div>
+          </div>
+          <div className="text-center">
+            <button className="btn main-btn">Pay Now</button>
           </div>
         </div>
       </div>
