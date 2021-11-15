@@ -8,3 +8,9 @@
   position: absolute;
   /* background: #ffffff; */
 }
+
+.main-btn {
+  background: #FFBF18;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+}
