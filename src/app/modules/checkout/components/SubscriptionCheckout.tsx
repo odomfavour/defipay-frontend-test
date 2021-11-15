@@ -35,6 +35,9 @@ const SubscriptionCheckout = () => {
           <p className='d-flex justify-content-center defi-compliance-link-description'>
             BY HGR GLOBAL RESOURCES
           </p>
+          <div className="my-3">
+            <h6>Confirm your billing cycle</h6>
+          </div>
           <div className='row'>
             <div className='col-md-6'>
               <label>Monthly (DFC)</label>
@@ -75,6 +78,29 @@ const SubscriptionCheckout = () => {
               />
             </div>
           </div>
+          <div className="mt-5 mb-5">
+            <div className="row">
+              <div className="col-md-6">
+                <div className="mb-3">
+                  <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="First Name"/>
+                </div>
+              </div>
+              <div className="col-md-6">
+                <div className="mb-3">
+                  <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Last Name"/>
+                </div>
+              </div>
+            </div>
+            <small>Your billing begins on Octobepr 11 2021 and will end on March 11 2022</small>
+          </div>
+          <div className="mb-5">
+            <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Email Address"/>
+          </div>
+          <div className="text-center mb-5">
+            <button className="btn main-btn">Pay Now</button>
+          </div>
+          <small>To avoid being charged , we will send an email 7 days to the due date</small>
+          <h4 className="mt-5">Secured by DefiPay CRYPTO, QR, BANK, USSD, TRANSFER</h4>
         </div>
       </div>
     </div>

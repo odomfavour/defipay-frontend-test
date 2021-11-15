@@ -2,6 +2,7 @@ import OneTimePaymentCheckout from '../../modules/checkout/components/OneTimePay
 import SubscriptionCheckout from '../../modules/checkout/components/SubscriptionCheckout'
 import './checkoutpage.css'
 export function PaymentCheckOutPage() {
-  return <OneTimePaymentCheckout/>
+  return <SubscriptionCheckout />
+  // <OneTimePaymentCheckout/>
   // <SubscriptionCheckout />
 }
