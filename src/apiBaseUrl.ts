@@ -6,8 +6,8 @@ const prod = {
 
 const test = {
     url: {
-        //apiUrl: 'https://localhost:44384/api',
-        apiUrl: process.env.REACT_APP_API_URL,
+        apiUrl: 'https://localhost:44384/api',
+        // apiUrl: process.env.REACT_APP_API_URL,
     }
 };
 
