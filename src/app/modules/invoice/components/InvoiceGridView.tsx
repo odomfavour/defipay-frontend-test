@@ -12,44 +12,36 @@ const InvoiceGridView: FC<Props> = ({invoices}) => {
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th
-              style={{
-                background: '#2D294E',
-                boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.25)',
-                width: '4px',
-                height: '4px',
-                clipPath: 'circle',
-                position: 'absolute',
-              }}
-            ></th>
-            <th>First Name</th>
-            <th>Last Name</th>
+            <th colSpan={2}>Status</th>
+            <th>Customer</th>
             <th>Amount</th>
-            <th>Status</th>
-            <th>Link</th>
+            <th>Invoice No</th>
+            <th>Offline Ref</th>
+            <th>Date Created</th>
           </tr>
         </thead>
         <tbody>
           {invoices?.map((x) => (
-            <tr key={x.invoiceid.toString()}>
+            <tr key={x.invoiceId.toString()}>
               <td
                 style={{
-                  background: '#FFBF18',
+                  background: x.status === 'Unpaid' ? '#2D294E' : '#FFBF18',
                   boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.25)',
                   width: '4px',
                   height: '4px',
-                  clipPath: 'circle',
-                  position: 'absolute',
+                  clipPath: 'circle(10%)',
+                  position: 'relative',
                   marginRight: '5px',
                 }}
               ></td>
-              <td>{x.firstName}</td>
-              <td>{x.lastName}</td>
-              <td>{x.amount}</td>
               <td>{x.status}</td>
               <td>
-                {<Link to={'/invoice/getinvoice' + x.invoiceid.toString()}>Update Invoice</Link>}
+                {x.firstName} {x.lastName}
               </td>
+              <td>{x.amount}</td>
+              <td>{x.invoiceNumber}</td>
+              <td>{x.offlineRef}</td>
+              <td>{x.invoiceDate}</td>
             </tr>
           ))}
         </tbody>
