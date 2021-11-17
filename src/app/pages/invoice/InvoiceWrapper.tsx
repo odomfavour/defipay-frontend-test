@@ -39,22 +39,23 @@ const InvoicePage: FC = () => {
     <>
       <div className='row'>
         <div className='col-md-9'>
-          <div className='content-wrapper'>
             <div className='card px-4'>
-              <div className='d-flex justify-content-between my-5'>
-                <div className='d-flex align-items-center'>
+              <div className="top-part">
+                <div className='d-flex justify-content-between my-5'>
                   <div className='d-flex align-items-center'>
-                    <img src={toAbsoluteUrl('../media/images/file.svg')} alt='' />
-                    <h3 className='ms-3 me-5 mb-0'>Filter</h3>
+                    <div className='d-flex align-items-center'>
+                      <img src={toAbsoluteUrl('../media/images/file.svg')} alt='' />
+                      <h3 className='ms-3 me-5 mb-0'>Filter</h3>
+                    </div>
+                    <input type='text' className='form-control' placeholder='Search' />
                   </div>
-                  <input type='text' className='form-control' placeholder='Search' />
+                  <div className='text-center'>
+                    <button className='btn main-btn' onClick={handleShow}>
+                      + Request a Payment
+                    </button>
+                  </div>
                 </div>
-                <div className='text-center'>
-                  <button className='btn main-btn' onClick={handleShow}>
-                    + Request a Payment
-                  </button>
-                </div>
-              </div>
+              </div>             
               {invoices && invoices.length > 0 ? (
                 <InvoiceGridView invoices={invoices} />
               ) : (
@@ -72,7 +73,6 @@ const InvoicePage: FC = () => {
               openSuccess={handleSuccessShow}
             />
             <PersonalPageModal show={showPersonalModal} handleClose={handlePersonalClose} />
-          </div>
         </div>
         <div className='col-md-3'>
           <InvoiceAnalysis />
