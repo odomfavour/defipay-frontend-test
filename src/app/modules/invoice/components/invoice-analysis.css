@@ -4,10 +4,10 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
-  display: flex;
-  align-items: center;
+  /* display: flex;
+  align-items: center; */
   color: #2d294e;
-  position: absolute;
+  /* position: absolute; */
 }
 .invoice-analysis-h1 {
   font-family: Montserrat;
@@ -17,7 +17,7 @@
   line-height: 30px;
   text-align: center;
   color: #2d294e;
-  position: absolute;
+  /* position: absolute; */
   margin-top: 40px;
 }
 .dfc-amount {
@@ -27,13 +27,26 @@
   font-size: 22px;
   line-height: 30px;
   color: #2d294e;
-  margin-top: 65px;
+  /* margin-top: 65px; */
 }
 .separator-analysis {
   width: 225px;
   height: 0px;
   display: block;
   border: 3px solid rgba(229, 229, 229, 0.5);
+}
+
+.top-part {
+  height: 80px;
+  border-bottom: 3px solid rgb(179, 175, 175);
+}
+
+.status-section {
+  border-top: 1px solid rgb(179, 175, 175);
+}
+
+.status-section p {
+  font-weight: 300 !important;
 }
 
 .invoice-type {

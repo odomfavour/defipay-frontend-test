@@ -8,3 +8,51 @@
   position: absolute;
   /* background: #ffffff; */
 }
+
+.main-btn {
+  background: #FFBF18;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+}
+
+.coin-section {
+  width: 30%;
+  background: #ccc;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.input-section {
+  width: 70%;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.card-box {
+  padding: 25px 5px;
+  border-bottom: 1px solid #fff;
+  cursor: pointer;
+}
+
+.top {
+  padding: 30px 10px;
+  border-bottom: 1px solid #fff;
+}
+
+.main-btn-lg {
+  padding-left: 60px !important;
+  padding-right: 60px !important;
+  background: #FFBF18 !important;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12) !important;
+  border-radius: 8px;
+}
+
+.card-box:last-child {
+  margin-bottom: 80px;
+}
+
+.form-content {
+  margin-top: 50px;
+}
