@@ -18,8 +18,8 @@ const OneTimePaymentGridView: FC<Props> = ({paymentpages}) => {
                 boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.25)',
                 width: '4px',
                 height: '4px',
-                clipPath: 'circle',
-                position: 'absolute',
+                clipPath: 'circle(10%)',
+                position: 'relative',
               }}
             ></th>
             <th>Name</th>
@@ -38,8 +38,8 @@ const OneTimePaymentGridView: FC<Props> = ({paymentpages}) => {
                   boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.25)',
                   width: '4px',
                   height: '4px',
-                  clipPath: 'circle',
-                  position: 'absolute',
+                  clipPath: 'circle(10%)',
+                  position: 'relative',
                   marginRight: '5px',
                 }}
               ></td>

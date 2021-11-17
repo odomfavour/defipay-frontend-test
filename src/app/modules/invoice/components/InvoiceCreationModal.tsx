@@ -1,16 +1,17 @@
 import {Modal} from 'react-bootstrap-v5'
 import {useState} from 'react'
 import * as Yup from 'yup'
+import Swal, {SweetAlertOptions} from 'sweetalert2'
 import {useFormik} from 'formik'
 import clsx from 'clsx'
-import {useDispatch} from 'react-redux'
 import {createInvoice, InvoiceDtoModel} from '..'
+import './invoice-analysis.css'
+import {CustomerViewModel} from '../../customer'
+import InvoiceRequestModal from './InvoiceRequestModel'
 // import SuccessModal from './SuccessModal'
 const initialValues = {
   notes: '',
-  firstName: '',
-  lastName: '',
-  phoneNumber: '',
+  customerId: '',
   amount: 0,
   type: 0,
 }
@@ -18,35 +19,27 @@ const initialValues = {
 const invoiceSchema = Yup.object().shape({
   notes: Yup.string()
     .min(3, 'Minimum 3 symbols')
-    .max(50, 'Maximum 50 symbols')
-    .required('Email is required'),
-  firstName: Yup.string()
-    .email('Wrong email format')
-    .min(3, 'Minimum 3 symbols')
-    .max(50, 'Maximum 50 symbols')
-    .required('Email is required'),
-  lastName: Yup.string()
-    .min(3, 'Minimum 3 letters')
-    .max(500, 'Maximum 50 letters')
-    .required('Description is required'),
-  paidby: Yup.string().required('Who Pays for the charge is required'),
-  redirectLink: Yup.string().required('Redirect Link is required'),
-  successmessage: Yup.string().required('Success message is required'),
+    .max(500, 'Maximum 500 symbols')
+    .required('Note is required'),
+  type: Yup.string().required('Who Pays for the charge is required'),
+  amount: Yup.string().required('Amount is required'),
+  customerId: Yup.string().required('Customer is required'),
 })
 
 const InvoiceCreationModal = (props: {
   show: boolean
+  customers: CustomerViewModel[] | undefined
   handleClose: () => void
   openSuccess: () => void
+  onCreateSuccess: () => void
 }) => {
   const [loading, setLoading] = useState(false)
-  const [showLink, setLinkShow] = useState(false)
-  const [link, setLink] = useState('')
-  const [hideModal, setHideModal] = useState(false)
-  const handleClose = () => {
-    setLinkShow(false)
-  }
-  //const dispatch = useDispatch()
+  const [showfinal, setFinalShow] = useState(false)
+  const [custEmail, setCustomerEmail] = useState('')
+  const [invoicedata, setInvoiceData] = useState<InvoiceDtoModel | undefined>(undefined)
+  const handleCloseFinal = () => setFinalShow(false)
+  const handleEditShow = () => props.show
+  const handleSuccess = () => props.onCreateSuccess()
   const formik = useFormik({
     initialValues,
     validationSchema: invoiceSchema,
@@ -55,33 +48,16 @@ const InvoiceCreationModal = (props: {
       setTimeout(() => {
         let data = {
           notes: values.notes,
-          firstName: values.firstName,
-          lastName: values.lastName,
-          phoneNumber: values.phoneNumber,
+          customerId: values.customerId,
           amount: values.amount,
           type: values.type,
         } as InvoiceDtoModel
-        createInvoice(data)
-          .then((res) => {
-            console.log(res.data)
-            setLink(res.data.data)
-            setLoading(false)
-            setLinkShow(true)
-            setHideModal(true)
-            resetForm()
-            console.log('saved')
-          })
-          .catch((e) => {
-            setLoading(false)
-            setSubmitting(false)
-            if (e.response) {
-              setStatus(e.response.data.message)
-            } else if (e.request) {
-              setStatus('The invoice page detail is incorrect')
-            } else {
-              setStatus('The invoice page detail is incorrect')
-            }
-          })
+        setInvoiceData(data)
+        setFinalShow(true)
+        setLoading(false)
+        const dem = props.customers?.filter((x) => x.customerId.toString() === values.customerId)[0]
+        setCustomerEmail(dem?.emailAddress as string)
+        props.handleClose()
       }, 1000)
     },
   })
@@ -95,7 +71,7 @@ const InvoiceCreationModal = (props: {
           size='lg'
           centered
           aria-hidden='true'
-          show={hideModal === false ? props.show : false}
+          show={props.show}
           onHide={props.handleClose}
         >
           <div className='modal-header'>
@@ -121,18 +97,26 @@ const InvoiceCreationModal = (props: {
                   <div></div>
                 )}
                 <form onSubmit={formik.handleSubmit} noValidate id='kt_login_signin_form'>
-                  <div className='mb-5' role='group'>
+                  <div className='mb-5 d-flex justify-content-center' role='group'>
                     <div className='form-check form-check-inline'>
                       <input
                         className='form-check-input'
                         type='radio'
                         id='inlineRadio1'
-                        onChange={formik.handleChange}
+                        value='1'
+                        // onChange={formik.handleChange}
+                        onChange={(event) => {
+                          formik.setFieldValue('type', event.currentTarget.value)
+                        }}
                         defaultChecked={formik.values.type === 1}
                         name='type'
                       />
-                      <label className='form-check-label' htmlFor='inlineRadio1'>
+                      <label className='form-check-label invoice-type' htmlFor='inlineRadio1'>
                         Simple Invoice
+                        <i className='invoice-type-desc'>
+                          {' '}
+                          Set amount, Notes, and Request payment from a customer
+                        </i>
                       </label>
                     </div>
                     <div className='form-check form-check-inline'>
@@ -141,14 +125,20 @@ const InvoiceCreationModal = (props: {
                         type='radio'
                         name='type'
                         id='inlineRadio2'
-                        onChange={formik.handleChange}
+                        value='2'
+                        // onChange={formik.handleChange}
+                        onChange={(event) => {
+                          formik.setFieldValue('type', event.currentTarget.value)
+                        }}
+                        // onChange={formik.handleChange}
                         defaultChecked={formik.values.type === 2}
                       />
-                      <label className='form-check-label' htmlFor='inlineRadio1'>
+                      <label className='form-check-label invoice-type' htmlFor='inlineRadio1'>
                         Detailed Invoice
-                        <span className='text-muted'>
-                          This page will be deleted and the link will be freed for us
-                        </span>
+                        <i className='invoice-type-desc'>
+                          {' '}
+                          This page will be deleted and the link will be freed for use
+                        </i>
                       </label>
                     </div>
 
@@ -158,32 +148,124 @@ const InvoiceCreationModal = (props: {
                       </div>
                     )}
                   </div>
+                  <span style={{fontSize: '16px', lineHeight: '20px', fontWeight: 600}}>
+                    {formik.values.type.toString() === '1' ? 'Simple Invoice' : 'Detailed Invoice'}
+                  </span>
+                  <hr />
                   <div className='mb-5'>
-                    <div className='form-check form-check-inline'>
-                      <input
-                        className='form-check-input'
-                        type='checkbox'
-                        id='inlineCheckbox1'
-                        value='option1'
-                      />
-                      <label className='form-check-label' htmlFor='inlineCheckbox1'>
-                        Collect phone numbers on this page
-                      </label>
+                    <label style={{fontSize: '16px', lineHeight: '20px', fontWeight: 600}}>
+                      Select Customer
+                    </label>
+                    <select
+                      className={clsx(
+                        'form-control form-control-lg form-control-solid',
+                        {'is-invalid': formik.touched.customerId && formik.errors.customerId},
+                        {
+                          'is-valid': formik.touched.customerId && !formik.errors.customerId,
+                        }
+                      )}
+                      {...formik.getFieldProps('customerId')}
+                    >
+                      <option key='0' value='0'>
+                        Choose One
+                      </option>
+                      {props.customers &&
+                        props.customers.map((x) => (
+                          <option key={x.customerId.toString()} value={x.customerId.toString()}>
+                            {x.lastName + ' ' + x.firstName}
+                          </option>
+                        ))}
+                    </select>
+                    {formik.touched.customerId && formik.errors.customerId && (
+                      <div className='fv-plugins-message-container'>
+                        <span role='alert'>{formik.errors.customerId}</span>
+                      </div>
+                    )}
+                  </div>
+                  <div className='mb-5'>
+                    <div className='row'>
+                      <div
+                        className='col-md-2'
+                        style={{fontSize: '16px', lineHeight: '20px', fontWeight: 600}}
+                      >
+                        Amount
+                      </div>
+                      <div className='col-md-3'></div>
+                      <div className='col-md-7'>
+                        <div className='input-group mb-5'>
+                          <span
+                            className='input-group-text'
+                            style={{fontSize: '14px', lineHeight: '24px', fontWeight: 500}}
+                            id='basic-addon1'
+                          >
+                            DFC
+                          </span>
+                          <input
+                            type='number'
+                            min='1'
+                            className={clsx(
+                              'form-control form-control-lg form-control-solid',
+                              {'is-invalid': formik.touched.amount && formik.errors.amount},
+                              {
+                                'is-valid': formik.touched.amount && !formik.errors.amount,
+                              }
+                            )}
+                            placeholder='How Much?'
+                            aria-label='How Much?'
+                            aria-describedby='basic-addon1'
+                            {...formik.getFieldProps('amount')}
+                          />
+                        </div>
+                        {formik.touched.amount && formik.errors.amount && (
+                          <div className='fv-plugins-message-container'>
+                            <span role='alert'>{formik.errors.amount}</span>
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
-
-                  <div className='text-center my-5'>
-                    <button
+                  <div className='mb-5'>
+                    <div className='row'>
+                      <div
+                        className='col-md-2'
+                        style={{fontSize: '16px', lineHeight: '20px', fontWeight: 600}}
+                      >
+                        Notes
+                      </div>
+                      <div className='col-md-3'></div>
+                      <div className='col-md-7'>
+                        <textarea
+                          placeholder='Tell your customer why you are requesting this amount'
+                          className={clsx(
+                            'form-control form-control-lg form-control-solid',
+                            {'is-invalid': formik.touched.notes && formik.errors.notes},
+                            {
+                              'is-valid': formik.touched.notes && !formik.errors.notes,
+                            }
+                          )}
+                          {...formik.getFieldProps('notes')}
+                        ></textarea>
+                        {formik.touched.notes && formik.errors.notes && (
+                          <div className='fv-plugins-message-container'>
+                            <span role='alert'>{formik.errors.notes}</span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                  <div className='text-end my-5'>
+                    {/* <button
                       className='btn btn-light'
                       disabled={formik.isSubmitting || !formik.isValid}
                     >
                       Cancel
-                    </button>
+                    </button> */}
                     <button
                       className='btn btn-warning'
+                      type='submit'
                       disabled={formik.isSubmitting || !formik.isValid}
                     >
-                      {!loading && <span className='indicator-label'>Create</span>}
+                      {!loading && <span className='indicator-label'>Send</span>}
 
                       {loading && (
                         <span className='indicator-progress' style={{display: 'block'}}>
@@ -199,9 +281,14 @@ const InvoiceCreationModal = (props: {
           </div>
         </Modal>
       </div>
-      <div>
-        {/* {showLink && <SuccessModal handleClose={handleClose} show={showLink} link={link} />} */}
-      </div>
+      <InvoiceRequestModal
+        customerEmail={custEmail}
+        show={showfinal}
+        invoicedetails={invoicedata}
+        handleClose={handleCloseFinal}
+        handleEdit={handleEditShow}
+        handleSuccess={handleSuccess}
+      />
     </>
   )
 }

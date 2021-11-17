@@ -25,9 +25,10 @@ const OnetimePaymentPage: FC = () => {
     shallowEqual
   ) as OneTimePaymentViewModel[]
   console.log('endp', paymentpages)
+  const [refereshkey, setRefereshKey] = useState(0)
   useEffect(() => {
     dispatch(payment.actions.getonetimepaymentpages())
-  }, [dispatch])
+  }, [dispatch, refereshkey])
   const [show, setShow] = useState(false)
   const [oneTimeModal, setOneTimeModal] = useState(false)
   const [showSuccess, setShowSuccess] = useState(false)
@@ -44,6 +45,7 @@ const OnetimePaymentPage: FC = () => {
   const handlePersonalClose = () => setShowPersonalModal(false)
   const handleNewPageOpen = () => setNewPageOpen(true)
   const handleNewPageClose = () => setNewPageOpen(false)
+  const handleReferesh = () => setRefereshKey((o) => o + 1)
   return (
     <>
       <div className='content-wrapper'>
@@ -106,6 +108,7 @@ const OnetimePaymentPage: FC = () => {
           show={oneTimeModal}
           handleClose={handleOneTimeClose}
           openSuccess={handleSuccessShow}
+          handleReferesh={handleReferesh}
         />
         {/* <SuccessModal show={showSuccess} handleClose={handleSuccessClose} openPersonal={handlePersonalOpen} /> */}
         <PersonalPageModal show={showPersonalModal} handleClose={handlePersonalClose} />

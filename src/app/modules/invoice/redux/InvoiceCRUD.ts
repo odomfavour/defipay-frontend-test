@@ -8,9 +8,8 @@ export function createInvoice(model: InvoiceDtoModel) {
     console.log(model)
     return axios.post<BaseModel>(invoiceEndpoints.CREATE_INVOICE,
         {
-            amount: model.amount, firstName: model.firstName,
-            lastName: model.lastName, phoneNumber: model.phoneNumber,
-            notes: model.notes, type: model.type,
+            amount: model.amount, customerId: Number(model.customerId),
+            notes: model.notes, type: Number(model.type),
         })
 }
 
@@ -24,8 +23,7 @@ export function readOneInvoice() {
 
 export function updateInvoice(model: InvoiceDtoModel, id: Number) {
     return axios.put<BaseModel>(invoiceEndpoints.UPDATE_INVOICE + id, {
-        amount: model.amount, firstName: model.firstName,
-        lastName: model.lastName, phoneNumber: model.phoneNumber,
+        amount: model.amount, customerId: Number(model.customerId),
         notes: model.notes, type: model.type,
     })
 }

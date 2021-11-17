@@ -1,8 +1,6 @@
 export interface InvoiceDtoModel {
     notes: String,
-    firstName: String
-    lastName: String
-    phoneNumber: String
+    customerId: String
     amount: Number,
     type: Number
 }

@@ -1,4 +1,4 @@
-import React, {FC, useState, useEffect, useRef} from 'react'
+import React, {FC, useState, useEffect} from 'react'
 import {useIntl} from 'react-intl'
 import {PageTitle} from '../../../shared/layout/core'
 import {toAbsoluteUrl} from '../../../shared/helpers'
@@ -18,7 +18,6 @@ const CustomerPage: FC = () => {
     ({customer}) => customer.customers,
     shallowEqual
   ) as CustomerViewModel[]
-  console.log('endp', customers)
   const [refereshkey, setRefreshkey] = useState(0)
   useEffect(() => {
     // if (prevAmount !== customers) {

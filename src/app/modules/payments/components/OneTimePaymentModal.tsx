@@ -4,7 +4,6 @@ import * as Yup from 'yup'
 import {useFormik} from 'formik'
 import clsx from 'clsx'
 import {createOneTimePaymentPage, OneTimePaymentDtoModel} from '..'
-import {useDispatch} from 'react-redux'
 import SuccessModal from './SuccessModal'
 const initialValues = {
   pagename: '',
@@ -39,6 +38,7 @@ const OneTimePaymentModal = (props: {
   show: boolean
   handleClose: () => void
   openSuccess: () => void
+  handleReferesh: () => void
 }) => {
   const [loading, setLoading] = useState(false)
   const [showLink, setLinkShow] = useState(false)
@@ -73,7 +73,7 @@ const OneTimePaymentModal = (props: {
             setLinkShow(true)
             setHideModal(true)
             resetForm()
-            console.log('saved')
+            props.handleReferesh()
           })
           .catch((e) => {
             setLoading(false)

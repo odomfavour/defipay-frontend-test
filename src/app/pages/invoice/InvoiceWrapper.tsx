@@ -2,10 +2,9 @@ import React, {FC, useState, useEffect} from 'react'
 import {useIntl} from 'react-intl'
 import {PageTitle} from '../../../shared/layout/core'
 import {toAbsoluteUrl} from '../../../shared/helpers'
-import * as payment from '../../modules/payments/index'
+import * as customer from '../../modules/customer/index'
+import * as invoice from '../../modules/invoice/index'
 import './invoice.css'
-import OneTimePaymentModal from '../../modules/payments/components/OneTimePaymentModal'
-import PersonalPageModal from '../../modules/payments/components/PersonalPageModal'
 import {UserModel} from '../../modules/auth/models/UserModel'
 import {RootState} from '../../../setup'
 import {shallowEqual, useDispatch, useSelector} from 'react-redux'
@@ -14,27 +13,31 @@ import InvoiceGridView from '../../modules/invoice/components/InvoiceGridView'
 import InvoiceDefault from '../../modules/invoice/components/InvoiceDefault'
 import InvoiceAnalysis from '../../modules/invoice/components/InvoiceAnalysis'
 import InvoiceCreationModal from '../../modules/invoice/components/InvoiceCreationModal'
+import {CustomerViewModel} from '../../modules/customer'
 
 const InvoicePage: FC = () => {
   const dispatch = useDispatch()
   const user: UserModel = useSelector<RootState>(({auth}) => auth.user, shallowEqual) as UserModel
+  const customers: CustomerViewModel[] = useSelector<RootState>(
+    ({customer}) => customer.customers,
+    shallowEqual
+  ) as CustomerViewModel[]
   const invoices: InvoiceViewModel[] = useSelector<RootState>(
     ({invoice}) => invoice.invoices,
     shallowEqual
   ) as InvoiceViewModel[]
-  console.log('endp', invoices)
+  const [refereshkey, setRefreshkey] = useState(0)
   useEffect(() => {
-    dispatch(payment.actions.getonetimepaymentpages())
-  }, [dispatch])
+    dispatch(customer.actions.getcustomers())
+    dispatch(invoice.actions.getinvoices())
+  }, [dispatch, refereshkey])
   const [show, setShow] = useState(false)
-  const [oneTimeModal, setOneTimeModal] = useState(false)
   const [showSuccess, setShowSuccess] = useState(false)
-  const [showPersonalModal, setShowPersonalModal] = useState(false)
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
-  const handleOneTimeClose = () => setOneTimeModal(false)
+  const handleUpdateRefresh = () => setRefreshkey((o) => o + 1)
   const handleSuccessShow = () => setShowSuccess(true)
-  const handlePersonalClose = () => setShowPersonalModal(false)
+
   return (
     <>
       <div className='row'>
@@ -66,14 +69,10 @@ const InvoicePage: FC = () => {
               show={show}
               handleClose={handleClose}
               openSuccess={handleSuccessShow}
+              customers={customers}
+              onCreateSuccess={handleUpdateRefresh}
             />
-            <OneTimePaymentModal
-              show={oneTimeModal}
-              handleClose={handleOneTimeClose}
-              openSuccess={handleSuccessShow}
-            />
-            <PersonalPageModal show={showPersonalModal} handleClose={handlePersonalClose} />
-        </div>
+          </div>
         <div className='col-md-3'>
           <InvoiceAnalysis />
         </div>

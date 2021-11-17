@@ -53,7 +53,7 @@ const CustomerCreationModal = (props: {
           .then((res) => {
             Swal.fire({
               title: 'Success!',
-              text: 'Do you want to continue',
+              text: 'Invoice Created Successfully',
               icon: 'success',
               confirmButtonText: 'Ok',
             } as SweetAlertOptions).then(() => {
