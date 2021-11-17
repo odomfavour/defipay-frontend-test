@@ -1,14 +1,12 @@
 import {Modal} from 'react-bootstrap-v5'
 import {useState} from 'react'
 import * as Yup from 'yup'
-import Swal, {SweetAlertOptions} from 'sweetalert2'
 import {useFormik} from 'formik'
 import clsx from 'clsx'
-import {createInvoice, InvoiceDtoModel} from '..'
+import {InvoiceDtoModel} from '..'
 import './invoice-analysis.css'
 import {CustomerViewModel} from '../../customer'
 import InvoiceRequestModal from './InvoiceRequestModel'
-// import SuccessModal from './SuccessModal'
 const initialValues = {
   notes: '',
   customerId: '',
@@ -149,7 +147,11 @@ const InvoiceCreationModal = (props: {
                     )}
                   </div>
                   <span style={{fontSize: '16px', lineHeight: '20px', fontWeight: 600}}>
-                    {formik.values.type.toString() === '1' ? 'Simple Invoice' : 'Detailed Invoice'}
+                    {formik.values.type.toString() === '1'
+                      ? 'Simple Invoice'
+                      : formik.values.type.toString() === '2'
+                      ? 'Detailed Invoice'
+                      : ''}
                   </span>
                   <hr />
                   <div className='mb-5'>
