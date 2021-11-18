@@ -6,6 +6,7 @@ import {ComplianceWrapper} from '../pages/compliance/ComplianceWrapper'
 import {CustomerPageWrapper} from '../pages/customer/CustomerPageWrapper'
 import {DashboardWrapper} from '../pages/dashboard/DashboardWrapper'
 import {GetStartedWrapper} from '../pages/getstarted/GetStartedWrapper'
+import InvoiceDisplayPage from '../pages/invoice/InvoiceDisplayPage'
 import {InvoiceWrapper} from '../pages/invoice/InvoiceWrapper'
 import {OnetimePaymentWrapper} from '../pages/onetimepayment/OnetimePaymentWrapper'
 import WalletPageWrapper from '../pages/wallet/WalletPageWrapper'
@@ -20,6 +21,7 @@ export function PrivateRoutes() {
         <Route path='/getstarted' component={GetStartedWrapper} />
         <Route path='/compliance' component={ComplianceWrapper} />
         <Route path='/crafted/account' component={AccountPage} />
+        <Route path='/inv/:id' component={InvoiceDisplayPage} />
         <Route path='/otpls/:id' component={PaymentCheckOutPage} />
         <Route path='/commerce/onetimepayment' component={OnetimePaymentWrapper} />
         <Route path='/commerce/invoices' component={InvoiceWrapper} />

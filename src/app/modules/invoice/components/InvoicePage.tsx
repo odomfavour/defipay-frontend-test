@@ -1,40 +1,35 @@
-import  {useState} from 'react'
-import {Button, Modal} from 'react-bootstrap-v5'
-import {toAbsoluteUrl} from '../../../../shared/helpers'
-import './checkoutpage.css'
+import React, {useState} from 'react'
 import * as Yup from 'yup'
 import {useFormik} from 'formik'
 import clsx from 'clsx'
-
-
-import CheckoutModal from './CheckoutModal'
 const initialValues = {
-  monthly: 0,
-  period: 0,
-}
-const checkoutSchema = Yup.object().shape({
-  monthly: Yup.string()
-    .email('Wrong email format')
-    .min(3, 'Minimum 3 symbols')
-    .max(50, 'Maximum 50 symbols')
-    .required('Email is required'),
-  period: Yup.string()
-    .min(3, 'Minimum 3 symbols')
-    .max(50, 'Maximum 50 symbols')
-    .required('Password is required'),
-})
-const SubscriptionCheckout = () => {
-  const formik = useFormik({
-    initialValues,
-    validationSchema: checkoutSchema,
-    onSubmit: (values, {setStatus, setSubmitting}) => {},
+    monthly: 0,
+    period: 0,
+  }
+  const checkoutSchema = Yup.object().shape({
+    monthly: Yup.string()
+      .email('Wrong email format')
+      .min(3, 'Minimum 3 symbols')
+      .max(50, 'Maximum 50 symbols')
+      .required('Email is required'),
+    period: Yup.string()
+      .min(3, 'Minimum 3 symbols')
+      .max(50, 'Maximum 50 symbols')
+      .required('Password is required'),
   })
-
-  const [show, setShow] = useState(false)
-  const handleClose = () => setShow(false)
-  const handleOpen = () => setShow(true)
-  return (
-    <div className='checkout-box-wrapper'>
+const InvoicePage = () => {
+    const formik = useFormik({
+        initialValues,
+        validationSchema: checkoutSchema,
+        onSubmit: (values, {setStatus, setSubmitting}) => {},
+      })
+    
+      const [show, setShow] = useState(false)
+      const handleClose = () => setShow(false)
+      const handleOpen = () => setShow(true)
+    return (
+        <div>
+            <div className='checkout-box-wrapper'>
       <div className='card'>
         <div className='card-body'>
           <img className='card-img-top defi-link-image' alt='' src='images/img1' />
@@ -106,15 +101,15 @@ const SubscriptionCheckout = () => {
             <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Email Address"/>
           </div>
           <div className="text-center mb-5">
-            <button className="btn main-btn" onClick={handleOpen}>Pay Now</button>
+            <button className="btn main-btn" >Pay Now</button>
           </div>
           <small>To avoid being charged , we will send an email 7 days to the due date</small>
           <h4 className="mt-5">Secured by DefiPay CRYPTO, QR, BANK, USSD, TRANSFER</h4>
         </div>
       </div>
-      <CheckoutModal show={show} handleClose={handleClose} />
     </div>
-  )
+        </div>
+    )
 }
 
-export default SubscriptionCheckout
+export default InvoicePage
