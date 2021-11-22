@@ -75,14 +75,14 @@ export function AsideMenuMain() {
         />
       </AsideMenuItemWithSub>
       <br />
-      <div className='menu-item'>
+      {/* <div className='menu-item'>
         <div className='menu-content'>
           <div className='separator mx-1 my-4' style={{color: '#fffff'}}></div>
           <div className='d-flex justify-content-center'>
             <img src={toAbsoluteUrl('/media/images/defi-sidebar-logo.jpg')} alt='' />
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   )
 }

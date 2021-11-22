@@ -71,7 +71,7 @@ $aside-config: (
   logo-bg-color: #ffffff,
   scrollbar-color: if(isDarkMode(), $gray-200, #3b3b64),
   scrollbar-hover-color: if(isDarkMode(), $gray-300, lighten(#3b3b64, 3%)),
-  width: 265px,
+  width: 243px,
   // Aside width for desktop mode
   minimized-width: 75px,
   // Aside minimized width for desktop mode

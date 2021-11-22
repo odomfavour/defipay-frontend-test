@@ -31,10 +31,11 @@ const AsideMenu: React.FC<Props> = ({asideMenuCSSClasses}) => {
   }, [pathname])
 
   return (
-    <div
+    <div>
+      <div
       id='kt_aside_menu_wrapper'
       ref={scrollRef}
-      className='hover-scroll-overlay-y my-5 my-lg-5 defi-side-look'
+      className='hover-scroll-overlay-y mt-5 mt-lg-5 defi-side-look'
       style={{
         backgroundImage: `url(${toAbsoluteUrl('/media/imagespexels-worldspectrum-8437001.png')})`,
         backgroundBlendMode: '',
@@ -56,6 +57,19 @@ const AsideMenu: React.FC<Props> = ({asideMenuCSSClasses}) => {
       >
         <AsideMenuMain />
       </div>
+    </div>
+      <section className='' style={{
+        backgroundImage: `url(${toAbsoluteUrl('/media/imagespexels-worldspectrum-8437001.png')})`,
+        backgroundBlendMode: '',
+        background: '#333067'
+      }}>
+        <div className=''>
+          <div className='separator mx-1 py-4' style={{color: '#fffff'}}></div>
+          <div className='d-flex justify-content-center align-items-center' style={{padding: '30px 10px 30px 0'}}>
+            <img src={toAbsoluteUrl('/media/images/global.svg')} alt='' />
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

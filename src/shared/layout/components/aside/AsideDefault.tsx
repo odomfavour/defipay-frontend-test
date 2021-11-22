@@ -10,6 +10,8 @@ import {KTSVG} from '../../../helpers'
 import '../../../assets/extracss/SideBar.css'
 import {RootState} from '../../../../setup'
 import {UserModel} from '../../../../app/modules/auth/models/UserModel'
+import {toAbsoluteUrl} from '../../../helpers'
+
 const AsideDefault: FC = () => {
   const {config, classes} = useLayout()
   const {aside} = config
@@ -25,6 +27,7 @@ const AsideDefault: FC = () => {
       data-kt-drawer-width="{default:'200px', '300px': '250px'}"
       data-kt-drawer-direction='start'
       data-kt-drawer-toggle='#kt_aside_mobile_toggle'
+      style={{background: `url(${toAbsoluteUrl('/media/imagespexels-worldspectrum-8437001.png')}), #29297B`, backgroundPosition: 'center', backgroundSize: 'cover'}}
     >
       {/* begin::Brand */}
       <div className='aside-logo flex-column-auto white-calculate' id='kt_aside_logo'>
