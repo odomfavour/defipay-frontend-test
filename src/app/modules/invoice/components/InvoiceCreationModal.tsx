@@ -28,7 +28,6 @@ const InvoiceCreationModal = (props: {
   show: boolean
   customers: CustomerViewModel[] | undefined
   handleClose: () => void
-  openSuccess: () => void
   onCreateSuccess: () => void
 }) => {
   const [loading, setLoading] = useState(false)

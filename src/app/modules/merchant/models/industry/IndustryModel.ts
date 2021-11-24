@@ -1,5 +1,5 @@
 export interface IndustryModel {
-    industryid: Number
+    id: Number
     description: String
     name: String
 }
