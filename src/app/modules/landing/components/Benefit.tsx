@@ -7,9 +7,9 @@ const Benefit = () => {
     <section className='section benefit-bg'>
       <div className='container'>
         <div className='row'>
-          <div className='col-lg-5 col-md-12 col-12 align-self-center'>
+          <div className='col-lg-7 col-md-12 col-12 align-self-center'>
             <img
-              src={toAbsoluteUrl('/media/images//icons/apps/Features.png')}
+              src={toAbsoluteUrl('/media/images/defipay-transfer.svg')}
               className='img-fluid d-block mx-auto'
               alt=''
             />
