@@ -4,18 +4,18 @@ import './Footer.css'
 export function Footer() {
   return (
     <>
-      {/* <section className='mail-bg mailing-wrapper'>
+      <section className='mail-bg mailing-wrapper'>
         <div className='container'>
           <div className='row text-center justify-content-center'>
             <div className='row  justify-content-center'>
             <label
-              className='col-sm-7 col-md-6 text-center'
+              className='col-sm-7 col-md-4 text-center'
               style={{paddingLeft: '10px', paddingTop: '15px'}}
             >
               Join Our Mailing List
             </label>
-            <div className='col-md-4'>
-              <div className='input-group mb-3'>
+            <div className='col-md-5'>
+              <div className='input-group mb-3' style={{ paddingTop: '10px'}}>
                 <input
                   className='form-control form-control-sm'
                   placeholder='Enter Your Email Address'
@@ -26,7 +26,7 @@ export function Footer() {
           </div>
         </div>
       </div>
-      </section> */}
+      </section>
       {/* <hr className='mx-0 px-0'></hr> */}
       <footer>
         <div id='defipaycurve'>
@@ -40,7 +40,7 @@ export function Footer() {
                 through a shared ledgde.Business Opportunity .
               </div>
             </div>
-            {/* <div className='col-lg-2 col-md-2 col-sm-6 col-6'>
+            <div className='col-lg-2 col-md-2 col-sm-6 col-6'>
               <h5>SERVICE</h5>
               <ul className='footer-nav'>
                 <li>
@@ -131,7 +131,7 @@ export function Footer() {
                   </li>
                 </ul>
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
         <div className='container'>

@@ -4,7 +4,7 @@ import './Experience.css'
 const Experience = () => {
   return (
     <section className='section experience-bg p-t-80 p-b-80 p-t-md-160'>
-      <div className='container'>
+      <div className='container pe-0'>
         <div className='row align-items-center justify-content-center'>
           <div className='col-lg-6 col-md-7 col-12'>
             <div className='d-flex justify-content-center align-items-center px-2'>
@@ -22,7 +22,7 @@ const Experience = () => {
             </div>
           </div>
           <div className='col-lg-6 col-md-5 col-12 text-center'>
-            <img src={toAbsoluteUrl('/media/images/exp1.png')} className='img-fluid swing'  alt='' />
+            <img src={toAbsoluteUrl('/media/images/experience.svg')} className='img-fluid'  alt='' />
             {/*<div className='preview-galley-v3 m-b-md-100'>*/}
             {/*  <div className='you-box animate-float-bob-y'>*/}
             {/*    <span className='box-label box-label-left'>You</span>*/}
