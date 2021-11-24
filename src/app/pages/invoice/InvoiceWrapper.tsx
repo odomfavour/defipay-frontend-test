@@ -32,49 +32,48 @@ const InvoicePage: FC = () => {
     dispatch(invoice.actions.getinvoices())
   }, [dispatch, refereshkey])
   const [show, setShow] = useState(false)
-  const [showSuccess, setShowSuccess] = useState(false)
+  // const [showSuccess, setShowSuccess] = useState(false)
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
   const handleUpdateRefresh = () => setRefreshkey((o) => o + 1)
-  const handleSuccessShow = () => setShowSuccess(true)
+  // const handleSuccessShow = () => setShowSuccess(true)
 
   return (
     <>
       <div className='row'>
         <div className='col-md-9'>
-            <div className='card px-4'>
-              <div className="top-part">
-                <div className='d-flex justify-content-between my-5'>
+          <div className='card px-4'>
+            <div className='top-part'>
+              <div className='d-flex justify-content-between my-5'>
+                <div className='d-flex align-items-center'>
                   <div className='d-flex align-items-center'>
-                    <div className='d-flex align-items-center'>
-                      <img src={toAbsoluteUrl('../media/images/file.svg')} alt='' />
-                      <h3 className='ms-3 me-5 mb-0'>Filter</h3>
-                    </div>
-                    <input type='text' className='form-control' placeholder='Search' />
+                    <img src={toAbsoluteUrl('../media/images/file.svg')} alt='' />
+                    <h3 className='ms-3 me-5 mb-0'>Filter</h3>
                   </div>
-                  <div className='text-center'>
-                    <button className='btn main-btn' onClick={handleShow}>
-                      + Request a Payment
-                    </button>
-                  </div>
+                  <input type='text' className='form-control' placeholder='Search' />
                 </div>
-              </div>             
-              {invoices && invoices.length > 0 ? (
-                <InvoiceGridView invoices={invoices} />
-              ) : (
-                <InvoiceDefault handleShow={handleShow} businessname={user.businessname} />
-              )}
+                <div className='text-center'>
+                  <button className='btn main-btn' onClick={handleShow}>
+                    + Request a Payment
+                  </button>
+                </div>
+              </div>
             </div>
-            <InvoiceCreationModal
-              show={show}
-              handleClose={handleClose}
-              openSuccess={handleSuccessShow}
-              customers={customers}
-              onCreateSuccess={handleUpdateRefresh}
-            />
+            {invoices && invoices.length > 0 ? (
+              <InvoiceGridView invoices={invoices} />
+            ) : (
+              <InvoiceDefault handleShow={handleShow} businessname={user.businessname} />
+            )}
           </div>
+          <InvoiceCreationModal
+            show={show}
+            handleClose={handleClose}
+            customers={customers}
+            onCreateSuccess={handleUpdateRefresh}
+          />
+        </div>
         <div className='col-md-3'>
-          <InvoiceAnalysis />
+          <InvoiceAnalysis invoices={invoices} />
         </div>
       </div>
     </>

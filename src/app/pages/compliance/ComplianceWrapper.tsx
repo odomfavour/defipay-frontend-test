@@ -1,19 +1,65 @@
-import React, {FC, useState} from 'react'
+import React, {FC, useEffect, useState} from 'react'
 import {useIntl} from 'react-intl'
+import {shallowEqual, useDispatch, useSelector} from 'react-redux'
+import {RootState} from '../../../setup'
 import {PageTitle} from '../../../shared/layout/core'
+import {UserModel} from '../../modules/auth/models/UserModel'
 import AccountComponent from '../../modules/compliance/components/AccountComponent'
-import CompanyComponent from '../../modules/compliance/components/CompanyComponent'
+import ContactComponent from '../../modules/compliance/components/ContactComponent'
 import OwnerIdComponent from '../../modules/compliance/components/OwnerIdComponent'
 import ProfileComponent from '../../modules/compliance/components/ProfileComponent'
+import {CountryModel, IndustryModel} from '../../modules/merchant'
 import './compliance.css'
-
+import * as merchantActions from '../../modules/merchant/redux/MerchantActions'
+import {IndustryCategoryModel} from '../../modules/merchant/models/industrycategory/IndustryCategoryModel'
+import {StateOrRegionModel} from '../../modules/merchant/models/stateorregions/StateOrRegionModel'
 // const setStep  = () => {
 //   [activeStep, setActiveStep] = useState(0);
 // }
 
 const ComplianceWrapper: FC = () => {
+  const user: UserModel = useSelector<RootState>(({auth}) => auth.user, shallowEqual) as UserModel
+  const industries: IndustryModel[] = useSelector<RootState>(
+    ({merchant}) => merchant.industry,
+    shallowEqual
+  ) as IndustryModel[]
+
+  const industrycategory: IndustryCategoryModel[] = useSelector<RootState>(
+    ({merchant}) => merchant.industrycategory,
+    shallowEqual
+  ) as IndustryCategoryModel[]
+
+  const countries: CountryModel[] = useSelector<RootState>(
+    ({merchant}) => merchant.country,
+    shallowEqual
+  ) as CountryModel[]
+
+  const states: StateOrRegionModel[] = useSelector<RootState>(
+    ({merchant}) => merchant.states,
+    shallowEqual
+  ) as StateOrRegionModel[]
+  console.log('state', states)
+  const dispatch = useDispatch()
+  const [refereshkey, setRefreshkey] = useState(0)
+  useEffect(() => {
+    dispatch(merchantActions.actions.getindustry())
+    dispatch(merchantActions.actions.getcountry())
+    dispatch(merchantActions.actions.getstates())
+    dispatch(merchantActions.actions.getindustrycategory())
+  }, [dispatch])
   const intl = useIntl()
   const [activeStep, setActiveStep] = useState(0)
+  const onSetProfileStep = () => {
+    setActiveStep(activeStep + 1)
+  }
+  const onSetContactStep = () => {
+    console.log('its happneind')
+    setActiveStep(activeStep + 1)
+  }
+  const onSetOwnerStep = () => {
+    console.log('its happneind two')
+    setActiveStep(activeStep + 1)
+  }
   return (
     <>
       <PageTitle breadcrumbs={[]}>{intl.formatMessage({id: 'MENU.COMPLIANCE'})}</PageTitle>
@@ -36,7 +82,7 @@ const ComplianceWrapper: FC = () => {
                 </div>
                 <div className='form-check'>
                   <label className='form-check-label' htmlFor='flexCheckDefault'>
-                    Company
+                    Contact
                   </label>
                   <input
                     className='form-check-input'
@@ -77,11 +123,28 @@ const ComplianceWrapper: FC = () => {
               <div className='card'>
                 <div className='card-body'>
                   {activeStep === 0 ? (
-                    <ProfileComponent setActiveStep={setActiveStep} activeStep={activeStep} />
+                    <ProfileComponent
+                      onSetProfileStep={onSetProfileStep}
+                      activeStep={activeStep}
+                      userdetails={user}
+                      industry={industries}
+                      industrycategory={industrycategory}
+                    />
                   ) : activeStep === 1 ? (
-                    <CompanyComponent setActiveStep={setActiveStep} activeStep={activeStep} />
+                    <ContactComponent
+                      countries={countries}
+                      states={states}
+                      onSetContactStep={onSetContactStep}
+                      setActiveStep={setActiveStep}
+                      activeStep={activeStep}
+                    />
                   ) : activeStep === 2 ? (
-                    <OwnerIdComponent setActiveStep={setActiveStep} activeStep={activeStep} />
+                    <OwnerIdComponent
+                      countries={countries}
+                      onSetOwnerStep={onSetOwnerStep}
+                      setActiveStep={setActiveStep}
+                      activeStep={activeStep}
+                    />
                   ) : activeStep === 3 ? (
                     <AccountComponent setActiveStep={setActiveStep} activeStep={activeStep} />
                   ) : (

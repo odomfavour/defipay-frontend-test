@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, {FC} from 'react'
-import {shallowEqual, useSelector} from 'react-redux'
+import React, {FC, useEffect} from 'react'
+import {shallowEqual, useDispatch, useSelector} from 'react-redux'
 import {Link} from 'react-router-dom'
 import clsx from 'clsx'
 import {useLayout} from '../../core'
@@ -9,11 +9,16 @@ import {AsideMenu} from './AsideMenu'
 import {KTSVG} from '../../../helpers'
 import '../../../assets/extracss/SideBar.css'
 import {RootState} from '../../../../setup'
+import * as useraction from '../../../../app/modules/auth/redux/AuthActions'
 import {UserModel} from '../../../../app/modules/auth/models/UserModel'
 const AsideDefault: FC = () => {
   const {config, classes} = useLayout()
   const {aside} = config
   const user: UserModel = useSelector<RootState>(({auth}) => auth.user, shallowEqual) as UserModel
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(useraction.actions.requestUser)
+  })
   return (
     <div
       id='kt_aside'

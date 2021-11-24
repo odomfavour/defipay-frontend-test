@@ -1,4 +1,5 @@
 export * from './components/AccountComponent'
-export * from './components/CompanyComponent'
+export * from './components/ContactComponent'
 export * from './components/OwnerIdComponent'
 export * from './components/ProfileComponent'
+export * from './models/ProfileModel'

@@ -24,7 +24,6 @@ const OnetimePaymentPage: FC = () => {
     ({payment}) => payment.otpayments,
     shallowEqual
   ) as OneTimePaymentViewModel[]
-  console.log('endp', paymentpages)
   const [refereshkey, setRefereshKey] = useState(0)
   useEffect(() => {
     dispatch(payment.actions.getonetimepaymentpages())

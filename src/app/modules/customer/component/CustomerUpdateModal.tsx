@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 import {Modal} from 'react-bootstrap-v5'
 import Swal, {SweetAlertOptions} from 'sweetalert2'
 import * as Yup from 'yup'

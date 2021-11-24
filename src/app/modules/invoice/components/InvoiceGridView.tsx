@@ -1,6 +1,5 @@
 import React, {FC} from 'react'
 import {Table} from 'react-bootstrap-v5'
-import {Link} from 'react-router-dom'
 import {InvoiceViewModel} from '..'
 type Props = {
   invoices?: InvoiceViewModel[]
