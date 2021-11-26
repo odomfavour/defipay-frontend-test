@@ -5,7 +5,7 @@ import * as authactions from '../redux/AuthActions'
 import {useFormik} from 'formik'
 import * as Yup from 'yup'
 import clsx from 'clsx'
-import {register} from '../redux/AuthCRUD'
+import {register, validate} from '../redux/AuthCRUD'
 import {MerchantRegisterModel} from '../models/MerchantRegisterModel'
 import {Link} from 'react-router-dom'
 
@@ -28,6 +28,19 @@ const passwordSetupSchema = Yup.object().shape({
 })
 export function PasswordSetup() {
   const [loading, setLoading] = useState(false)
+  const [passError, setPassError] = useState({
+    passwordLength: false,
+    lowChar: false,
+    UpperChar: false,
+    specialChar: false,
+    includesNumber: false
+  });
+  const [passwordLength, setPasswordLength] = useState(false)
+  const [lowChar, setLowChar] = useState(false)
+  const [upperChar, setUpperChar] = useState(false)
+  const [specialChar, setSpecialChar] = useState(false)
+  const [includesNumber, setIncludesNumber] = useState(false)
+
   const businessname = localStorage.getItem('businessname')
   const emailaddress = localStorage.getItem('email')
   const countrycode = localStorage.getItem('countrycode')
@@ -35,6 +48,41 @@ export function PasswordSetup() {
   const formik = useFormik({
     initialValues,
     validationSchema: passwordSetupSchema,
+    validate: ({ password }) => {
+      console.log(`I know your password: ${password}`);
+       if (password.length >= 8) {
+        setPasswordLength(true);
+      } else {
+        setPasswordLength(false);
+      }
+      
+      if (/[A-Z]+/g.test(password)) {
+        setUpperChar(true);
+      } else {
+        setUpperChar(false);
+      }
+      
+      if (/[a-z]+/g.test(password)) {
+        setLowChar(true);
+      } else {
+        setLowChar(false);
+      }
+      
+      if (/[0-9]+/g.test(password)) {
+        setIncludesNumber(true);
+      } else {
+        setIncludesNumber(false);
+      }
+
+      if(/[!@#\$%\^\&*\)\(+=._-]+/g.test(password)){
+        setSpecialChar(true)
+      } else {
+        setSpecialChar(false)
+      }
+
+      console.log(JSON.stringify(passError));
+
+    },
     onSubmit: (values, {setStatus, setSubmitting}) => {
       setLoading(true)
       setTimeout(() => {
@@ -142,9 +190,48 @@ export function PasswordSetup() {
                 )}
               </div>
               {/* end::Form group */}
-
+              <div className="mb-2">
+                <div className="form-check">
+                  <input className="form-check-input" type="checkbox" value="" id="passwordLength" checked={passwordLength} readOnly />
+                  <label className="form-check-label" htmlFor="flexCheckDefault">
+                  Not less than 8 characters
+                  </label>
+                </div>
+              </div>
+              <div className="mb-2">
+                <div className="form-check">
+                  <input className="form-check-input" type="checkbox" value="" id="upperChar" checked={upperChar} readOnly/>
+                  <label className="form-check-label" htmlFor="flexCheckDefault">
+                  One uppercase Character eg A
+                  </label>
+                </div>
+              </div>
+              <div className="mb-2">
+                <div className="form-check">
+                  <input className="form-check-input" type="checkbox" value="" id="includesNumber" checked={includesNumber} readOnly/>
+                  <label className="form-check-label" htmlFor="flexCheckDefault">
+                  At least one number e.g 1
+                  </label>
+                </div>
+              </div>
+              <div className="mb-2">
+                <div className="form-check">
+                  <input className="form-check-input" type="checkbox" value="" id="specialChar" checked={specialChar} readOnly/>
+                  <label className="form-check-label" htmlFor="flexCheckDefault">
+                  One special characters eg @
+                  </label>
+                </div>
+              </div>
+              <div className="mb-2">
+                <div className="form-check">
+                  <input className="form-check-input" type="checkbox" value="" id="lowChar" checked={lowChar} readOnly/>
+                  <label className="form-check-label" htmlFor="flexCheckDefault">
+                  One Lowercase characters e.g a
+                  </label>
+                </div>
+              </div>
               {/* begin::Form group */}
-              <div className='fv-row mb-10'>
+              <div className='fv-row mb-10 mt-5'>
                 <label className='form-label fw-bolder text-gray-900 fs-6'>Confirm Password</label>
                 <input
                   type='password'
@@ -181,7 +268,7 @@ export function PasswordSetup() {
                   type='submit'
                   id='kt_password_reset_submit'
                   className='btn btn-lg defi-base-button fw-bolder me-4'
-                  disabled={formik.isSubmitting || !formik.isValid}
+                  disabled={formik.isSubmitting || !formik.isValid || formik.isValidating}
                 >
                   {!loading && <span className='indicator-label'>Submit</span>}
                   {loading && (
