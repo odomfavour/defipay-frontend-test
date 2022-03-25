@@ -5,7 +5,7 @@ import * as authactions from '../redux/AuthActions'
 import {useFormik} from 'formik'
 import * as Yup from 'yup'
 import clsx from 'clsx'
-import {register, validate} from '../redux/AuthCRUD'
+import {register} from '../redux/AuthCRUD'
 import {MerchantRegisterModel} from '../models/MerchantRegisterModel'
 import {Link} from 'react-router-dom'
 
@@ -74,13 +74,18 @@ export function PasswordSetup() {
         setIncludesNumber(false);
       }
 
-      if(/[!@#\$%\^\&*\)\(+=._-]+/g.test(password)){
+      if(/[`!@#$%^&*()_+\-=[\]{};':"|,.<>/?~]/g.test(password)){
         setSpecialChar(true)
       } else {
         setSpecialChar(false)
       }
 
       console.log(JSON.stringify(passError));
+      console.log(setPassError({passwordLength: false,
+        lowChar: false,
+        UpperChar: false,
+        specialChar: false,
+        includesNumber: false}))
 
     },
     onSubmit: (values, {setStatus, setSubmitting}) => {
