@@ -14,7 +14,7 @@ export function Home() {
     setShowAlert(false)
     document.location.href = `https://defipay.tech/home`
   }
-  const handleSuccessShow = () => setShowAlert(true)
+  // const handleSuccessShow = () => setShowAlert(true)
 
   let countries = [
     'Afganistan',
@@ -362,6 +362,7 @@ export function Home() {
               </div>
             </div>
             {/* Modal */}
+            {showSuccessModal && (<div></div>)}
             <Modal
               className='modal fade'
               id='exampleModal'

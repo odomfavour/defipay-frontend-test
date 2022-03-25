@@ -74,7 +74,7 @@ export function PasswordSetup() {
         setIncludesNumber(false);
       }
 
-      if(/[!@#\$%\^\&*\)(+=._-]+/g.test(password)){
+      if(/[!@#\$%\^\&*\)\(+=._-]+/g.test(password)){
         setSpecialChar(true)
       } else {
         setSpecialChar(false)

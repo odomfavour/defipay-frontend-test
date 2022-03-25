@@ -16,6 +16,7 @@ import {RootState} from '../../../setup'
 import {shallowEqual, useDispatch, useSelector} from 'react-redux'
 import {OneTimePaymentViewModel} from '../../modules/payments'
 import OneTimePaymentGridView from '../../modules/payments/components/OneTimePaymentGridView'
+import SuccessModal from '../../modules/payments/components/SuccessModal'
 
 const OnetimePaymentPage: FC = () => {
   const dispatch = useDispatch()
@@ -126,6 +127,7 @@ const OnetimePaymentPage: FC = () => {
           handleClose={handleNewPageClose}
           openNewPage={handleNewPageOpen}
         />
+        {showSuccess && <SuccessModal show={showSuccess} handleClose={handleClose} link={''}/> }
       </div>
     </>
   )
