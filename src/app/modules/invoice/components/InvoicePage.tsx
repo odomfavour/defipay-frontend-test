@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import * as Yup from 'yup'
 import {useFormik} from 'formik'
 import clsx from 'clsx'
@@ -24,9 +24,9 @@ const InvoicePage = () => {
         onSubmit: (values, {setStatus, setSubmitting}) => {},
       })
     
-      const [show, setShow] = useState(false)
-      const handleClose = () => setShow(false)
-      const handleOpen = () => setShow(true)
+      // const [show, setShow] = useState(false)
+      // const handleClose = () => setShow(false)
+      // const handleOpen = () => setShow(true)
     return (
         <div>
             <div className='checkout-box-wrapper'>

@@ -3,7 +3,7 @@ import React from 'react'
 import {useIntl} from 'react-intl'
 import {AsideMenuItemWithSub} from './AsideMenuItemWithSub'
 import {AsideMenuItem} from './AsideMenuItem'
-import {toAbsoluteUrl} from '../../../helpers'
+// import {toAbsoluteUrl} from '../../../helpers'
 import '../../../assets/extracss/SideBar.css'
 export function AsideMenuMain() {
   const intl = useIntl()

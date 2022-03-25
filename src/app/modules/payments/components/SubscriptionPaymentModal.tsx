@@ -1,4 +1,4 @@
-import {Button, Modal} from 'react-bootstrap-v5'
+import { Modal} from 'react-bootstrap-v5'
 import {toAbsoluteUrl} from '../../../../shared/helpers'
 
 const SubscriptionPaymentModal = (props: { show: boolean; handleClose:() => void; openNewPage:() => void;}) => {

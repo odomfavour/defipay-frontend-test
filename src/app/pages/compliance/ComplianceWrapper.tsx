@@ -40,7 +40,7 @@ const ComplianceWrapper: FC = () => {
   ) as StateOrRegionModel[]
   console.log('state', states)
   const dispatch = useDispatch()
-  const [refereshkey, setRefreshkey] = useState(0)
+  // const [refereshkey, setRefreshkey] = useState(0)
   useEffect(() => {
     dispatch(merchantActions.actions.getindustry())
     dispatch(merchantActions.actions.getcountry())
