@@ -44,9 +44,9 @@ export function Header() {
                         style={{height: '50px', textAlign: 'center'}}
                       />
                 ) : (
-                  // <h3 className='light-logo'> Defipay</h3>
+                  // <h3 className='light-logo'> Defipay</h3> defipay-for-dark.png
                   <img
-                        src={toAbsoluteUrl('/media/images/defipay-for-dark.png')}
+                        src={toAbsoluteUrl('/media/images/defipay-current.png')}
                         className='img-fluid'
                         alt=''
                         style={{height: '50px', textAlign: 'center'}}

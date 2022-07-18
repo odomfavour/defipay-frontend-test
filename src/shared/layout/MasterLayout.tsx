@@ -5,6 +5,7 @@ import {ScrollTop} from './components/ScrollTop'
 import {Content} from './components/Content'
 import {MasterInit} from './MasterInit'
 import {PageDataProvider} from './core'
+import './master.css'
 
 const MasterLayout: React.FC = ({children}) => {
   return (

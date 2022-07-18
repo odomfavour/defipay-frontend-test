@@ -7,16 +7,17 @@
 
 import React, {FC} from 'react'
 import {Redirect, Switch, Route} from 'react-router-dom'
-import {shallowEqual, useSelector} from 'react-redux'
+// import {shallowEqual, useSelector} from 'react-redux'
 import {MasterLayout} from '../../shared/layout/MasterLayout'
 import {PrivateRoutes} from './PrivateRoutes'
 import {PublicRoutes} from './PublicRoutes'
 import {Logout} from '../modules/auth'
 import {ErrorsPage} from '../modules/errors/ErrorsPage'
-import {RootState} from '../../setup'
+// import {RootState} from '../../setup'
 
 const Routes: FC = () => {
-  const isAuthorized = useSelector<RootState>(({auth}) => auth.user, shallowEqual)
+  // const isAuthorized = useSelector<RootState>(({auth}) => auth.user, shallowEqual)
+  const isAuthorized = false;
   return (
     <Switch>
       {!isAuthorized ? (

@@ -20,16 +20,23 @@ export function AsideMenuMain() {
       <AsideMenuItem
         to='/dashboard'
         icon=''
-        title={intl.formatMessage({id: 'MENU.DASHBOARD'})}
+        title={intl.formatMessage({id: 'MENU.HOME'})}
         fontIcon='bi-app-indicator'
       />
       {/* <b></b>
       <b></b> */}
       <br />
       <AsideMenuItem
-        to='/compliance'
+        to='/payment-link'
         icon=''
-        title={intl.formatMessage({id: 'MENU.COMPLIANCE'})}
+        title={intl.formatMessage({id: 'MENU.PAYMENTLINK'})}
+        fontIcon='bi-app-indicator'
+      />
+      <br/>
+      <AsideMenuItem
+        to='/send'
+        icon=''
+        title={intl.formatMessage({id: 'MENU.SEND'})}
         fontIcon='bi-app-indicator'
       />
       <br />
@@ -40,7 +47,7 @@ export function AsideMenuMain() {
         fontIcon='bi-app-indicator'
       />
       <br />
-      <AsideMenuItem
+      {/* <AsideMenuItem
         to='/customers'
         icon=''
         title={intl.formatMessage({id: 'MENU.CUSTOMERS'})}
@@ -74,7 +81,7 @@ export function AsideMenuMain() {
           hasBullet={false}
         />
       </AsideMenuItemWithSub>
-      <br />
+      <br /> */}
       {/* <div className='menu-item'>
         <div className='menu-content'>
           <div className='separator mx-1 my-4' style={{color: '#fffff'}}></div>

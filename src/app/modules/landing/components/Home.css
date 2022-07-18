@@ -164,3 +164,24 @@
 .welcome-area .welcome-content .apps .app-item .icon {
   box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.06);
 }
+
+
+.hero-section {
+  padding-top: 100px;
+  position: relative;
+  background: url(../../../../images/bg-1.png) no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.top-text {
+  width: 30%;
+  margin: 0 auto;
+  font-size: 25px;
+}
+
+
+.hero-part {
+  width: 100%;
+}
+

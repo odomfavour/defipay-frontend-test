@@ -1,0 +1,219 @@
+.hero-part .transaction-form {
+    width: 35% !important;
+    margin: 0 auto;
+    padding-bottom: 100px;
+}
+
+.transaction-form .card {
+    background: #fff;
+    border: 1px solid rgba(88,53,255,.15);
+    border-radius: 1rem;
+    box-shadow: 0 0 35px 4px rgb(88 53 255 / 10%);
+    box-sizing: border-box;
+}
+
+.top-equivalent {
+    background: rgb(233 210 237);
+    border-radius: 10px;
+    width: 20%;
+}
+
+.sample-mail {
+    width: 60%;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 22px;
+    background: #333067;
+}
+
+.sample-mail h5 {
+    color: #fff;
+}
+
+.transaction-form .btn {
+    width: 100px;
+    border-radius: 30px;
+}
+
+.calc-input-section {
+    border: 1px solid #1024b126;
+    border-radius: 10px;
+    padding: 1rem;
+    background: rgb(243 243 243);
+    margin-bottom: 20px;
+}
+
+.calc-input-section .form-control {
+    border: none;
+    background: transparent;
+    font-size: 18px;
+    padding: 0 !important;
+}
+
+.calc-input-section .form-control:focus {
+    outline: none;
+    background: transparent;
+}
+
+.form-select {
+    border: none!important;
+
+}
+
+.input-side {
+    width: 70%;
+}
+
+.selection-side {
+    width: 30%;
+}
+
+.selection-side i, .top-equivalent i {
+    font-size: 20px;
+}
+
+/* signin-section */
+.signin-section {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.signin-section .inner-section {
+    padding: 0 100px;
+}
+
+/* signin-section */
+
+/* wallet section */
+.wallet-section .wallet-display {
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.btn-sec-primary {
+    border: 1px solid blue !important;
+    border-radius: 8px;
+}
+/* wallet section */
+
+/* .top-tabs  */
+
+.top-tabs {
+    border: 1px solid #ccc;
+    border-radius: 30px;
+}
+.top-tabs .tab-section {
+    padding: 6px 18px;
+    border-right: 1px solid #ccc;
+    font-size: 18px;
+}
+
+.top-tabs .tab-section:last-child {
+    border-right: none;
+}
+
+.top-tabs .active {
+    background: #000;
+    color: #fff;
+}
+
+.signin-section i {
+    font-size: 30px;
+}
+
+.top-equivalent i {
+    font-weight: 800;
+}
+
+.pop-up-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(128, 128, 128, 0.364);
+    /* z-index: 9999; */
+    width: 100%;
+    min-height: 100%;
+}
+
+.popup-relative {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.popup {
+    position: absolute;
+    bottom: 0;
+    min-height: 60%;
+    background-color: #fff;
+    z-index: 100;
+    border-radius: 24px 24px 0 0;
+    width: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 3%;
+    padding: 3% 1.75rem 1.75rem ;
+}
+
+.small-circle {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.currency-slip {
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.currency-slip i {
+    font-size: 30px;
+    color: #ccc;
+    font-weight: 900;
+}
+
+.small-flag {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+}
+
+.small-flagg {
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+}
+
+@media (max-width: 429px) {
+    .transaction-form {
+        width: 100% !important;
+    }
+
+    .top-equivalent {
+        width: 100%;
+    }
+
+    .popup {
+        width: 90%;
+    }
+
+    .input-side {
+        width: 65%;
+    }
+
+    .selection-side {
+        width: 35%;
+    }
+
+    .sample-mail {
+        width: 100%;
+    }
+
+    .hero-part .transaction-form {
+        width: 100% !important;
+    }
+    
+}
+

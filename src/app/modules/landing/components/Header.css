@@ -95,7 +95,7 @@
   display: block;
   font-weight: 700;
   font-size: 14px;
-  color: #ffffff;
+  color: #000;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
@@ -105,7 +105,8 @@
   border: transparent;
 }
 .header-area .main-nav .nav li a:hover {
-  color: #f7f8ff;
+  /* color: #f7f8ff; */
+  color: #9c56e3;
 }
 .header-area .main-nav .nav li a.btn-nav-line {
   border: 1px solid #fff;

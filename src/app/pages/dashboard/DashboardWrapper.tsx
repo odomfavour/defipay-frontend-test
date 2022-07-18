@@ -1,17 +1,27 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, {FC, useEffect, useState} from 'react'
-import {shallowEqual, useSelector} from 'react-redux'
-import {useIntl} from 'react-intl'
-import {PageTitle} from '../../../shared/layout/core'
-import {UserModel} from '../../modules/auth/models/UserModel'
-import {RootState} from '../../../setup'
-import EarningsGraph from '../../modules/payments/components/EarningsGraph'
+import React, { FC, useEffect, useState } from 'react'
+import { shallowEqual, useSelector } from 'react-redux'
+import { useIntl } from 'react-intl'
+import { PageTitle } from '../../../shared/layout/core'
+import { UserModel } from '../../modules/auth/models/UserModel'
+import { RootState } from '../../../setup'
+// import EarningsGraph from '../../modules/payments/components/EarningsGraph'
 import './Dashboard.css'
-import {BusinessActivation, GoToDashboardModal} from '../../modules/dashboard'
+import { GoToDashboardModal } from '../../modules/dashboard'
+import TransactionForm from '../../modules/landing/components/TransactionForm'
 
 const DashboardPage: FC = () => (
+  
   <>
-    <div className='row g-5 gx-xxl-8'>
+    <div className="main-wrapper d-flex justify-content-center align-items-center home-section">
+      <div className="center-card">
+        <div className="card-body ">
+          <TransactionForm main={612}/>
+        </div>
+
+      </div>
+    </div>
+    {/* <div className='row g-5 gx-xxl-8'>
       <div className="col-md-9">
         <div className="card">
           <div className="card-body">
@@ -77,14 +87,14 @@ const DashboardPage: FC = () => (
             </div>
           </div>
       </div>
-    </div>
+    </div> */}
   </>
 )
 
 const DashboardWrapper: FC = () => {
-  const user: UserModel = useSelector<RootState>(({auth}) => auth.user, shallowEqual) as UserModel
+  const user: UserModel = useSelector<RootState>(({ auth }) => auth.user, shallowEqual) as UserModel
 
-  console.log('miccheck', user.businessname)
+  // console.log('miccheck', user.businessname)
   const intl = useIntl()
   const [show, setShow] = useState(false)
 
@@ -106,12 +116,14 @@ const DashboardWrapper: FC = () => {
   window.addEventListener('load', checkStatus)
   return (
     <>
-      <PageTitle breadcrumbs={[]}>{intl.formatMessage({id: 'MENU.DASHBOARD'})}</PageTitle>
+      <PageTitle breadcrumbs={[]}>{intl.formatMessage({ id: 'MENU.DASHBOARD' })}</PageTitle>
       <DashboardPage />
-      <BusinessActivation businessName={user.businessname} accountMode={user.accountmodel} />
-      <GoToDashboardModal show={show} handleClose={handleClose} businessName={user.businessname} />
+      {/* <BusinessActivation businessName={'alloy'} accountMode={true} /> */}
+      {/* <BusinessActivation businessName={user.businessname} accountMode={user.accountmodel} /> */}
+      <GoToDashboardModal show={show} handleClose={handleClose} businessName={'alloy'} />
+      {/* <GoToDashboardModal show={show} handleClose={handleClose} businessName={user.businessname} /> */}
     </>
   )
 }
 
-export {DashboardWrapper}
+export { DashboardWrapper }

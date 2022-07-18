@@ -17,8 +17,21 @@
     border-right: 1px solid #000;
 }
 
+.main-wrapper {
+    min-height: 500px;
+}
+
+.center-card {
+    width: 40%;
+    min-height: 300px;
+}
+
 @media(max-width: 426px) {
     .d-card {
+        width: 100%;
+    }
+
+    .center-card {
         width: 100%;
     }
 }

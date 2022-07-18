@@ -71,7 +71,8 @@ const AsideDefault: FC = () => {
       <div className='aside-menu flex-column-fluid'>
         <div className='text-center'>
           <img className='card-img-top defi-link-image' alt='' src='images/img1' />
-          <h2 style={{color: '#ffff'}}>{user.businessname} </h2>
+          {/* <h2 style={{color: '#ffff'}}>{user.businessname} </h2> */}
+          <h2 style={{color: '#ffff'}}>{'alloy'} </h2>
           <h2 style={{color: '#ffff', marginTop: '-20px', marginBottom: '15px'}}>AB 00288 </h2>
         </div>
         <AsideMenu asideMenuCSSClasses={classes.asideMenu} />
