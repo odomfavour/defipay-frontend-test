@@ -314,7 +314,7 @@ const TransactionForm: React.FC<Props> = ({main}) => {
                             </div> : ""
                         }
 
-                        <div className='paymentlink-option'>
+                        {/* <div className='paymentlink-option'>
                             <h4 className='text-center text-primary'>Create a payment link</h4>
                             <div className="mt-4">
                                 <form action="">
@@ -352,7 +352,7 @@ const TransactionForm: React.FC<Props> = ({main}) => {
                                 <button className="btn btn-primary" type="button">Top-up now</button>
                                 <button className="btn btn-sec-primary mt-3" type="button">Top-up later</button>
                             </div>
-                        </div>
+                        </div> */}
 
                         <div className="text-center mt-5">
                             <button className="btn btn-danger" onClick={() => { setPopUp(false) }}>Cancel</button>

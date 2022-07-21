@@ -10,7 +10,7 @@ export function Home() {
   const [showAlert, setShowAlert] = useState(false)
   const [showSuccessModal, setShowSuccessModal] = useState(false)
   const handleClose = () => setShow(false)
-  const handleShow = () => setShow(true)
+  // const handleShow = () => setShow(true)
   const handleSuccessClose = () => {
     setShowAlert(false)
     document.location.href = `https://defipay.tech/home`

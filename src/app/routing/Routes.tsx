@@ -17,7 +17,7 @@ import {ErrorsPage} from '../modules/errors/ErrorsPage'
 
 const Routes: FC = () => {
   // const isAuthorized = useSelector<RootState>(({auth}) => auth.user, shallowEqual)
-  const isAuthorized = false;
+  const isAuthorized = true;
   return (
     <Switch>
       {!isAuthorized ? (

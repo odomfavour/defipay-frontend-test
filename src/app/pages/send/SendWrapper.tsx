@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './send.css'
-import { toAbsoluteUrl } from '../../../shared/helpers'
+// import { toAbsoluteUrl } from '../../../shared/helpers'
 import bitcoin from '../../../images/bitcoin.png'
 import defi from '../../../images/defi.png'
 import wallet from '../../../images/wallet.png'
